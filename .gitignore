@@ -1,0 +1,10 @@
+ThriftParser\build
+ThriftParser\dist
+ThriftParser\nbproject\private
+ThriftParser\tools\ANTLR.pdf
+ThriftParser\tools\Thrift.tokens
+ThriftParser\tools\ThriftLexer.java
+ThriftParser\tools\ThriftParser.java
+ThriftSupport\build
+ThriftSupport\dist
+ThriftSupport\nbproject\private
