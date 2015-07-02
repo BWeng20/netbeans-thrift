@@ -1,0 +1,293 @@
+grammar Thrift;
+
+options {
+ language=Java;
+ output=AST;
+ ASTLabelType=CommonTree;
+}
+
+tokens {
+    DOCUMENT;
+    DEFAULT_NAMESPACE;
+    CPP_INCLUDE;
+    FIELD_ID;
+    FIELD;
+    ENTRY;
+    REQUIREDNESS;
+    METHOD;
+    ARGS;
+    TYPES;
+    TYPE;
+    CPP_TYPE;
+}
+
+@header {
+package bweng.thrift.parser;
+}
+
+@lexer::header {
+package bweng.thrift.parser;
+}
+
+@lexer::members {
+    public static final int COMMENTS = 2;
+}
+
+INCLUDE : 'include' ;
+PACKAGE : 'package' ;
+SERVICE : 'service' ;
+VOID    : 'void' ;
+ENUM    : 'enum' ;
+TYPEDEF : 'typedef' ;
+EXTENDS : 'extends' ;
+STRUCT  : 'struct' ;
+UNION   : 'union' ;
+EXCEPTION : 'exception' ;
+DEFERRED: 'deferred' ;
+EVENT   : 'event' ;
+ONEWAY  : 'oneway' ;
+ASYNC   : 'async' ;
+LIST    : 'list' ;
+MAP     : 'map' ;
+SET     : 'set' ;
+THROWS  : 'throws' ;
+REQUIRED: 'required' ; 
+OPTIONAL: 'optional' ;
+SENUM   : 'senum' ;
+CONST   : 'const' ;
+NAMESPACE: 'namespace' ;
+
+LCURLY  : '{' ;
+RCURLY  : '}' ;
+
+document
+    : header* definition* EOF -> ^(DOCUMENT header* definition*)
+    ;
+
+
+header
+    : include | namespace | cpp_include
+    ;
+
+include
+    : INCLUDE LITERAL -> ^(INCLUDE LITERAL)
+    ;
+
+dpackage
+    : PACKAGE k=IDENTIFIER LCURLY definition* RCURLY -> ^(PACKAGE $k definition*) 
+    ;
+
+namespace
+    : NAMESPACE '*' (v=IDENTIFIER | v=LITERAL) -> ^(DEFAULT_NAMESPACE $v)
+    | NAMESPACE k=IDENTIFIER (v=IDENTIFIER | v=LITERAL) -> ^(NAMESPACE $k $v)
+    | 'cpp_namespace' IDENTIFIER -> ^(NAMESPACE IDENTIFIER["cpp"] IDENTIFIER)
+    | 'php_namespace' IDENTIFIER -> ^(NAMESPACE IDENTIFIER["php"] IDENTIFIER)
+    ;
+
+cpp_include
+    : 'cpp_include' LITERAL -> ^(CPP_INCLUDE LITERAL)
+    ;
+
+
+definition
+    : dpackage | const_rule | typedef | enum_rule | senum | struct | union | exception | service
+    ;
+
+const_rule
+    : CONST field_type IDENTIFIER '=' const_value list_separator?
+        -> ^(CONST IDENTIFIER field_type const_value)
+    ;
+
+typedef
+    : TYPEDEF field_type IDENTIFIER -> ^(TYPEDEF IDENTIFIER field_type)
+    ;
+
+enum_rule
+    : ENUM IDENTIFIER LCURLY enum_field* RCURLY -> ^(ENUM IDENTIFIER enum_field*)
+    ;
+
+enum_field
+    : IDENTIFIER ('=' integer)? list_separator? -> ^(IDENTIFIER integer?)
+    ;
+
+senum
+    : SENUM IDENTIFIER LCURLY (LITERAL list_separator?)* RCURLY -> ^(SENUM IDENTIFIER LITERAL*)
+    ;
+
+struct
+    : STRUCT IDENTIFIER LCURLY field* RCURLY type_annotations? -> ^(STRUCT IDENTIFIER field* type_annotations?)
+    ;
+
+union
+    : UNION IDENTIFIER LCURLY field* RCURLY type_annotations? -> ^(UNION IDENTIFIER field* type_annotations?)
+    ;
+
+exception
+    : EXCEPTION IDENTIFIER LCURLY field* RCURLY type_annotations? -> ^(EXCEPTION IDENTIFIER field* type_annotations?)
+    ;
+
+service
+    : SERVICE s=IDENTIFIER (EXTENDS e=IDENTIFIER)? LCURLY f=function* RCURLY type_annotations? -> ^(SERVICE $s ^(EXTENDS $e?) function* type_annotations?)
+    ;
+
+
+field_id
+    : integer ':' -> ^(FIELD_ID integer)
+    ;
+
+field
+    : field_id? field_req? field_type IDENTIFIER ('=' const_value)? type_annotations? list_separator?
+        -> ^(FIELD IDENTIFIER field_type field_id? ^(REQUIREDNESS field_req?) const_value? type_annotations?)
+    ;
+
+field_req
+    : REQUIRED
+    | OPTIONAL
+    ;
+
+
+function
+    : function_mode? function_type IDENTIFIER '(' field* ')' throws_list? type_annotations? list_separator?
+        -> ^(METHOD IDENTIFIER function_type ^(ARGS field*) function_mode? throws_list? type_annotations?)
+    ;
+
+function_mode
+    : EVENT | ONEWAY | ASYNC | DEFERRED
+    ;
+	
+function_type
+    : field_type
+    | VOID
+    ;
+
+throws_list
+    : THROWS '(' field* ')' -> ^(THROWS field*)
+    ;
+
+
+type_annotations
+    : '(' type_annotation* ')' -> ^(TYPES type_annotation*)
+    ;
+
+type_annotation
+    : IDENTIFIER ('=' annotation_value)? list_separator? -> ^(TYPE IDENTIFIER annotation_value?)
+    ;
+
+annotation_value
+    : integer | LITERAL
+    ;
+
+
+field_type
+    : base_type | IDENTIFIER | container_type
+    ;
+
+base_type
+    : real_base_type type_annotations?
+    ;
+
+container_type
+    : (map_type | set_type | list_type) type_annotations?
+    ;
+
+map_type
+    : MAP cpp_type? '<' field_type COMMA field_type '>' -> ^(MAP field_type field_type cpp_type?)
+    ;
+
+set_type
+    : SET cpp_type? '<' field_type '>' -> ^(SET field_type cpp_type?)
+    ;
+
+list_type
+    : LIST '<' field_type '>' cpp_type? -> ^(LIST field_type cpp_type?)
+    ;
+
+cpp_type
+    : 'cpp_type' LITERAL -> ^(CPP_TYPE LITERAL)
+    ;
+
+
+const_value
+    : integer | DOUBLE | LITERAL | IDENTIFIER | const_list | const_map
+    ;
+
+integer
+    : INTEGER | HEX_INTEGER
+	;
+
+INTEGER
+    : ('+' | '-')? DIGIT+
+        { setText(getText().substring(0, getText().length())); }
+    ;
+
+HEX_INTEGER
+    : '0x' HEX_DIGIT+
+        { setText(getText().substring(0, getText().length())); }
+    ;
+
+DOUBLE
+    : ('+' | '-')? DIGIT* ('.' DIGIT+)? (('E' | 'e') INTEGER)?
+    ;
+
+const_list
+    : '[' (const_value list_separator?)* ']' -> ^(LIST const_value*)
+    ;
+
+const_map_entry
+    : k=const_value ':' v=const_value list_separator? -> ^(ENTRY $k $v)
+    ;
+
+const_map
+    : LCURLY const_map_entry* RCURLY -> ^(MAP const_map_entry*)
+    ;
+
+list_separator
+    : COMMA | SEMICOLON
+    ;
+
+real_base_type
+    :  TYPE_BOOL | TYPE_BYTE | TYPE_I16 | TYPE_I32 | TYPE_I64 | TYPE_DOUBLE | TYPE_STRING | TYPE_BINARY
+    ;
+
+TYPE_BOOL: 'bool';
+TYPE_BYTE: 'byte' | 'int8' ;
+TYPE_I16: 'i16' | 'int16' ;
+TYPE_I32: 'i32' | 'int32' ;
+TYPE_I64: 'i64' | 'int64' ;
+TYPE_DOUBLE: 'double';
+TYPE_STRING: 'string';
+TYPE_BINARY: 'binary';
+
+LITERAL
+    : (('"' ~'"'* '"') | ('\'' ~'\''* '\''))
+        { setText(getText().substring(1, getText().length() - 1)); }
+    ;
+
+IDENTIFIER
+    : (LETTER | '_') (LETTER | DIGIT | '.' | '_')*
+        { setText(getText().substring(0, getText().length())); }
+    ;
+
+COMMA : ',' ;
+SEMICOLON : ';' ;
+
+fragment LETTER
+    : 'A'..'Z' | 'a'..'z'
+    ;
+
+fragment DIGIT
+    : '0'..'9'
+    ;
+
+fragment HEX_DIGIT
+    : DIGIT | 'A'..'F' | 'a'..'f'
+    ;
+
+WS
+    : (' ' | '\t' | '\r' '\n' | '\n')+ { $channel = HIDDEN; }
+    ;
+
+COMMENT
+    : '/*' (options {greedy=false;} : .)* '*/' { $channel = COMMENTS; }
+    | ('//' | '#') (~'\n')* { $channel = COMMENTS; }
+    ;
