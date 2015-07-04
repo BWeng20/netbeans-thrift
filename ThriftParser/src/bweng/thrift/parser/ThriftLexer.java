@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 Thrift.g 2015-07-01 02:17:40
+// $ANTLR 3.5.2 Thrift.g 2015-07-04 21:58:32
 
 package bweng.thrift.parser;
 
@@ -11,7 +11,6 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class ThriftLexer extends Lexer {
 	public static final int EOF=-1;
-	public static final int T__61=61;
 	public static final int T__62=62;
 	public static final int T__63=63;
 	public static final int T__64=64;
@@ -24,63 +23,65 @@ public class ThriftLexer extends Lexer {
 	public static final int T__71=71;
 	public static final int T__72=72;
 	public static final int T__73=73;
-	public static final int ARGS=4;
+	public static final int T__74=74;
+	public static final int ARGS_=4;
 	public static final int ASYNC=5;
 	public static final int COMMA=6;
 	public static final int COMMENT=7;
 	public static final int CONST=8;
-	public static final int CPP_INCLUDE=9;
-	public static final int CPP_TYPE=10;
-	public static final int DEFAULT_NAMESPACE=11;
+	public static final int CPP_INCLUDE_=9;
+	public static final int CPP_TYPE_=10;
+	public static final int DEFAULT_NAMESPACE_=11;
 	public static final int DEFERRED=12;
 	public static final int DIGIT=13;
-	public static final int DOCUMENT=14;
+	public static final int DOCUMENT_=14;
 	public static final int DOUBLE=15;
-	public static final int ENTRY=16;
+	public static final int ENTRY_=16;
 	public static final int ENUM=17;
 	public static final int EVENT=18;
 	public static final int EXCEPTION=19;
 	public static final int EXTENDS=20;
-	public static final int FIELD=21;
-	public static final int FIELD_ID=22;
-	public static final int HEX_DIGIT=23;
-	public static final int HEX_INTEGER=24;
-	public static final int IDENTIFIER=25;
-	public static final int INCLUDE=26;
-	public static final int INTEGER=27;
-	public static final int LCURLY=28;
-	public static final int LETTER=29;
-	public static final int LIST=30;
-	public static final int LITERAL=31;
-	public static final int MAP=32;
-	public static final int METHOD=33;
-	public static final int NAMESPACE=34;
-	public static final int ONEWAY=35;
-	public static final int OPTIONAL=36;
-	public static final int PACKAGE=37;
-	public static final int RCURLY=38;
-	public static final int REQUIRED=39;
-	public static final int REQUIREDNESS=40;
-	public static final int SEMICOLON=41;
-	public static final int SENUM=42;
-	public static final int SERVICE=43;
-	public static final int SET=44;
-	public static final int STRUCT=45;
-	public static final int THROWS=46;
-	public static final int TYPE=47;
+	public static final int EXTENDS_=21;
+	public static final int FIELD_=22;
+	public static final int FIELD_ID_=23;
+	public static final int HEX_DIGIT=24;
+	public static final int HEX_INTEGER=25;
+	public static final int IDENTIFIER=26;
+	public static final int INCLUDE=27;
+	public static final int INTEGER=28;
+	public static final int LCURLY=29;
+	public static final int LETTER=30;
+	public static final int LIST=31;
+	public static final int LITERAL=32;
+	public static final int MAP=33;
+	public static final int METHOD_=34;
+	public static final int NAMESPACE=35;
+	public static final int ONEWAY=36;
+	public static final int OPTIONAL=37;
+	public static final int PACKAGE=38;
+	public static final int RCURLY=39;
+	public static final int REQUIRED=40;
+	public static final int REQUIREDNESS_=41;
+	public static final int SEMICOLON=42;
+	public static final int SENUM=43;
+	public static final int SERVICE=44;
+	public static final int SET=45;
+	public static final int STRUCT=46;
+	public static final int THROWS=47;
 	public static final int TYPEDEF=48;
-	public static final int TYPES=49;
-	public static final int TYPE_BINARY=50;
-	public static final int TYPE_BOOL=51;
-	public static final int TYPE_BYTE=52;
-	public static final int TYPE_DOUBLE=53;
-	public static final int TYPE_I16=54;
-	public static final int TYPE_I32=55;
-	public static final int TYPE_I64=56;
-	public static final int TYPE_STRING=57;
-	public static final int UNION=58;
-	public static final int VOID=59;
-	public static final int WS=60;
+	public static final int TYPES_=49;
+	public static final int TYPE_=50;
+	public static final int TYPE_BINARY=51;
+	public static final int TYPE_BOOL=52;
+	public static final int TYPE_BYTE=53;
+	public static final int TYPE_DOUBLE=54;
+	public static final int TYPE_I16=55;
+	public static final int TYPE_I32=56;
+	public static final int TYPE_I64=57;
+	public static final int TYPE_STRING=58;
+	public static final int UNION=59;
+	public static final int VOID=60;
+	public static final int WS=61;
 
 	    public static final int COMMENTS = 2;
 
@@ -100,35 +101,15 @@ public class ThriftLexer extends Lexer {
 	}
 	@Override public String getGrammarFileName() { return "Thrift.g"; }
 
-	// $ANTLR start "T__61"
-	public final void mT__61() throws RecognitionException {
-		try {
-			int _type = T__61;
-			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:14:7: ( '(' )
-			// Thrift.g:14:9: '('
-			{
-			match('('); 
-			}
-
-			state.type = _type;
-			state.channel = _channel;
-		}
-		finally {
-			// do for sure before leaving
-		}
-	}
-	// $ANTLR end "T__61"
-
 	// $ANTLR start "T__62"
 	public final void mT__62() throws RecognitionException {
 		try {
 			int _type = T__62;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:15:7: ( ')' )
-			// Thrift.g:15:9: ')'
+			// Thrift.g:14:7: ( '(' )
+			// Thrift.g:14:9: '('
 			{
-			match(')'); 
+			match('('); 
 			}
 
 			state.type = _type;
@@ -145,10 +126,10 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = T__63;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:16:7: ( '*' )
-			// Thrift.g:16:9: '*'
+			// Thrift.g:15:7: ( ')' )
+			// Thrift.g:15:9: ')'
 			{
-			match('*'); 
+			match(')'); 
 			}
 
 			state.type = _type;
@@ -165,10 +146,10 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = T__64;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:17:7: ( ':' )
-			// Thrift.g:17:9: ':'
+			// Thrift.g:16:7: ( '*' )
+			// Thrift.g:16:9: '*'
 			{
-			match(':'); 
+			match('*'); 
 			}
 
 			state.type = _type;
@@ -185,10 +166,10 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = T__65;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:18:7: ( '<' )
-			// Thrift.g:18:9: '<'
+			// Thrift.g:17:7: ( ':' )
+			// Thrift.g:17:9: ':'
 			{
-			match('<'); 
+			match(':'); 
 			}
 
 			state.type = _type;
@@ -205,10 +186,10 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = T__66;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:19:7: ( '=' )
-			// Thrift.g:19:9: '='
+			// Thrift.g:18:7: ( '<' )
+			// Thrift.g:18:9: '<'
 			{
-			match('='); 
+			match('<'); 
 			}
 
 			state.type = _type;
@@ -225,10 +206,10 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = T__67;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:20:7: ( '>' )
-			// Thrift.g:20:9: '>'
+			// Thrift.g:19:7: ( '=' )
+			// Thrift.g:19:9: '='
 			{
-			match('>'); 
+			match('='); 
 			}
 
 			state.type = _type;
@@ -245,10 +226,10 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = T__68;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:21:7: ( '[' )
-			// Thrift.g:21:9: '['
+			// Thrift.g:20:7: ( '>' )
+			// Thrift.g:20:9: '>'
 			{
-			match('['); 
+			match('>'); 
 			}
 
 			state.type = _type;
@@ -265,10 +246,10 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = T__69;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:22:7: ( ']' )
-			// Thrift.g:22:9: ']'
+			// Thrift.g:21:7: ( '[' )
+			// Thrift.g:21:9: '['
 			{
-			match(']'); 
+			match('['); 
 			}
 
 			state.type = _type;
@@ -285,11 +266,10 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = T__70;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:23:7: ( 'cpp_include' )
-			// Thrift.g:23:9: 'cpp_include'
+			// Thrift.g:22:7: ( ']' )
+			// Thrift.g:22:9: ']'
 			{
-			match("cpp_include"); 
-
+			match(']'); 
 			}
 
 			state.type = _type;
@@ -306,10 +286,10 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = T__71;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:24:7: ( 'cpp_namespace' )
-			// Thrift.g:24:9: 'cpp_namespace'
+			// Thrift.g:23:7: ( 'cpp_include' )
+			// Thrift.g:23:9: 'cpp_include'
 			{
-			match("cpp_namespace"); 
+			match("cpp_include"); 
 
 			}
 
@@ -327,10 +307,10 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = T__72;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:25:7: ( 'cpp_type' )
-			// Thrift.g:25:9: 'cpp_type'
+			// Thrift.g:24:7: ( 'cpp_namespace' )
+			// Thrift.g:24:9: 'cpp_namespace'
 			{
-			match("cpp_type"); 
+			match("cpp_namespace"); 
 
 			}
 
@@ -348,6 +328,27 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = T__73;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// Thrift.g:25:7: ( 'cpp_type' )
+			// Thrift.g:25:9: 'cpp_type'
+			{
+			match("cpp_type"); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "T__73"
+
+	// $ANTLR start "T__74"
+	public final void mT__74() throws RecognitionException {
+		try {
+			int _type = T__74;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
 			// Thrift.g:26:7: ( 'php_namespace' )
 			// Thrift.g:26:9: 'php_namespace'
 			{
@@ -362,15 +363,15 @@ public class ThriftLexer extends Lexer {
 			// do for sure before leaving
 		}
 	}
-	// $ANTLR end "T__73"
+	// $ANTLR end "T__74"
 
 	// $ANTLR start "INCLUDE"
 	public final void mINCLUDE() throws RecognitionException {
 		try {
 			int _type = INCLUDE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:57:9: ( 'include' )
-			// Thrift.g:57:11: 'include'
+			// Thrift.g:37:9: ( 'include' )
+			// Thrift.g:37:11: 'include'
 			{
 			match("include"); 
 
@@ -390,8 +391,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = PACKAGE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:58:9: ( 'package' )
-			// Thrift.g:58:11: 'package'
+			// Thrift.g:38:9: ( 'package' )
+			// Thrift.g:38:11: 'package'
 			{
 			match("package"); 
 
@@ -411,8 +412,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = SERVICE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:59:9: ( 'service' )
-			// Thrift.g:59:11: 'service'
+			// Thrift.g:39:9: ( 'service' )
+			// Thrift.g:39:11: 'service'
 			{
 			match("service"); 
 
@@ -432,8 +433,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = VOID;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:60:9: ( 'void' )
-			// Thrift.g:60:11: 'void'
+			// Thrift.g:40:9: ( 'void' )
+			// Thrift.g:40:11: 'void'
 			{
 			match("void"); 
 
@@ -453,8 +454,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = ENUM;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:61:9: ( 'enum' )
-			// Thrift.g:61:11: 'enum'
+			// Thrift.g:41:9: ( 'enum' )
+			// Thrift.g:41:11: 'enum'
 			{
 			match("enum"); 
 
@@ -474,8 +475,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = TYPEDEF;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:62:9: ( 'typedef' )
-			// Thrift.g:62:11: 'typedef'
+			// Thrift.g:42:9: ( 'typedef' )
+			// Thrift.g:42:11: 'typedef'
 			{
 			match("typedef"); 
 
@@ -495,8 +496,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = EXTENDS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:63:9: ( 'extends' )
-			// Thrift.g:63:11: 'extends'
+			// Thrift.g:43:9: ( 'extends' )
+			// Thrift.g:43:11: 'extends'
 			{
 			match("extends"); 
 
@@ -516,8 +517,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = STRUCT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:64:9: ( 'struct' )
-			// Thrift.g:64:11: 'struct'
+			// Thrift.g:44:9: ( 'struct' )
+			// Thrift.g:44:11: 'struct'
 			{
 			match("struct"); 
 
@@ -537,8 +538,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = UNION;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:65:9: ( 'union' )
-			// Thrift.g:65:11: 'union'
+			// Thrift.g:45:9: ( 'union' )
+			// Thrift.g:45:11: 'union'
 			{
 			match("union"); 
 
@@ -558,8 +559,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = EXCEPTION;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:66:11: ( 'exception' )
-			// Thrift.g:66:13: 'exception'
+			// Thrift.g:46:11: ( 'exception' )
+			// Thrift.g:46:13: 'exception'
 			{
 			match("exception"); 
 
@@ -579,8 +580,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = DEFERRED;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:67:9: ( 'deferred' )
-			// Thrift.g:67:11: 'deferred'
+			// Thrift.g:47:9: ( 'deferred' )
+			// Thrift.g:47:11: 'deferred'
 			{
 			match("deferred"); 
 
@@ -600,8 +601,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = EVENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:68:9: ( 'event' )
-			// Thrift.g:68:11: 'event'
+			// Thrift.g:48:9: ( 'event' )
+			// Thrift.g:48:11: 'event'
 			{
 			match("event"); 
 
@@ -621,8 +622,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = ONEWAY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:69:9: ( 'oneway' )
-			// Thrift.g:69:11: 'oneway'
+			// Thrift.g:49:9: ( 'oneway' )
+			// Thrift.g:49:11: 'oneway'
 			{
 			match("oneway"); 
 
@@ -642,8 +643,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = ASYNC;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:70:9: ( 'async' )
-			// Thrift.g:70:11: 'async'
+			// Thrift.g:50:9: ( 'async' )
+			// Thrift.g:50:11: 'async'
 			{
 			match("async"); 
 
@@ -663,8 +664,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = LIST;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:71:9: ( 'list' )
-			// Thrift.g:71:11: 'list'
+			// Thrift.g:51:9: ( 'list' )
+			// Thrift.g:51:11: 'list'
 			{
 			match("list"); 
 
@@ -684,8 +685,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = MAP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:72:9: ( 'map' )
-			// Thrift.g:72:11: 'map'
+			// Thrift.g:52:9: ( 'map' )
+			// Thrift.g:52:11: 'map'
 			{
 			match("map"); 
 
@@ -705,8 +706,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = SET;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:73:9: ( 'set' )
-			// Thrift.g:73:11: 'set'
+			// Thrift.g:53:9: ( 'set' )
+			// Thrift.g:53:11: 'set'
 			{
 			match("set"); 
 
@@ -726,8 +727,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = THROWS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:74:9: ( 'throws' )
-			// Thrift.g:74:11: 'throws'
+			// Thrift.g:54:9: ( 'throws' )
+			// Thrift.g:54:11: 'throws'
 			{
 			match("throws"); 
 
@@ -747,8 +748,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = REQUIRED;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:75:9: ( 'required' )
-			// Thrift.g:75:11: 'required'
+			// Thrift.g:55:9: ( 'required' )
+			// Thrift.g:55:11: 'required'
 			{
 			match("required"); 
 
@@ -768,8 +769,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = OPTIONAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:76:9: ( 'optional' )
-			// Thrift.g:76:11: 'optional'
+			// Thrift.g:56:9: ( 'optional' )
+			// Thrift.g:56:11: 'optional'
 			{
 			match("optional"); 
 
@@ -789,8 +790,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = SENUM;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:77:9: ( 'senum' )
-			// Thrift.g:77:11: 'senum'
+			// Thrift.g:57:9: ( 'senum' )
+			// Thrift.g:57:11: 'senum'
 			{
 			match("senum"); 
 
@@ -810,8 +811,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = CONST;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:78:9: ( 'const' )
-			// Thrift.g:78:11: 'const'
+			// Thrift.g:58:9: ( 'const' )
+			// Thrift.g:58:11: 'const'
 			{
 			match("const"); 
 
@@ -831,8 +832,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = NAMESPACE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:79:10: ( 'namespace' )
-			// Thrift.g:79:12: 'namespace'
+			// Thrift.g:59:10: ( 'namespace' )
+			// Thrift.g:59:12: 'namespace'
 			{
 			match("namespace"); 
 
@@ -852,8 +853,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = LCURLY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:81:9: ( '{' )
-			// Thrift.g:81:11: '{'
+			// Thrift.g:61:9: ( '{' )
+			// Thrift.g:61:11: '{'
 			{
 			match('{'); 
 			}
@@ -872,8 +873,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = RCURLY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:82:9: ( '}' )
-			// Thrift.g:82:11: '}'
+			// Thrift.g:62:9: ( '}' )
+			// Thrift.g:62:11: '}'
 			{
 			match('}'); 
 			}
@@ -892,10 +893,10 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = INTEGER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:240:5: ( ( '+' | '-' )? ( DIGIT )+ )
-			// Thrift.g:240:7: ( '+' | '-' )? ( DIGIT )+
+			// Thrift.g:220:5: ( ( '+' | '-' )? ( DIGIT )+ )
+			// Thrift.g:220:7: ( '+' | '-' )? ( DIGIT )+
 			{
-			// Thrift.g:240:7: ( '+' | '-' )?
+			// Thrift.g:220:7: ( '+' | '-' )?
 			int alt1=2;
 			int LA1_0 = input.LA(1);
 			if ( (LA1_0=='+'||LA1_0=='-') ) {
@@ -918,7 +919,7 @@ public class ThriftLexer extends Lexer {
 
 			}
 
-			// Thrift.g:240:20: ( DIGIT )+
+			// Thrift.g:220:20: ( DIGIT )+
 			int cnt2=0;
 			loop2:
 			while (true) {
@@ -968,12 +969,12 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = HEX_INTEGER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:245:5: ( '0x' ( HEX_DIGIT )+ )
-			// Thrift.g:245:7: '0x' ( HEX_DIGIT )+
+			// Thrift.g:225:5: ( '0x' ( HEX_DIGIT )+ )
+			// Thrift.g:225:7: '0x' ( HEX_DIGIT )+
 			{
 			match("0x"); 
 
-			// Thrift.g:245:12: ( HEX_DIGIT )+
+			// Thrift.g:225:12: ( HEX_DIGIT )+
 			int cnt3=0;
 			loop3:
 			while (true) {
@@ -1023,10 +1024,10 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = DOUBLE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:250:5: ( ( '+' | '-' )? ( DIGIT )* ( '.' ( DIGIT )+ )? ( ( 'E' | 'e' ) INTEGER )? )
-			// Thrift.g:250:7: ( '+' | '-' )? ( DIGIT )* ( '.' ( DIGIT )+ )? ( ( 'E' | 'e' ) INTEGER )?
+			// Thrift.g:230:5: ( ( '+' | '-' )? ( DIGIT )* ( '.' ( DIGIT )+ )? ( ( 'E' | 'e' ) INTEGER )? )
+			// Thrift.g:230:7: ( '+' | '-' )? ( DIGIT )* ( '.' ( DIGIT )+ )? ( ( 'E' | 'e' ) INTEGER )?
 			{
-			// Thrift.g:250:7: ( '+' | '-' )?
+			// Thrift.g:230:7: ( '+' | '-' )?
 			int alt4=2;
 			int LA4_0 = input.LA(1);
 			if ( (LA4_0=='+'||LA4_0=='-') ) {
@@ -1049,7 +1050,7 @@ public class ThriftLexer extends Lexer {
 
 			}
 
-			// Thrift.g:250:20: ( DIGIT )*
+			// Thrift.g:230:20: ( DIGIT )*
 			loop5:
 			while (true) {
 				int alt5=2;
@@ -1078,7 +1079,7 @@ public class ThriftLexer extends Lexer {
 				}
 			}
 
-			// Thrift.g:250:27: ( '.' ( DIGIT )+ )?
+			// Thrift.g:230:27: ( '.' ( DIGIT )+ )?
 			int alt7=2;
 			int LA7_0 = input.LA(1);
 			if ( (LA7_0=='.') ) {
@@ -1086,10 +1087,10 @@ public class ThriftLexer extends Lexer {
 			}
 			switch (alt7) {
 				case 1 :
-					// Thrift.g:250:28: '.' ( DIGIT )+
+					// Thrift.g:230:28: '.' ( DIGIT )+
 					{
 					match('.'); 
-					// Thrift.g:250:32: ( DIGIT )+
+					// Thrift.g:230:32: ( DIGIT )+
 					int cnt6=0;
 					loop6:
 					while (true) {
@@ -1127,7 +1128,7 @@ public class ThriftLexer extends Lexer {
 
 			}
 
-			// Thrift.g:250:41: ( ( 'E' | 'e' ) INTEGER )?
+			// Thrift.g:230:41: ( ( 'E' | 'e' ) INTEGER )?
 			int alt8=2;
 			int LA8_0 = input.LA(1);
 			if ( (LA8_0=='E'||LA8_0=='e') ) {
@@ -1135,7 +1136,7 @@ public class ThriftLexer extends Lexer {
 			}
 			switch (alt8) {
 				case 1 :
-					// Thrift.g:250:42: ( 'E' | 'e' ) INTEGER
+					// Thrift.g:230:42: ( 'E' | 'e' ) INTEGER
 					{
 					if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
 						input.consume();
@@ -1168,8 +1169,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = TYPE_BOOL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:273:10: ( 'bool' )
-			// Thrift.g:273:12: 'bool'
+			// Thrift.g:253:10: ( 'bool' )
+			// Thrift.g:253:12: 'bool'
 			{
 			match("bool"); 
 
@@ -1189,7 +1190,7 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = TYPE_BYTE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:274:10: ( 'byte' | 'int8' )
+			// Thrift.g:254:10: ( 'byte' | 'int8' )
 			int alt9=2;
 			int LA9_0 = input.LA(1);
 			if ( (LA9_0=='b') ) {
@@ -1207,14 +1208,14 @@ public class ThriftLexer extends Lexer {
 
 			switch (alt9) {
 				case 1 :
-					// Thrift.g:274:12: 'byte'
+					// Thrift.g:254:12: 'byte'
 					{
 					match("byte"); 
 
 					}
 					break;
 				case 2 :
-					// Thrift.g:274:21: 'int8'
+					// Thrift.g:254:21: 'int8'
 					{
 					match("int8"); 
 
@@ -1236,7 +1237,7 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = TYPE_I16;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:275:9: ( 'i16' | 'int16' )
+			// Thrift.g:255:9: ( 'i16' | 'int16' )
 			int alt10=2;
 			int LA10_0 = input.LA(1);
 			if ( (LA10_0=='i') ) {
@@ -1270,14 +1271,14 @@ public class ThriftLexer extends Lexer {
 
 			switch (alt10) {
 				case 1 :
-					// Thrift.g:275:11: 'i16'
+					// Thrift.g:255:11: 'i16'
 					{
 					match("i16"); 
 
 					}
 					break;
 				case 2 :
-					// Thrift.g:275:19: 'int16'
+					// Thrift.g:255:19: 'int16'
 					{
 					match("int16"); 
 
@@ -1299,7 +1300,7 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = TYPE_I32;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:276:9: ( 'i32' | 'int32' )
+			// Thrift.g:256:9: ( 'i32' | 'int32' )
 			int alt11=2;
 			int LA11_0 = input.LA(1);
 			if ( (LA11_0=='i') ) {
@@ -1333,14 +1334,14 @@ public class ThriftLexer extends Lexer {
 
 			switch (alt11) {
 				case 1 :
-					// Thrift.g:276:11: 'i32'
+					// Thrift.g:256:11: 'i32'
 					{
 					match("i32"); 
 
 					}
 					break;
 				case 2 :
-					// Thrift.g:276:19: 'int32'
+					// Thrift.g:256:19: 'int32'
 					{
 					match("int32"); 
 
@@ -1362,7 +1363,7 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = TYPE_I64;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:277:9: ( 'i64' | 'int64' )
+			// Thrift.g:257:9: ( 'i64' | 'int64' )
 			int alt12=2;
 			int LA12_0 = input.LA(1);
 			if ( (LA12_0=='i') ) {
@@ -1396,14 +1397,14 @@ public class ThriftLexer extends Lexer {
 
 			switch (alt12) {
 				case 1 :
-					// Thrift.g:277:11: 'i64'
+					// Thrift.g:257:11: 'i64'
 					{
 					match("i64"); 
 
 					}
 					break;
 				case 2 :
-					// Thrift.g:277:19: 'int64'
+					// Thrift.g:257:19: 'int64'
 					{
 					match("int64"); 
 
@@ -1425,8 +1426,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = TYPE_DOUBLE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:278:12: ( 'double' )
-			// Thrift.g:278:14: 'double'
+			// Thrift.g:258:12: ( 'double' )
+			// Thrift.g:258:14: 'double'
 			{
 			match("double"); 
 
@@ -1446,8 +1447,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = TYPE_STRING;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:279:12: ( 'string' )
-			// Thrift.g:279:14: 'string'
+			// Thrift.g:259:12: ( 'string' )
+			// Thrift.g:259:14: 'string'
 			{
 			match("string"); 
 
@@ -1467,8 +1468,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = TYPE_BINARY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:280:12: ( 'binary' )
-			// Thrift.g:280:14: 'binary'
+			// Thrift.g:260:12: ( 'binary' )
+			// Thrift.g:260:14: 'binary'
 			{
 			match("binary"); 
 
@@ -1488,10 +1489,10 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = LITERAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:283:5: ( ( ( '\"' (~ '\"' )* '\"' ) | ( '\\'' (~ '\\'' )* '\\'' ) ) )
-			// Thrift.g:283:7: ( ( '\"' (~ '\"' )* '\"' ) | ( '\\'' (~ '\\'' )* '\\'' ) )
+			// Thrift.g:263:5: ( ( ( '\"' (~ '\"' )* '\"' ) | ( '\\'' (~ '\\'' )* '\\'' ) ) )
+			// Thrift.g:263:7: ( ( '\"' (~ '\"' )* '\"' ) | ( '\\'' (~ '\\'' )* '\\'' ) )
 			{
-			// Thrift.g:283:7: ( ( '\"' (~ '\"' )* '\"' ) | ( '\\'' (~ '\\'' )* '\\'' ) )
+			// Thrift.g:263:7: ( ( '\"' (~ '\"' )* '\"' ) | ( '\\'' (~ '\\'' )* '\\'' ) )
 			int alt15=2;
 			int LA15_0 = input.LA(1);
 			if ( (LA15_0=='\"') ) {
@@ -1509,13 +1510,13 @@ public class ThriftLexer extends Lexer {
 
 			switch (alt15) {
 				case 1 :
-					// Thrift.g:283:8: ( '\"' (~ '\"' )* '\"' )
+					// Thrift.g:263:8: ( '\"' (~ '\"' )* '\"' )
 					{
-					// Thrift.g:283:8: ( '\"' (~ '\"' )* '\"' )
-					// Thrift.g:283:9: '\"' (~ '\"' )* '\"'
+					// Thrift.g:263:8: ( '\"' (~ '\"' )* '\"' )
+					// Thrift.g:263:9: '\"' (~ '\"' )* '\"'
 					{
 					match('\"'); 
-					// Thrift.g:283:13: (~ '\"' )*
+					// Thrift.g:263:13: (~ '\"' )*
 					loop13:
 					while (true) {
 						int alt13=2;
@@ -1550,13 +1551,13 @@ public class ThriftLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// Thrift.g:283:26: ( '\\'' (~ '\\'' )* '\\'' )
+					// Thrift.g:263:26: ( '\\'' (~ '\\'' )* '\\'' )
 					{
-					// Thrift.g:283:26: ( '\\'' (~ '\\'' )* '\\'' )
-					// Thrift.g:283:27: '\\'' (~ '\\'' )* '\\''
+					// Thrift.g:263:26: ( '\\'' (~ '\\'' )* '\\'' )
+					// Thrift.g:263:27: '\\'' (~ '\\'' )* '\\''
 					{
 					match('\''); 
-					// Thrift.g:283:32: (~ '\\'' )*
+					// Thrift.g:263:32: (~ '\\'' )*
 					loop14:
 					while (true) {
 						int alt14=2;
@@ -1593,7 +1594,7 @@ public class ThriftLexer extends Lexer {
 
 			}
 
-			 setText(getText().substring(1, getText().length() - 1)); 
+			 if (getText().length()>2) setText(getText().substring(1, getText().length() - 1)); 
 			}
 
 			state.type = _type;
@@ -1610,8 +1611,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = IDENTIFIER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:288:5: ( ( LETTER | '_' ) ( LETTER | DIGIT | '.' | '_' )* )
-			// Thrift.g:288:7: ( LETTER | '_' ) ( LETTER | DIGIT | '.' | '_' )*
+			// Thrift.g:268:5: ( ( LETTER | '_' ) ( LETTER | DIGIT | '.' | '_' )* )
+			// Thrift.g:268:7: ( LETTER | '_' ) ( LETTER | DIGIT | '.' | '_' )*
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
 				input.consume();
@@ -1621,7 +1622,7 @@ public class ThriftLexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// Thrift.g:288:22: ( LETTER | DIGIT | '.' | '_' )*
+			// Thrift.g:268:22: ( LETTER | DIGIT | '.' | '_' )*
 			loop16:
 			while (true) {
 				int alt16=2;
@@ -1667,8 +1668,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = COMMA;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:292:7: ( ',' )
-			// Thrift.g:292:9: ','
+			// Thrift.g:272:7: ( ',' )
+			// Thrift.g:272:9: ','
 			{
 			match(','); 
 			}
@@ -1687,8 +1688,8 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = SEMICOLON;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:293:11: ( ';' )
-			// Thrift.g:293:13: ';'
+			// Thrift.g:273:11: ( ';' )
+			// Thrift.g:273:13: ';'
 			{
 			match(';'); 
 			}
@@ -1705,7 +1706,7 @@ public class ThriftLexer extends Lexer {
 	// $ANTLR start "LETTER"
 	public final void mLETTER() throws RecognitionException {
 		try {
-			// Thrift.g:296:5: ( 'A' .. 'Z' | 'a' .. 'z' )
+			// Thrift.g:276:5: ( 'A' .. 'Z' | 'a' .. 'z' )
 			// Thrift.g:
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
@@ -1728,7 +1729,7 @@ public class ThriftLexer extends Lexer {
 	// $ANTLR start "DIGIT"
 	public final void mDIGIT() throws RecognitionException {
 		try {
-			// Thrift.g:300:5: ( '0' .. '9' )
+			// Thrift.g:280:5: ( '0' .. '9' )
 			// Thrift.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
@@ -1751,7 +1752,7 @@ public class ThriftLexer extends Lexer {
 	// $ANTLR start "HEX_DIGIT"
 	public final void mHEX_DIGIT() throws RecognitionException {
 		try {
-			// Thrift.g:304:5: ( DIGIT | 'A' .. 'F' | 'a' .. 'f' )
+			// Thrift.g:284:5: ( DIGIT | 'A' .. 'F' | 'a' .. 'f' )
 			// Thrift.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'F')||(input.LA(1) >= 'a' && input.LA(1) <= 'f') ) {
@@ -1776,10 +1777,10 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:308:5: ( ( ' ' | '\\t' | '\\r' '\\n' | '\\n' )+ )
-			// Thrift.g:308:7: ( ' ' | '\\t' | '\\r' '\\n' | '\\n' )+
+			// Thrift.g:288:5: ( ( ' ' | '\\t' | '\\r' '\\n' | '\\n' )+ )
+			// Thrift.g:288:7: ( ' ' | '\\t' | '\\r' '\\n' | '\\n' )+
 			{
-			// Thrift.g:308:7: ( ' ' | '\\t' | '\\r' '\\n' | '\\n' )+
+			// Thrift.g:288:7: ( ' ' | '\\t' | '\\r' '\\n' | '\\n' )+
 			int cnt17=0;
 			loop17:
 			while (true) {
@@ -1808,26 +1809,26 @@ public class ThriftLexer extends Lexer {
 				}
 				switch (alt17) {
 				case 1 :
-					// Thrift.g:308:8: ' '
+					// Thrift.g:288:8: ' '
 					{
 					match(' '); 
 					}
 					break;
 				case 2 :
-					// Thrift.g:308:14: '\\t'
+					// Thrift.g:288:14: '\\t'
 					{
 					match('\t'); 
 					}
 					break;
 				case 3 :
-					// Thrift.g:308:21: '\\r' '\\n'
+					// Thrift.g:288:21: '\\r' '\\n'
 					{
 					match('\r'); 
 					match('\n'); 
 					}
 					break;
 				case 4 :
-					// Thrift.g:308:33: '\\n'
+					// Thrift.g:288:33: '\\n'
 					{
 					match('\n'); 
 					}
@@ -1858,7 +1859,7 @@ public class ThriftLexer extends Lexer {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// Thrift.g:312:5: ( '/*' ( options {greedy=false; } : . )* '*/' | ( '//' | '#' ) (~ '\\n' )* )
+			// Thrift.g:292:5: ( '/*' ( options {greedy=false; } : . )* '*/' | ( '//' | '#' ) (~ '\\n' )* )
 			int alt21=2;
 			int LA21_0 = input.LA(1);
 			if ( (LA21_0=='/') ) {
@@ -1895,11 +1896,11 @@ public class ThriftLexer extends Lexer {
 
 			switch (alt21) {
 				case 1 :
-					// Thrift.g:312:7: '/*' ( options {greedy=false; } : . )* '*/'
+					// Thrift.g:292:7: '/*' ( options {greedy=false; } : . )* '*/'
 					{
 					match("/*"); 
 
-					// Thrift.g:312:12: ( options {greedy=false; } : . )*
+					// Thrift.g:292:12: ( options {greedy=false; } : . )*
 					loop18:
 					while (true) {
 						int alt18=2;
@@ -1920,7 +1921,7 @@ public class ThriftLexer extends Lexer {
 
 						switch (alt18) {
 						case 1 :
-							// Thrift.g:312:39: .
+							// Thrift.g:292:39: .
 							{
 							matchAny(); 
 							}
@@ -1937,9 +1938,9 @@ public class ThriftLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// Thrift.g:313:7: ( '//' | '#' ) (~ '\\n' )*
+					// Thrift.g:293:7: ( '//' | '#' ) (~ '\\n' )*
 					{
-					// Thrift.g:313:7: ( '//' | '#' )
+					// Thrift.g:293:7: ( '//' | '#' )
 					int alt19=2;
 					int LA19_0 = input.LA(1);
 					if ( (LA19_0=='/') ) {
@@ -1957,14 +1958,14 @@ public class ThriftLexer extends Lexer {
 
 					switch (alt19) {
 						case 1 :
-							// Thrift.g:313:8: '//'
+							// Thrift.g:293:8: '//'
 							{
 							match("//"); 
 
 							}
 							break;
 						case 2 :
-							// Thrift.g:313:15: '#'
+							// Thrift.g:293:15: '#'
 							{
 							match('#'); 
 							}
@@ -1972,7 +1973,7 @@ public class ThriftLexer extends Lexer {
 
 					}
 
-					// Thrift.g:313:20: (~ '\\n' )*
+					// Thrift.g:293:20: (~ '\\n' )*
 					loop20:
 					while (true) {
 						int alt20=2;
@@ -2017,98 +2018,98 @@ public class ThriftLexer extends Lexer {
 
 	@Override
 	public void mTokens() throws RecognitionException {
-		// Thrift.g:1:8: ( T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | INCLUDE | PACKAGE | SERVICE | VOID | ENUM | TYPEDEF | EXTENDS | STRUCT | UNION | EXCEPTION | DEFERRED | EVENT | ONEWAY | ASYNC | LIST | MAP | SET | THROWS | REQUIRED | OPTIONAL | SENUM | CONST | NAMESPACE | LCURLY | RCURLY | INTEGER | HEX_INTEGER | DOUBLE | TYPE_BOOL | TYPE_BYTE | TYPE_I16 | TYPE_I32 | TYPE_I64 | TYPE_DOUBLE | TYPE_STRING | TYPE_BINARY | LITERAL | IDENTIFIER | COMMA | SEMICOLON | WS | COMMENT )
+		// Thrift.g:1:8: ( T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | INCLUDE | PACKAGE | SERVICE | VOID | ENUM | TYPEDEF | EXTENDS | STRUCT | UNION | EXCEPTION | DEFERRED | EVENT | ONEWAY | ASYNC | LIST | MAP | SET | THROWS | REQUIRED | OPTIONAL | SENUM | CONST | NAMESPACE | LCURLY | RCURLY | INTEGER | HEX_INTEGER | DOUBLE | TYPE_BOOL | TYPE_BYTE | TYPE_I16 | TYPE_I32 | TYPE_I64 | TYPE_DOUBLE | TYPE_STRING | TYPE_BINARY | LITERAL | IDENTIFIER | COMMA | SEMICOLON | WS | COMMENT )
 		int alt22=55;
 		alt22 = dfa22.predict(input);
 		switch (alt22) {
 			case 1 :
-				// Thrift.g:1:10: T__61
-				{
-				mT__61(); 
-
-				}
-				break;
-			case 2 :
-				// Thrift.g:1:16: T__62
+				// Thrift.g:1:10: T__62
 				{
 				mT__62(); 
 
 				}
 				break;
-			case 3 :
-				// Thrift.g:1:22: T__63
+			case 2 :
+				// Thrift.g:1:16: T__63
 				{
 				mT__63(); 
 
 				}
 				break;
-			case 4 :
-				// Thrift.g:1:28: T__64
+			case 3 :
+				// Thrift.g:1:22: T__64
 				{
 				mT__64(); 
 
 				}
 				break;
-			case 5 :
-				// Thrift.g:1:34: T__65
+			case 4 :
+				// Thrift.g:1:28: T__65
 				{
 				mT__65(); 
 
 				}
 				break;
-			case 6 :
-				// Thrift.g:1:40: T__66
+			case 5 :
+				// Thrift.g:1:34: T__66
 				{
 				mT__66(); 
 
 				}
 				break;
-			case 7 :
-				// Thrift.g:1:46: T__67
+			case 6 :
+				// Thrift.g:1:40: T__67
 				{
 				mT__67(); 
 
 				}
 				break;
-			case 8 :
-				// Thrift.g:1:52: T__68
+			case 7 :
+				// Thrift.g:1:46: T__68
 				{
 				mT__68(); 
 
 				}
 				break;
-			case 9 :
-				// Thrift.g:1:58: T__69
+			case 8 :
+				// Thrift.g:1:52: T__69
 				{
 				mT__69(); 
 
 				}
 				break;
-			case 10 :
-				// Thrift.g:1:64: T__70
+			case 9 :
+				// Thrift.g:1:58: T__70
 				{
 				mT__70(); 
 
 				}
 				break;
-			case 11 :
-				// Thrift.g:1:70: T__71
+			case 10 :
+				// Thrift.g:1:64: T__71
 				{
 				mT__71(); 
 
 				}
 				break;
-			case 12 :
-				// Thrift.g:1:76: T__72
+			case 11 :
+				// Thrift.g:1:70: T__72
 				{
 				mT__72(); 
 
 				}
 				break;
-			case 13 :
-				// Thrift.g:1:82: T__73
+			case 12 :
+				// Thrift.g:1:76: T__73
 				{
 				mT__73(); 
+
+				}
+				break;
+			case 13 :
+				// Thrift.g:1:82: T__74
+				{
+				mT__74(); 
 
 				}
 				break;
@@ -2772,7 +2773,7 @@ public class ThriftLexer extends Lexer {
 		}
 		@Override
 		public String getDescription() {
-			return "1:1: Tokens : ( T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | INCLUDE | PACKAGE | SERVICE | VOID | ENUM | TYPEDEF | EXTENDS | STRUCT | UNION | EXCEPTION | DEFERRED | EVENT | ONEWAY | ASYNC | LIST | MAP | SET | THROWS | REQUIRED | OPTIONAL | SENUM | CONST | NAMESPACE | LCURLY | RCURLY | INTEGER | HEX_INTEGER | DOUBLE | TYPE_BOOL | TYPE_BYTE | TYPE_I16 | TYPE_I32 | TYPE_I64 | TYPE_DOUBLE | TYPE_STRING | TYPE_BINARY | LITERAL | IDENTIFIER | COMMA | SEMICOLON | WS | COMMENT );";
+			return "1:1: Tokens : ( T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | INCLUDE | PACKAGE | SERVICE | VOID | ENUM | TYPEDEF | EXTENDS | STRUCT | UNION | EXCEPTION | DEFERRED | EVENT | ONEWAY | ASYNC | LIST | MAP | SET | THROWS | REQUIRED | OPTIONAL | SENUM | CONST | NAMESPACE | LCURLY | RCURLY | INTEGER | HEX_INTEGER | DOUBLE | TYPE_BOOL | TYPE_BYTE | TYPE_I16 | TYPE_I32 | TYPE_I64 | TYPE_DOUBLE | TYPE_STRING | TYPE_BINARY | LITERAL | IDENTIFIER | COMMA | SEMICOLON | WS | COMMENT );";
 		}
 	}
 

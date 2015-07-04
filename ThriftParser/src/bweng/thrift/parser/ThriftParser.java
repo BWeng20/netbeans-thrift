@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 Thrift.g 2015-07-01 02:17:39
+// $ANTLR 3.5.2 Thrift.g 2015-07-04 21:58:32
 
 package bweng.thrift.parser;
 
@@ -14,20 +14,19 @@ import org.antlr.runtime.tree.*;
 @SuppressWarnings("all")
 public class ThriftParser extends Parser {
 	public static final String[] tokenNames = new String[] {
-		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "ARGS", "ASYNC", "COMMA", "COMMENT", 
-		"CONST", "CPP_INCLUDE", "CPP_TYPE", "DEFAULT_NAMESPACE", "DEFERRED", "DIGIT", 
-		"DOCUMENT", "DOUBLE", "ENTRY", "ENUM", "EVENT", "EXCEPTION", "EXTENDS", 
-		"FIELD", "FIELD_ID", "HEX_DIGIT", "HEX_INTEGER", "IDENTIFIER", "INCLUDE", 
-		"INTEGER", "LCURLY", "LETTER", "LIST", "LITERAL", "MAP", "METHOD", "NAMESPACE", 
-		"ONEWAY", "OPTIONAL", "PACKAGE", "RCURLY", "REQUIRED", "REQUIREDNESS", 
-		"SEMICOLON", "SENUM", "SERVICE", "SET", "STRUCT", "THROWS", "TYPE", "TYPEDEF", 
-		"TYPES", "TYPE_BINARY", "TYPE_BOOL", "TYPE_BYTE", "TYPE_DOUBLE", "TYPE_I16", 
-		"TYPE_I32", "TYPE_I64", "TYPE_STRING", "UNION", "VOID", "WS", "'('", "')'", 
-		"'*'", "':'", "'<'", "'='", "'>'", "'['", "']'", "'cpp_include'", "'cpp_namespace'", 
-		"'cpp_type'", "'php_namespace'"
+		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "ARGS_", "ASYNC", "COMMA", "COMMENT", 
+		"CONST", "CPP_INCLUDE_", "CPP_TYPE_", "DEFAULT_NAMESPACE_", "DEFERRED", 
+		"DIGIT", "DOCUMENT_", "DOUBLE", "ENTRY_", "ENUM", "EVENT", "EXCEPTION", 
+		"EXTENDS", "EXTENDS_", "FIELD_", "FIELD_ID_", "HEX_DIGIT", "HEX_INTEGER", 
+		"IDENTIFIER", "INCLUDE", "INTEGER", "LCURLY", "LETTER", "LIST", "LITERAL", 
+		"MAP", "METHOD_", "NAMESPACE", "ONEWAY", "OPTIONAL", "PACKAGE", "RCURLY", 
+		"REQUIRED", "REQUIREDNESS_", "SEMICOLON", "SENUM", "SERVICE", "SET", "STRUCT", 
+		"THROWS", "TYPEDEF", "TYPES_", "TYPE_", "TYPE_BINARY", "TYPE_BOOL", "TYPE_BYTE", 
+		"TYPE_DOUBLE", "TYPE_I16", "TYPE_I32", "TYPE_I64", "TYPE_STRING", "UNION", 
+		"VOID", "WS", "'('", "')'", "'*'", "':'", "'<'", "'='", "'>'", "'['", 
+		"']'", "'cpp_include'", "'cpp_namespace'", "'cpp_type'", "'php_namespace'"
 	};
 	public static final int EOF=-1;
-	public static final int T__61=61;
 	public static final int T__62=62;
 	public static final int T__63=63;
 	public static final int T__64=64;
@@ -40,63 +39,65 @@ public class ThriftParser extends Parser {
 	public static final int T__71=71;
 	public static final int T__72=72;
 	public static final int T__73=73;
-	public static final int ARGS=4;
+	public static final int T__74=74;
+	public static final int ARGS_=4;
 	public static final int ASYNC=5;
 	public static final int COMMA=6;
 	public static final int COMMENT=7;
 	public static final int CONST=8;
-	public static final int CPP_INCLUDE=9;
-	public static final int CPP_TYPE=10;
-	public static final int DEFAULT_NAMESPACE=11;
+	public static final int CPP_INCLUDE_=9;
+	public static final int CPP_TYPE_=10;
+	public static final int DEFAULT_NAMESPACE_=11;
 	public static final int DEFERRED=12;
 	public static final int DIGIT=13;
-	public static final int DOCUMENT=14;
+	public static final int DOCUMENT_=14;
 	public static final int DOUBLE=15;
-	public static final int ENTRY=16;
+	public static final int ENTRY_=16;
 	public static final int ENUM=17;
 	public static final int EVENT=18;
 	public static final int EXCEPTION=19;
 	public static final int EXTENDS=20;
-	public static final int FIELD=21;
-	public static final int FIELD_ID=22;
-	public static final int HEX_DIGIT=23;
-	public static final int HEX_INTEGER=24;
-	public static final int IDENTIFIER=25;
-	public static final int INCLUDE=26;
-	public static final int INTEGER=27;
-	public static final int LCURLY=28;
-	public static final int LETTER=29;
-	public static final int LIST=30;
-	public static final int LITERAL=31;
-	public static final int MAP=32;
-	public static final int METHOD=33;
-	public static final int NAMESPACE=34;
-	public static final int ONEWAY=35;
-	public static final int OPTIONAL=36;
-	public static final int PACKAGE=37;
-	public static final int RCURLY=38;
-	public static final int REQUIRED=39;
-	public static final int REQUIREDNESS=40;
-	public static final int SEMICOLON=41;
-	public static final int SENUM=42;
-	public static final int SERVICE=43;
-	public static final int SET=44;
-	public static final int STRUCT=45;
-	public static final int THROWS=46;
-	public static final int TYPE=47;
+	public static final int EXTENDS_=21;
+	public static final int FIELD_=22;
+	public static final int FIELD_ID_=23;
+	public static final int HEX_DIGIT=24;
+	public static final int HEX_INTEGER=25;
+	public static final int IDENTIFIER=26;
+	public static final int INCLUDE=27;
+	public static final int INTEGER=28;
+	public static final int LCURLY=29;
+	public static final int LETTER=30;
+	public static final int LIST=31;
+	public static final int LITERAL=32;
+	public static final int MAP=33;
+	public static final int METHOD_=34;
+	public static final int NAMESPACE=35;
+	public static final int ONEWAY=36;
+	public static final int OPTIONAL=37;
+	public static final int PACKAGE=38;
+	public static final int RCURLY=39;
+	public static final int REQUIRED=40;
+	public static final int REQUIREDNESS_=41;
+	public static final int SEMICOLON=42;
+	public static final int SENUM=43;
+	public static final int SERVICE=44;
+	public static final int SET=45;
+	public static final int STRUCT=46;
+	public static final int THROWS=47;
 	public static final int TYPEDEF=48;
-	public static final int TYPES=49;
-	public static final int TYPE_BINARY=50;
-	public static final int TYPE_BOOL=51;
-	public static final int TYPE_BYTE=52;
-	public static final int TYPE_DOUBLE=53;
-	public static final int TYPE_I16=54;
-	public static final int TYPE_I32=55;
-	public static final int TYPE_I64=56;
-	public static final int TYPE_STRING=57;
-	public static final int UNION=58;
-	public static final int VOID=59;
-	public static final int WS=60;
+	public static final int TYPES_=49;
+	public static final int TYPE_=50;
+	public static final int TYPE_BINARY=51;
+	public static final int TYPE_BOOL=52;
+	public static final int TYPE_BYTE=53;
+	public static final int TYPE_DOUBLE=54;
+	public static final int TYPE_I16=55;
+	public static final int TYPE_I32=56;
+	public static final int TYPE_I64=57;
+	public static final int TYPE_STRING=58;
+	public static final int UNION=59;
+	public static final int VOID=60;
+	public static final int WS=61;
 
 	// delegates
 	public Parser[] getDelegates() {
@@ -133,7 +134,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "document"
-	// Thrift.g:84:1: document : ( header )* ( definition )* EOF -> ^( DOCUMENT ( header )* ( definition )* ) ;
+	// Thrift.g:64:1: document : ( header )* ( definition )* EOF -> ^( DOCUMENT_ ( header )* ( definition )* ) ;
 	public final ThriftParser.document_return document() throws RecognitionException {
 		ThriftParser.document_return retval = new ThriftParser.document_return();
 		retval.start = input.LT(1);
@@ -150,23 +151,23 @@ public class ThriftParser extends Parser {
 		RewriteRuleSubtreeStream stream_definition=new RewriteRuleSubtreeStream(adaptor,"rule definition");
 
 		try {
-			// Thrift.g:85:5: ( ( header )* ( definition )* EOF -> ^( DOCUMENT ( header )* ( definition )* ) )
-			// Thrift.g:85:7: ( header )* ( definition )* EOF
+			// Thrift.g:65:5: ( ( header )* ( definition )* EOF -> ^( DOCUMENT_ ( header )* ( definition )* ) )
+			// Thrift.g:65:7: ( header )* ( definition )* EOF
 			{
-			// Thrift.g:85:7: ( header )*
+			// Thrift.g:65:7: ( header )*
 			loop1:
 			while (true) {
 				int alt1=2;
 				int LA1_0 = input.LA(1);
-				if ( (LA1_0==INCLUDE||LA1_0==NAMESPACE||(LA1_0 >= 70 && LA1_0 <= 71)||LA1_0==73) ) {
+				if ( (LA1_0==INCLUDE||LA1_0==NAMESPACE||(LA1_0 >= 71 && LA1_0 <= 72)||LA1_0==74) ) {
 					alt1=1;
 				}
 
 				switch (alt1) {
 				case 1 :
-					// Thrift.g:85:7: header
+					// Thrift.g:65:7: header
 					{
-					pushFollow(FOLLOW_header_in_document384);
+					pushFollow(FOLLOW_header_in_document388);
 					header1=header();
 					state._fsp--;
 
@@ -179,7 +180,7 @@ public class ThriftParser extends Parser {
 				}
 			}
 
-			// Thrift.g:85:15: ( definition )*
+			// Thrift.g:65:15: ( definition )*
 			loop2:
 			while (true) {
 				int alt2=2;
@@ -190,9 +191,9 @@ public class ThriftParser extends Parser {
 
 				switch (alt2) {
 				case 1 :
-					// Thrift.g:85:15: definition
+					// Thrift.g:65:15: definition
 					{
-					pushFollow(FOLLOW_definition_in_document387);
+					pushFollow(FOLLOW_definition_in_document391);
 					definition2=definition();
 					state._fsp--;
 
@@ -205,11 +206,11 @@ public class ThriftParser extends Parser {
 				}
 			}
 
-			EOF3=(Token)match(input,EOF,FOLLOW_EOF_in_document390);  
+			EOF3=(Token)match(input,EOF,FOLLOW_EOF_in_document394);  
 			stream_EOF.add(EOF3);
 
 			// AST REWRITE
-			// elements: definition, header
+			// elements: header, definition
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -219,19 +220,19 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 85:31: -> ^( DOCUMENT ( header )* ( definition )* )
+			// 65:31: -> ^( DOCUMENT_ ( header )* ( definition )* )
 			{
-				// Thrift.g:85:34: ^( DOCUMENT ( header )* ( definition )* )
+				// Thrift.g:65:34: ^( DOCUMENT_ ( header )* ( definition )* )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DOCUMENT, "DOCUMENT"), root_1);
-				// Thrift.g:85:45: ( header )*
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DOCUMENT_, "DOCUMENT_"), root_1);
+				// Thrift.g:65:46: ( header )*
 				while ( stream_header.hasNext() ) {
 					adaptor.addChild(root_1, stream_header.nextTree());
 				}
 				stream_header.reset();
 
-				// Thrift.g:85:53: ( definition )*
+				// Thrift.g:65:54: ( definition )*
 				while ( stream_definition.hasNext() ) {
 					adaptor.addChild(root_1, stream_definition.nextTree());
 				}
@@ -274,7 +275,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "header"
-	// Thrift.g:89:1: header : ( include | namespace | cpp_include );
+	// Thrift.g:69:1: header : ( include | namespace | cpp_include );
 	public final ThriftParser.header_return header() throws RecognitionException {
 		ThriftParser.header_return retval = new ThriftParser.header_return();
 		retval.start = input.LT(1);
@@ -287,7 +288,7 @@ public class ThriftParser extends Parser {
 
 
 		try {
-			// Thrift.g:90:5: ( include | namespace | cpp_include )
+			// Thrift.g:70:5: ( include | namespace | cpp_include )
 			int alt3=3;
 			switch ( input.LA(1) ) {
 			case INCLUDE:
@@ -296,13 +297,13 @@ public class ThriftParser extends Parser {
 				}
 				break;
 			case NAMESPACE:
-			case 71:
-			case 73:
+			case 72:
+			case 74:
 				{
 				alt3=2;
 				}
 				break;
-			case 70:
+			case 71:
 				{
 				alt3=3;
 				}
@@ -314,12 +315,12 @@ public class ThriftParser extends Parser {
 			}
 			switch (alt3) {
 				case 1 :
-					// Thrift.g:90:7: include
+					// Thrift.g:70:7: include
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_include_in_header420);
+					pushFollow(FOLLOW_include_in_header424);
 					include4=include();
 					state._fsp--;
 
@@ -328,12 +329,12 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 2 :
-					// Thrift.g:90:17: namespace
+					// Thrift.g:70:17: namespace
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_namespace_in_header424);
+					pushFollow(FOLLOW_namespace_in_header428);
 					namespace5=namespace();
 					state._fsp--;
 
@@ -342,12 +343,12 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 3 :
-					// Thrift.g:90:29: cpp_include
+					// Thrift.g:70:29: cpp_include
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_cpp_include_in_header428);
+					pushFollow(FOLLOW_cpp_include_in_header432);
 					cpp_include6=cpp_include();
 					state._fsp--;
 
@@ -384,7 +385,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "include"
-	// Thrift.g:93:1: include : INCLUDE LITERAL -> ^( INCLUDE LITERAL ) ;
+	// Thrift.g:73:1: include : INCLUDE LITERAL -> ^( INCLUDE LITERAL ) ;
 	public final ThriftParser.include_return include() throws RecognitionException {
 		ThriftParser.include_return retval = new ThriftParser.include_return();
 		retval.start = input.LT(1);
@@ -400,13 +401,13 @@ public class ThriftParser extends Parser {
 		RewriteRuleTokenStream stream_INCLUDE=new RewriteRuleTokenStream(adaptor,"token INCLUDE");
 
 		try {
-			// Thrift.g:94:5: ( INCLUDE LITERAL -> ^( INCLUDE LITERAL ) )
-			// Thrift.g:94:7: INCLUDE LITERAL
+			// Thrift.g:74:5: ( INCLUDE LITERAL -> ^( INCLUDE LITERAL ) )
+			// Thrift.g:74:7: INCLUDE LITERAL
 			{
-			INCLUDE7=(Token)match(input,INCLUDE,FOLLOW_INCLUDE_in_include445);  
+			INCLUDE7=(Token)match(input,INCLUDE,FOLLOW_INCLUDE_in_include449);  
 			stream_INCLUDE.add(INCLUDE7);
 
-			LITERAL8=(Token)match(input,LITERAL,FOLLOW_LITERAL_in_include447);  
+			LITERAL8=(Token)match(input,LITERAL,FOLLOW_LITERAL_in_include451);  
 			stream_LITERAL.add(LITERAL8);
 
 			// AST REWRITE
@@ -420,9 +421,9 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 94:23: -> ^( INCLUDE LITERAL )
+			// 74:23: -> ^( INCLUDE LITERAL )
 			{
-				// Thrift.g:94:26: ^( INCLUDE LITERAL )
+				// Thrift.g:74:26: ^( INCLUDE LITERAL )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_INCLUDE.nextNode(), root_1);
@@ -464,7 +465,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "dpackage"
-	// Thrift.g:97:1: dpackage : PACKAGE k= IDENTIFIER LCURLY ( definition )* RCURLY -> ^( PACKAGE $k ( definition )* ) ;
+	// Thrift.g:77:1: dpackage : PACKAGE k= IDENTIFIER LCURLY ( definition )* RCURLY -> ^( PACKAGE $k ( definition )* ) ;
 	public final ThriftParser.dpackage_return dpackage() throws RecognitionException {
 		ThriftParser.dpackage_return retval = new ThriftParser.dpackage_return();
 		retval.start = input.LT(1);
@@ -488,19 +489,19 @@ public class ThriftParser extends Parser {
 		RewriteRuleSubtreeStream stream_definition=new RewriteRuleSubtreeStream(adaptor,"rule definition");
 
 		try {
-			// Thrift.g:98:5: ( PACKAGE k= IDENTIFIER LCURLY ( definition )* RCURLY -> ^( PACKAGE $k ( definition )* ) )
-			// Thrift.g:98:7: PACKAGE k= IDENTIFIER LCURLY ( definition )* RCURLY
+			// Thrift.g:78:5: ( PACKAGE k= IDENTIFIER LCURLY ( definition )* RCURLY -> ^( PACKAGE $k ( definition )* ) )
+			// Thrift.g:78:7: PACKAGE k= IDENTIFIER LCURLY ( definition )* RCURLY
 			{
-			PACKAGE9=(Token)match(input,PACKAGE,FOLLOW_PACKAGE_in_dpackage472);  
+			PACKAGE9=(Token)match(input,PACKAGE,FOLLOW_PACKAGE_in_dpackage476);  
 			stream_PACKAGE.add(PACKAGE9);
 
-			k=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_dpackage476);  
+			k=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_dpackage480);  
 			stream_IDENTIFIER.add(k);
 
-			LCURLY10=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_dpackage478);  
+			LCURLY10=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_dpackage482);  
 			stream_LCURLY.add(LCURLY10);
 
-			// Thrift.g:98:35: ( definition )*
+			// Thrift.g:78:35: ( definition )*
 			loop4:
 			while (true) {
 				int alt4=2;
@@ -511,9 +512,9 @@ public class ThriftParser extends Parser {
 
 				switch (alt4) {
 				case 1 :
-					// Thrift.g:98:35: definition
+					// Thrift.g:78:35: definition
 					{
-					pushFollow(FOLLOW_definition_in_dpackage480);
+					pushFollow(FOLLOW_definition_in_dpackage484);
 					definition11=definition();
 					state._fsp--;
 
@@ -526,11 +527,11 @@ public class ThriftParser extends Parser {
 				}
 			}
 
-			RCURLY12=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_dpackage483);  
+			RCURLY12=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_dpackage487);  
 			stream_RCURLY.add(RCURLY12);
 
 			// AST REWRITE
-			// elements: PACKAGE, k, definition
+			// elements: definition, PACKAGE, k
 			// token labels: k
 			// rule labels: retval
 			// token list labels: 
@@ -541,14 +542,14 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 98:54: -> ^( PACKAGE $k ( definition )* )
+			// 78:54: -> ^( PACKAGE $k ( definition )* )
 			{
-				// Thrift.g:98:57: ^( PACKAGE $k ( definition )* )
+				// Thrift.g:78:57: ^( PACKAGE $k ( definition )* )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_PACKAGE.nextNode(), root_1);
 				adaptor.addChild(root_1, stream_k.nextNode());
-				// Thrift.g:98:70: ( definition )*
+				// Thrift.g:78:70: ( definition )*
 				while ( stream_definition.hasNext() ) {
 					adaptor.addChild(root_1, stream_definition.nextTree());
 				}
@@ -591,7 +592,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "namespace"
-	// Thrift.g:101:1: namespace : ( NAMESPACE '*' (v= IDENTIFIER |v= LITERAL ) -> ^( DEFAULT_NAMESPACE $v) | NAMESPACE k= IDENTIFIER (v= IDENTIFIER |v= LITERAL ) -> ^( NAMESPACE $k $v) | 'cpp_namespace' IDENTIFIER -> ^( NAMESPACE IDENTIFIER[\"cpp\"] IDENTIFIER ) | 'php_namespace' IDENTIFIER -> ^( NAMESPACE IDENTIFIER[\"php\"] IDENTIFIER ) );
+	// Thrift.g:81:1: namespace : ( NAMESPACE '*' (v= IDENTIFIER |v= LITERAL ) -> ^( DEFAULT_NAMESPACE_ $v) | NAMESPACE k= IDENTIFIER (v= IDENTIFIER |v= LITERAL ) -> ^( NAMESPACE $k $v) | 'cpp_namespace' IDENTIFIER -> ^( NAMESPACE IDENTIFIER[\"cpp\"] IDENTIFIER ) | 'php_namespace' IDENTIFIER -> ^( NAMESPACE IDENTIFIER[\"php\"] IDENTIFIER ) );
 	public final ThriftParser.namespace_return namespace() throws RecognitionException {
 		ThriftParser.namespace_return retval = new ThriftParser.namespace_return();
 		retval.start = input.LT(1);
@@ -619,19 +620,19 @@ public class ThriftParser extends Parser {
 		CommonTree IDENTIFIER19_tree=null;
 		RewriteRuleTokenStream stream_NAMESPACE=new RewriteRuleTokenStream(adaptor,"token NAMESPACE");
 		RewriteRuleTokenStream stream_LITERAL=new RewriteRuleTokenStream(adaptor,"token LITERAL");
-		RewriteRuleTokenStream stream_71=new RewriteRuleTokenStream(adaptor,"token 71");
 		RewriteRuleTokenStream stream_IDENTIFIER=new RewriteRuleTokenStream(adaptor,"token IDENTIFIER");
-		RewriteRuleTokenStream stream_73=new RewriteRuleTokenStream(adaptor,"token 73");
-		RewriteRuleTokenStream stream_63=new RewriteRuleTokenStream(adaptor,"token 63");
+		RewriteRuleTokenStream stream_72=new RewriteRuleTokenStream(adaptor,"token 72");
+		RewriteRuleTokenStream stream_74=new RewriteRuleTokenStream(adaptor,"token 74");
+		RewriteRuleTokenStream stream_64=new RewriteRuleTokenStream(adaptor,"token 64");
 
 		try {
-			// Thrift.g:102:5: ( NAMESPACE '*' (v= IDENTIFIER |v= LITERAL ) -> ^( DEFAULT_NAMESPACE $v) | NAMESPACE k= IDENTIFIER (v= IDENTIFIER |v= LITERAL ) -> ^( NAMESPACE $k $v) | 'cpp_namespace' IDENTIFIER -> ^( NAMESPACE IDENTIFIER[\"cpp\"] IDENTIFIER ) | 'php_namespace' IDENTIFIER -> ^( NAMESPACE IDENTIFIER[\"php\"] IDENTIFIER ) )
+			// Thrift.g:82:5: ( NAMESPACE '*' (v= IDENTIFIER |v= LITERAL ) -> ^( DEFAULT_NAMESPACE_ $v) | NAMESPACE k= IDENTIFIER (v= IDENTIFIER |v= LITERAL ) -> ^( NAMESPACE $k $v) | 'cpp_namespace' IDENTIFIER -> ^( NAMESPACE IDENTIFIER[\"cpp\"] IDENTIFIER ) | 'php_namespace' IDENTIFIER -> ^( NAMESPACE IDENTIFIER[\"php\"] IDENTIFIER ) )
 			int alt7=4;
 			switch ( input.LA(1) ) {
 			case NAMESPACE:
 				{
 				int LA7_1 = input.LA(2);
-				if ( (LA7_1==63) ) {
+				if ( (LA7_1==64) ) {
 					alt7=1;
 				}
 				else if ( (LA7_1==IDENTIFIER) ) {
@@ -652,12 +653,12 @@ public class ThriftParser extends Parser {
 
 				}
 				break;
-			case 71:
+			case 72:
 				{
 				alt7=3;
 				}
 				break;
-			case 73:
+			case 74:
 				{
 				alt7=4;
 				}
@@ -669,15 +670,15 @@ public class ThriftParser extends Parser {
 			}
 			switch (alt7) {
 				case 1 :
-					// Thrift.g:102:7: NAMESPACE '*' (v= IDENTIFIER |v= LITERAL )
+					// Thrift.g:82:7: NAMESPACE '*' (v= IDENTIFIER |v= LITERAL )
 					{
-					NAMESPACE13=(Token)match(input,NAMESPACE,FOLLOW_NAMESPACE_in_namespace513);  
+					NAMESPACE13=(Token)match(input,NAMESPACE,FOLLOW_NAMESPACE_in_namespace517);  
 					stream_NAMESPACE.add(NAMESPACE13);
 
-					char_literal14=(Token)match(input,63,FOLLOW_63_in_namespace515);  
-					stream_63.add(char_literal14);
+					char_literal14=(Token)match(input,64,FOLLOW_64_in_namespace519);  
+					stream_64.add(char_literal14);
 
-					// Thrift.g:102:21: (v= IDENTIFIER |v= LITERAL )
+					// Thrift.g:82:21: (v= IDENTIFIER |v= LITERAL )
 					int alt5=2;
 					int LA5_0 = input.LA(1);
 					if ( (LA5_0==IDENTIFIER) ) {
@@ -695,17 +696,17 @@ public class ThriftParser extends Parser {
 
 					switch (alt5) {
 						case 1 :
-							// Thrift.g:102:22: v= IDENTIFIER
+							// Thrift.g:82:22: v= IDENTIFIER
 							{
-							v=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_namespace520);  
+							v=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_namespace524);  
 							stream_IDENTIFIER.add(v);
 
 							}
 							break;
 						case 2 :
-							// Thrift.g:102:37: v= LITERAL
+							// Thrift.g:82:37: v= LITERAL
 							{
-							v=(Token)match(input,LITERAL,FOLLOW_LITERAL_in_namespace526);  
+							v=(Token)match(input,LITERAL,FOLLOW_LITERAL_in_namespace530);  
 							stream_LITERAL.add(v);
 
 							}
@@ -725,12 +726,12 @@ public class ThriftParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 102:48: -> ^( DEFAULT_NAMESPACE $v)
+					// 82:48: -> ^( DEFAULT_NAMESPACE_ $v)
 					{
-						// Thrift.g:102:51: ^( DEFAULT_NAMESPACE $v)
+						// Thrift.g:82:51: ^( DEFAULT_NAMESPACE_ $v)
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
-						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DEFAULT_NAMESPACE, "DEFAULT_NAMESPACE"), root_1);
+						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DEFAULT_NAMESPACE_, "DEFAULT_NAMESPACE_"), root_1);
 						adaptor.addChild(root_1, stream_v.nextNode());
 						adaptor.addChild(root_0, root_1);
 						}
@@ -743,15 +744,15 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 2 :
-					// Thrift.g:103:7: NAMESPACE k= IDENTIFIER (v= IDENTIFIER |v= LITERAL )
+					// Thrift.g:83:7: NAMESPACE k= IDENTIFIER (v= IDENTIFIER |v= LITERAL )
 					{
-					NAMESPACE15=(Token)match(input,NAMESPACE,FOLLOW_NAMESPACE_in_namespace544);  
+					NAMESPACE15=(Token)match(input,NAMESPACE,FOLLOW_NAMESPACE_in_namespace548);  
 					stream_NAMESPACE.add(NAMESPACE15);
 
-					k=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_namespace548);  
+					k=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_namespace552);  
 					stream_IDENTIFIER.add(k);
 
-					// Thrift.g:103:30: (v= IDENTIFIER |v= LITERAL )
+					// Thrift.g:83:30: (v= IDENTIFIER |v= LITERAL )
 					int alt6=2;
 					int LA6_0 = input.LA(1);
 					if ( (LA6_0==IDENTIFIER) ) {
@@ -769,17 +770,17 @@ public class ThriftParser extends Parser {
 
 					switch (alt6) {
 						case 1 :
-							// Thrift.g:103:31: v= IDENTIFIER
+							// Thrift.g:83:31: v= IDENTIFIER
 							{
-							v=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_namespace553);  
+							v=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_namespace557);  
 							stream_IDENTIFIER.add(v);
 
 							}
 							break;
 						case 2 :
-							// Thrift.g:103:46: v= LITERAL
+							// Thrift.g:83:46: v= LITERAL
 							{
-							v=(Token)match(input,LITERAL,FOLLOW_LITERAL_in_namespace559);  
+							v=(Token)match(input,LITERAL,FOLLOW_LITERAL_in_namespace563);  
 							stream_LITERAL.add(v);
 
 							}
@@ -788,7 +789,7 @@ public class ThriftParser extends Parser {
 					}
 
 					// AST REWRITE
-					// elements: NAMESPACE, k, v
+					// elements: v, NAMESPACE, k
 					// token labels: v, k
 					// rule labels: retval
 					// token list labels: 
@@ -800,9 +801,9 @@ public class ThriftParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 103:57: -> ^( NAMESPACE $k $v)
+					// 83:57: -> ^( NAMESPACE $k $v)
 					{
-						// Thrift.g:103:60: ^( NAMESPACE $k $v)
+						// Thrift.g:83:60: ^( NAMESPACE $k $v)
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot(stream_NAMESPACE.nextNode(), root_1);
@@ -819,12 +820,12 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 3 :
-					// Thrift.g:104:7: 'cpp_namespace' IDENTIFIER
+					// Thrift.g:84:7: 'cpp_namespace' IDENTIFIER
 					{
-					string_literal16=(Token)match(input,71,FOLLOW_71_in_namespace580);  
-					stream_71.add(string_literal16);
+					string_literal16=(Token)match(input,72,FOLLOW_72_in_namespace584);  
+					stream_72.add(string_literal16);
 
-					IDENTIFIER17=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_namespace582);  
+					IDENTIFIER17=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_namespace586);  
 					stream_IDENTIFIER.add(IDENTIFIER17);
 
 					// AST REWRITE
@@ -838,9 +839,9 @@ public class ThriftParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 104:34: -> ^( NAMESPACE IDENTIFIER[\"cpp\"] IDENTIFIER )
+					// 84:34: -> ^( NAMESPACE IDENTIFIER[\"cpp\"] IDENTIFIER )
 					{
-						// Thrift.g:104:37: ^( NAMESPACE IDENTIFIER[\"cpp\"] IDENTIFIER )
+						// Thrift.g:84:37: ^( NAMESPACE IDENTIFIER[\"cpp\"] IDENTIFIER )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(NAMESPACE, "NAMESPACE"), root_1);
@@ -857,12 +858,12 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 4 :
-					// Thrift.g:105:7: 'php_namespace' IDENTIFIER
+					// Thrift.g:85:7: 'php_namespace' IDENTIFIER
 					{
-					string_literal18=(Token)match(input,73,FOLLOW_73_in_namespace601);  
-					stream_73.add(string_literal18);
+					string_literal18=(Token)match(input,74,FOLLOW_74_in_namespace605);  
+					stream_74.add(string_literal18);
 
-					IDENTIFIER19=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_namespace603);  
+					IDENTIFIER19=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_namespace607);  
 					stream_IDENTIFIER.add(IDENTIFIER19);
 
 					// AST REWRITE
@@ -876,9 +877,9 @@ public class ThriftParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 105:34: -> ^( NAMESPACE IDENTIFIER[\"php\"] IDENTIFIER )
+					// 85:34: -> ^( NAMESPACE IDENTIFIER[\"php\"] IDENTIFIER )
 					{
-						// Thrift.g:105:37: ^( NAMESPACE IDENTIFIER[\"php\"] IDENTIFIER )
+						// Thrift.g:85:37: ^( NAMESPACE IDENTIFIER[\"php\"] IDENTIFIER )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(NAMESPACE, "NAMESPACE"), root_1);
@@ -923,7 +924,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "cpp_include"
-	// Thrift.g:108:1: cpp_include : 'cpp_include' LITERAL -> ^( CPP_INCLUDE LITERAL ) ;
+	// Thrift.g:88:1: cpp_include : 'cpp_include' LITERAL -> ^( CPP_INCLUDE_ LITERAL ) ;
 	public final ThriftParser.cpp_include_return cpp_include() throws RecognitionException {
 		ThriftParser.cpp_include_return retval = new ThriftParser.cpp_include_return();
 		retval.start = input.LT(1);
@@ -936,16 +937,16 @@ public class ThriftParser extends Parser {
 		CommonTree string_literal20_tree=null;
 		CommonTree LITERAL21_tree=null;
 		RewriteRuleTokenStream stream_LITERAL=new RewriteRuleTokenStream(adaptor,"token LITERAL");
-		RewriteRuleTokenStream stream_70=new RewriteRuleTokenStream(adaptor,"token 70");
+		RewriteRuleTokenStream stream_71=new RewriteRuleTokenStream(adaptor,"token 71");
 
 		try {
-			// Thrift.g:109:5: ( 'cpp_include' LITERAL -> ^( CPP_INCLUDE LITERAL ) )
-			// Thrift.g:109:7: 'cpp_include' LITERAL
+			// Thrift.g:89:5: ( 'cpp_include' LITERAL -> ^( CPP_INCLUDE_ LITERAL ) )
+			// Thrift.g:89:7: 'cpp_include' LITERAL
 			{
-			string_literal20=(Token)match(input,70,FOLLOW_70_in_cpp_include631);  
-			stream_70.add(string_literal20);
+			string_literal20=(Token)match(input,71,FOLLOW_71_in_cpp_include635);  
+			stream_71.add(string_literal20);
 
-			LITERAL21=(Token)match(input,LITERAL,FOLLOW_LITERAL_in_cpp_include633);  
+			LITERAL21=(Token)match(input,LITERAL,FOLLOW_LITERAL_in_cpp_include637);  
 			stream_LITERAL.add(LITERAL21);
 
 			// AST REWRITE
@@ -959,12 +960,12 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 109:29: -> ^( CPP_INCLUDE LITERAL )
+			// 89:29: -> ^( CPP_INCLUDE_ LITERAL )
 			{
-				// Thrift.g:109:32: ^( CPP_INCLUDE LITERAL )
+				// Thrift.g:89:32: ^( CPP_INCLUDE_ LITERAL )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CPP_INCLUDE, "CPP_INCLUDE"), root_1);
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CPP_INCLUDE_, "CPP_INCLUDE_"), root_1);
 				adaptor.addChild(root_1, stream_LITERAL.nextNode());
 				adaptor.addChild(root_0, root_1);
 				}
@@ -1003,7 +1004,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "definition"
-	// Thrift.g:113:1: definition : ( dpackage | const_rule | typedef | enum_rule | senum | struct | union | exception | service );
+	// Thrift.g:93:1: definition : ( dpackage | const_rule | typedef | enum_rule | senum | struct | union | exception | service );
 	public final ThriftParser.definition_return definition() throws RecognitionException {
 		ThriftParser.definition_return retval = new ThriftParser.definition_return();
 		retval.start = input.LT(1);
@@ -1022,7 +1023,7 @@ public class ThriftParser extends Parser {
 
 
 		try {
-			// Thrift.g:114:5: ( dpackage | const_rule | typedef | enum_rule | senum | struct | union | exception | service )
+			// Thrift.g:94:5: ( dpackage | const_rule | typedef | enum_rule | senum | struct | union | exception | service )
 			int alt8=9;
 			switch ( input.LA(1) ) {
 			case PACKAGE:
@@ -1077,12 +1078,12 @@ public class ThriftParser extends Parser {
 			}
 			switch (alt8) {
 				case 1 :
-					// Thrift.g:114:7: dpackage
+					// Thrift.g:94:7: dpackage
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_dpackage_in_definition659);
+					pushFollow(FOLLOW_dpackage_in_definition663);
 					dpackage22=dpackage();
 					state._fsp--;
 
@@ -1091,12 +1092,12 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 2 :
-					// Thrift.g:114:18: const_rule
+					// Thrift.g:94:18: const_rule
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_const_rule_in_definition663);
+					pushFollow(FOLLOW_const_rule_in_definition667);
 					const_rule23=const_rule();
 					state._fsp--;
 
@@ -1105,12 +1106,12 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 3 :
-					// Thrift.g:114:31: typedef
+					// Thrift.g:94:31: typedef
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_typedef_in_definition667);
+					pushFollow(FOLLOW_typedef_in_definition671);
 					typedef24=typedef();
 					state._fsp--;
 
@@ -1119,12 +1120,12 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 4 :
-					// Thrift.g:114:41: enum_rule
+					// Thrift.g:94:41: enum_rule
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_enum_rule_in_definition671);
+					pushFollow(FOLLOW_enum_rule_in_definition675);
 					enum_rule25=enum_rule();
 					state._fsp--;
 
@@ -1133,12 +1134,12 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 5 :
-					// Thrift.g:114:53: senum
+					// Thrift.g:94:53: senum
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_senum_in_definition675);
+					pushFollow(FOLLOW_senum_in_definition679);
 					senum26=senum();
 					state._fsp--;
 
@@ -1147,12 +1148,12 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 6 :
-					// Thrift.g:114:61: struct
+					// Thrift.g:94:61: struct
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_struct_in_definition679);
+					pushFollow(FOLLOW_struct_in_definition683);
 					struct27=struct();
 					state._fsp--;
 
@@ -1161,12 +1162,12 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 7 :
-					// Thrift.g:114:70: union
+					// Thrift.g:94:70: union
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_union_in_definition683);
+					pushFollow(FOLLOW_union_in_definition687);
 					union28=union();
 					state._fsp--;
 
@@ -1175,12 +1176,12 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 8 :
-					// Thrift.g:114:78: exception
+					// Thrift.g:94:78: exception
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_exception_in_definition687);
+					pushFollow(FOLLOW_exception_in_definition691);
 					exception29=exception();
 					state._fsp--;
 
@@ -1189,12 +1190,12 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 9 :
-					// Thrift.g:114:90: service
+					// Thrift.g:94:90: service
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_service_in_definition691);
+					pushFollow(FOLLOW_service_in_definition695);
 					service30=service();
 					state._fsp--;
 
@@ -1231,7 +1232,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "const_rule"
-	// Thrift.g:117:1: const_rule : CONST field_type IDENTIFIER '=' const_value ( list_separator )? -> ^( CONST IDENTIFIER field_type const_value ) ;
+	// Thrift.g:97:1: const_rule : CONST field_type IDENTIFIER '=' const_value ( list_separator )? -> ^( CONST IDENTIFIER field_type const_value ) ;
 	public final ThriftParser.const_rule_return const_rule() throws RecognitionException {
 		ThriftParser.const_rule_return retval = new ThriftParser.const_rule_return();
 		retval.start = input.LT(1);
@@ -1248,7 +1249,7 @@ public class ThriftParser extends Parser {
 		CommonTree CONST31_tree=null;
 		CommonTree IDENTIFIER33_tree=null;
 		CommonTree char_literal34_tree=null;
-		RewriteRuleTokenStream stream_66=new RewriteRuleTokenStream(adaptor,"token 66");
+		RewriteRuleTokenStream stream_67=new RewriteRuleTokenStream(adaptor,"token 67");
 		RewriteRuleTokenStream stream_CONST=new RewriteRuleTokenStream(adaptor,"token CONST");
 		RewriteRuleTokenStream stream_IDENTIFIER=new RewriteRuleTokenStream(adaptor,"token IDENTIFIER");
 		RewriteRuleSubtreeStream stream_list_separator=new RewriteRuleSubtreeStream(adaptor,"rule list_separator");
@@ -1256,29 +1257,29 @@ public class ThriftParser extends Parser {
 		RewriteRuleSubtreeStream stream_field_type=new RewriteRuleSubtreeStream(adaptor,"rule field_type");
 
 		try {
-			// Thrift.g:118:5: ( CONST field_type IDENTIFIER '=' const_value ( list_separator )? -> ^( CONST IDENTIFIER field_type const_value ) )
-			// Thrift.g:118:7: CONST field_type IDENTIFIER '=' const_value ( list_separator )?
+			// Thrift.g:98:5: ( CONST field_type IDENTIFIER '=' const_value ( list_separator )? -> ^( CONST IDENTIFIER field_type const_value ) )
+			// Thrift.g:98:7: CONST field_type IDENTIFIER '=' const_value ( list_separator )?
 			{
-			CONST31=(Token)match(input,CONST,FOLLOW_CONST_in_const_rule708);  
+			CONST31=(Token)match(input,CONST,FOLLOW_CONST_in_const_rule712);  
 			stream_CONST.add(CONST31);
 
-			pushFollow(FOLLOW_field_type_in_const_rule710);
+			pushFollow(FOLLOW_field_type_in_const_rule714);
 			field_type32=field_type();
 			state._fsp--;
 
 			stream_field_type.add(field_type32.getTree());
-			IDENTIFIER33=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_const_rule712);  
+			IDENTIFIER33=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_const_rule716);  
 			stream_IDENTIFIER.add(IDENTIFIER33);
 
-			char_literal34=(Token)match(input,66,FOLLOW_66_in_const_rule714);  
-			stream_66.add(char_literal34);
+			char_literal34=(Token)match(input,67,FOLLOW_67_in_const_rule718);  
+			stream_67.add(char_literal34);
 
-			pushFollow(FOLLOW_const_value_in_const_rule716);
+			pushFollow(FOLLOW_const_value_in_const_rule720);
 			const_value35=const_value();
 			state._fsp--;
 
 			stream_const_value.add(const_value35.getTree());
-			// Thrift.g:118:51: ( list_separator )?
+			// Thrift.g:98:51: ( list_separator )?
 			int alt9=2;
 			int LA9_0 = input.LA(1);
 			if ( (LA9_0==COMMA||LA9_0==SEMICOLON) ) {
@@ -1286,9 +1287,9 @@ public class ThriftParser extends Parser {
 			}
 			switch (alt9) {
 				case 1 :
-					// Thrift.g:118:51: list_separator
+					// Thrift.g:98:51: list_separator
 					{
-					pushFollow(FOLLOW_list_separator_in_const_rule718);
+					pushFollow(FOLLOW_list_separator_in_const_rule722);
 					list_separator36=list_separator();
 					state._fsp--;
 
@@ -1299,7 +1300,7 @@ public class ThriftParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: field_type, CONST, IDENTIFIER, const_value
+			// elements: IDENTIFIER, field_type, CONST, const_value
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1309,9 +1310,9 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 119:9: -> ^( CONST IDENTIFIER field_type const_value )
+			// 99:9: -> ^( CONST IDENTIFIER field_type const_value )
 			{
-				// Thrift.g:119:12: ^( CONST IDENTIFIER field_type const_value )
+				// Thrift.g:99:12: ^( CONST IDENTIFIER field_type const_value )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_CONST.nextNode(), root_1);
@@ -1355,7 +1356,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "typedef"
-	// Thrift.g:122:1: typedef : TYPEDEF field_type IDENTIFIER -> ^( TYPEDEF IDENTIFIER field_type ) ;
+	// Thrift.g:102:1: typedef : TYPEDEF field_type IDENTIFIER -> ^( TYPEDEF IDENTIFIER field_type ) ;
 	public final ThriftParser.typedef_return typedef() throws RecognitionException {
 		ThriftParser.typedef_return retval = new ThriftParser.typedef_return();
 		retval.start = input.LT(1);
@@ -1373,22 +1374,22 @@ public class ThriftParser extends Parser {
 		RewriteRuleSubtreeStream stream_field_type=new RewriteRuleSubtreeStream(adaptor,"rule field_type");
 
 		try {
-			// Thrift.g:123:5: ( TYPEDEF field_type IDENTIFIER -> ^( TYPEDEF IDENTIFIER field_type ) )
-			// Thrift.g:123:7: TYPEDEF field_type IDENTIFIER
+			// Thrift.g:103:5: ( TYPEDEF field_type IDENTIFIER -> ^( TYPEDEF IDENTIFIER field_type ) )
+			// Thrift.g:103:7: TYPEDEF field_type IDENTIFIER
 			{
-			TYPEDEF37=(Token)match(input,TYPEDEF,FOLLOW_TYPEDEF_in_typedef756);  
+			TYPEDEF37=(Token)match(input,TYPEDEF,FOLLOW_TYPEDEF_in_typedef760);  
 			stream_TYPEDEF.add(TYPEDEF37);
 
-			pushFollow(FOLLOW_field_type_in_typedef758);
+			pushFollow(FOLLOW_field_type_in_typedef762);
 			field_type38=field_type();
 			state._fsp--;
 
 			stream_field_type.add(field_type38.getTree());
-			IDENTIFIER39=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_typedef760);  
+			IDENTIFIER39=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_typedef764);  
 			stream_IDENTIFIER.add(IDENTIFIER39);
 
 			// AST REWRITE
-			// elements: TYPEDEF, field_type, IDENTIFIER
+			// elements: field_type, TYPEDEF, IDENTIFIER
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1398,9 +1399,9 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 123:37: -> ^( TYPEDEF IDENTIFIER field_type )
+			// 103:37: -> ^( TYPEDEF IDENTIFIER field_type )
 			{
-				// Thrift.g:123:40: ^( TYPEDEF IDENTIFIER field_type )
+				// Thrift.g:103:40: ^( TYPEDEF IDENTIFIER field_type )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_TYPEDEF.nextNode(), root_1);
@@ -1443,7 +1444,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "enum_rule"
-	// Thrift.g:126:1: enum_rule : ENUM IDENTIFIER LCURLY ( enum_field )* RCURLY -> ^( ENUM IDENTIFIER ( enum_field )* ) ;
+	// Thrift.g:106:1: enum_rule : ENUM IDENTIFIER LCURLY ( enum_field )* RCURLY -> ^( ENUM IDENTIFIER ( enum_field )* ) ;
 	public final ThriftParser.enum_rule_return enum_rule() throws RecognitionException {
 		ThriftParser.enum_rule_return retval = new ThriftParser.enum_rule_return();
 		retval.start = input.LT(1);
@@ -1467,19 +1468,19 @@ public class ThriftParser extends Parser {
 		RewriteRuleSubtreeStream stream_enum_field=new RewriteRuleSubtreeStream(adaptor,"rule enum_field");
 
 		try {
-			// Thrift.g:127:5: ( ENUM IDENTIFIER LCURLY ( enum_field )* RCURLY -> ^( ENUM IDENTIFIER ( enum_field )* ) )
-			// Thrift.g:127:7: ENUM IDENTIFIER LCURLY ( enum_field )* RCURLY
+			// Thrift.g:107:5: ( ENUM IDENTIFIER LCURLY ( enum_field )* RCURLY -> ^( ENUM IDENTIFIER ( enum_field )* ) )
+			// Thrift.g:107:7: ENUM IDENTIFIER LCURLY ( enum_field )* RCURLY
 			{
-			ENUM40=(Token)match(input,ENUM,FOLLOW_ENUM_in_enum_rule787);  
+			ENUM40=(Token)match(input,ENUM,FOLLOW_ENUM_in_enum_rule791);  
 			stream_ENUM.add(ENUM40);
 
-			IDENTIFIER41=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_enum_rule789);  
+			IDENTIFIER41=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_enum_rule793);  
 			stream_IDENTIFIER.add(IDENTIFIER41);
 
-			LCURLY42=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_enum_rule791);  
+			LCURLY42=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_enum_rule795);  
 			stream_LCURLY.add(LCURLY42);
 
-			// Thrift.g:127:30: ( enum_field )*
+			// Thrift.g:107:30: ( enum_field )*
 			loop10:
 			while (true) {
 				int alt10=2;
@@ -1490,9 +1491,9 @@ public class ThriftParser extends Parser {
 
 				switch (alt10) {
 				case 1 :
-					// Thrift.g:127:30: enum_field
+					// Thrift.g:107:30: enum_field
 					{
-					pushFollow(FOLLOW_enum_field_in_enum_rule793);
+					pushFollow(FOLLOW_enum_field_in_enum_rule797);
 					enum_field43=enum_field();
 					state._fsp--;
 
@@ -1505,11 +1506,11 @@ public class ThriftParser extends Parser {
 				}
 			}
 
-			RCURLY44=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_enum_rule796);  
+			RCURLY44=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_enum_rule800);  
 			stream_RCURLY.add(RCURLY44);
 
 			// AST REWRITE
-			// elements: ENUM, IDENTIFIER, enum_field
+			// elements: enum_field, ENUM, IDENTIFIER
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1519,14 +1520,14 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 127:49: -> ^( ENUM IDENTIFIER ( enum_field )* )
+			// 107:49: -> ^( ENUM IDENTIFIER ( enum_field )* )
 			{
-				// Thrift.g:127:52: ^( ENUM IDENTIFIER ( enum_field )* )
+				// Thrift.g:107:52: ^( ENUM IDENTIFIER ( enum_field )* )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_ENUM.nextNode(), root_1);
 				adaptor.addChild(root_1, stream_IDENTIFIER.nextNode());
-				// Thrift.g:127:70: ( enum_field )*
+				// Thrift.g:107:70: ( enum_field )*
 				while ( stream_enum_field.hasNext() ) {
 					adaptor.addChild(root_1, stream_enum_field.nextTree());
 				}
@@ -1569,7 +1570,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "enum_field"
-	// Thrift.g:130:1: enum_field : IDENTIFIER ( '=' integer )? ( list_separator )? -> ^( IDENTIFIER ( integer )? ) ;
+	// Thrift.g:110:1: enum_field : IDENTIFIER ( '=' integer )? ( list_separator )? -> ^( IDENTIFIER ( integer )? ) ;
 	public final ThriftParser.enum_field_return enum_field() throws RecognitionException {
 		ThriftParser.enum_field_return retval = new ThriftParser.enum_field_return();
 		retval.start = input.LT(1);
@@ -1583,32 +1584,32 @@ public class ThriftParser extends Parser {
 
 		CommonTree IDENTIFIER45_tree=null;
 		CommonTree char_literal46_tree=null;
-		RewriteRuleTokenStream stream_66=new RewriteRuleTokenStream(adaptor,"token 66");
+		RewriteRuleTokenStream stream_67=new RewriteRuleTokenStream(adaptor,"token 67");
 		RewriteRuleTokenStream stream_IDENTIFIER=new RewriteRuleTokenStream(adaptor,"token IDENTIFIER");
 		RewriteRuleSubtreeStream stream_list_separator=new RewriteRuleSubtreeStream(adaptor,"rule list_separator");
 		RewriteRuleSubtreeStream stream_integer=new RewriteRuleSubtreeStream(adaptor,"rule integer");
 
 		try {
-			// Thrift.g:131:5: ( IDENTIFIER ( '=' integer )? ( list_separator )? -> ^( IDENTIFIER ( integer )? ) )
-			// Thrift.g:131:7: IDENTIFIER ( '=' integer )? ( list_separator )?
+			// Thrift.g:111:5: ( IDENTIFIER ( '=' integer )? ( list_separator )? -> ^( IDENTIFIER ( integer )? ) )
+			// Thrift.g:111:7: IDENTIFIER ( '=' integer )? ( list_separator )?
 			{
-			IDENTIFIER45=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_enum_field824);  
+			IDENTIFIER45=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_enum_field828);  
 			stream_IDENTIFIER.add(IDENTIFIER45);
 
-			// Thrift.g:131:18: ( '=' integer )?
+			// Thrift.g:111:18: ( '=' integer )?
 			int alt11=2;
 			int LA11_0 = input.LA(1);
-			if ( (LA11_0==66) ) {
+			if ( (LA11_0==67) ) {
 				alt11=1;
 			}
 			switch (alt11) {
 				case 1 :
-					// Thrift.g:131:19: '=' integer
+					// Thrift.g:111:19: '=' integer
 					{
-					char_literal46=(Token)match(input,66,FOLLOW_66_in_enum_field827);  
-					stream_66.add(char_literal46);
+					char_literal46=(Token)match(input,67,FOLLOW_67_in_enum_field831);  
+					stream_67.add(char_literal46);
 
-					pushFollow(FOLLOW_integer_in_enum_field829);
+					pushFollow(FOLLOW_integer_in_enum_field833);
 					integer47=integer();
 					state._fsp--;
 
@@ -1618,7 +1619,7 @@ public class ThriftParser extends Parser {
 
 			}
 
-			// Thrift.g:131:33: ( list_separator )?
+			// Thrift.g:111:33: ( list_separator )?
 			int alt12=2;
 			int LA12_0 = input.LA(1);
 			if ( (LA12_0==COMMA||LA12_0==SEMICOLON) ) {
@@ -1626,9 +1627,9 @@ public class ThriftParser extends Parser {
 			}
 			switch (alt12) {
 				case 1 :
-					// Thrift.g:131:33: list_separator
+					// Thrift.g:111:33: list_separator
 					{
-					pushFollow(FOLLOW_list_separator_in_enum_field833);
+					pushFollow(FOLLOW_list_separator_in_enum_field837);
 					list_separator48=list_separator();
 					state._fsp--;
 
@@ -1649,13 +1650,13 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 131:49: -> ^( IDENTIFIER ( integer )? )
+			// 111:49: -> ^( IDENTIFIER ( integer )? )
 			{
-				// Thrift.g:131:52: ^( IDENTIFIER ( integer )? )
+				// Thrift.g:111:52: ^( IDENTIFIER ( integer )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_IDENTIFIER.nextNode(), root_1);
-				// Thrift.g:131:65: ( integer )?
+				// Thrift.g:111:65: ( integer )?
 				if ( stream_integer.hasNext() ) {
 					adaptor.addChild(root_1, stream_integer.nextTree());
 				}
@@ -1698,7 +1699,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "senum"
-	// Thrift.g:134:1: senum : SENUM IDENTIFIER LCURLY ( LITERAL ( list_separator )? )* RCURLY -> ^( SENUM IDENTIFIER ( LITERAL )* ) ;
+	// Thrift.g:114:1: senum : SENUM IDENTIFIER LCURLY ( LITERAL ( list_separator )? )* RCURLY -> ^( SENUM IDENTIFIER ( LITERAL )* ) ;
 	public final ThriftParser.senum_return senum() throws RecognitionException {
 		ThriftParser.senum_return retval = new ThriftParser.senum_return();
 		retval.start = input.LT(1);
@@ -1725,19 +1726,19 @@ public class ThriftParser extends Parser {
 		RewriteRuleSubtreeStream stream_list_separator=new RewriteRuleSubtreeStream(adaptor,"rule list_separator");
 
 		try {
-			// Thrift.g:135:5: ( SENUM IDENTIFIER LCURLY ( LITERAL ( list_separator )? )* RCURLY -> ^( SENUM IDENTIFIER ( LITERAL )* ) )
-			// Thrift.g:135:7: SENUM IDENTIFIER LCURLY ( LITERAL ( list_separator )? )* RCURLY
+			// Thrift.g:115:5: ( SENUM IDENTIFIER LCURLY ( LITERAL ( list_separator )? )* RCURLY -> ^( SENUM IDENTIFIER ( LITERAL )* ) )
+			// Thrift.g:115:7: SENUM IDENTIFIER LCURLY ( LITERAL ( list_separator )? )* RCURLY
 			{
-			SENUM49=(Token)match(input,SENUM,FOLLOW_SENUM_in_senum860);  
+			SENUM49=(Token)match(input,SENUM,FOLLOW_SENUM_in_senum864);  
 			stream_SENUM.add(SENUM49);
 
-			IDENTIFIER50=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_senum862);  
+			IDENTIFIER50=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_senum866);  
 			stream_IDENTIFIER.add(IDENTIFIER50);
 
-			LCURLY51=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_senum864);  
+			LCURLY51=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_senum868);  
 			stream_LCURLY.add(LCURLY51);
 
-			// Thrift.g:135:31: ( LITERAL ( list_separator )? )*
+			// Thrift.g:115:31: ( LITERAL ( list_separator )? )*
 			loop14:
 			while (true) {
 				int alt14=2;
@@ -1748,12 +1749,12 @@ public class ThriftParser extends Parser {
 
 				switch (alt14) {
 				case 1 :
-					// Thrift.g:135:32: LITERAL ( list_separator )?
+					// Thrift.g:115:32: LITERAL ( list_separator )?
 					{
-					LITERAL52=(Token)match(input,LITERAL,FOLLOW_LITERAL_in_senum867);  
+					LITERAL52=(Token)match(input,LITERAL,FOLLOW_LITERAL_in_senum871);  
 					stream_LITERAL.add(LITERAL52);
 
-					// Thrift.g:135:40: ( list_separator )?
+					// Thrift.g:115:40: ( list_separator )?
 					int alt13=2;
 					int LA13_0 = input.LA(1);
 					if ( (LA13_0==COMMA||LA13_0==SEMICOLON) ) {
@@ -1761,9 +1762,9 @@ public class ThriftParser extends Parser {
 					}
 					switch (alt13) {
 						case 1 :
-							// Thrift.g:135:40: list_separator
+							// Thrift.g:115:40: list_separator
 							{
-							pushFollow(FOLLOW_list_separator_in_senum869);
+							pushFollow(FOLLOW_list_separator_in_senum873);
 							list_separator53=list_separator();
 							state._fsp--;
 
@@ -1781,11 +1782,11 @@ public class ThriftParser extends Parser {
 				}
 			}
 
-			RCURLY54=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_senum874);  
+			RCURLY54=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_senum878);  
 			stream_RCURLY.add(RCURLY54);
 
 			// AST REWRITE
-			// elements: SENUM, IDENTIFIER, LITERAL
+			// elements: LITERAL, IDENTIFIER, SENUM
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1795,14 +1796,14 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 135:65: -> ^( SENUM IDENTIFIER ( LITERAL )* )
+			// 115:65: -> ^( SENUM IDENTIFIER ( LITERAL )* )
 			{
-				// Thrift.g:135:68: ^( SENUM IDENTIFIER ( LITERAL )* )
+				// Thrift.g:115:68: ^( SENUM IDENTIFIER ( LITERAL )* )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_SENUM.nextNode(), root_1);
 				adaptor.addChild(root_1, stream_IDENTIFIER.nextNode());
-				// Thrift.g:135:87: ( LITERAL )*
+				// Thrift.g:115:87: ( LITERAL )*
 				while ( stream_LITERAL.hasNext() ) {
 					adaptor.addChild(root_1, stream_LITERAL.nextNode());
 				}
@@ -1845,7 +1846,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "struct"
-	// Thrift.g:138:1: struct : STRUCT IDENTIFIER LCURLY ( field )* RCURLY ( type_annotations )? -> ^( STRUCT IDENTIFIER ( field )* ( type_annotations )? ) ;
+	// Thrift.g:118:1: struct : STRUCT IDENTIFIER LCURLY ( field )* RCURLY ( type_annotations )? -> ^( STRUCT IDENTIFIER ( field )* ( type_annotations )? ) ;
 	public final ThriftParser.struct_return struct() throws RecognitionException {
 		ThriftParser.struct_return retval = new ThriftParser.struct_return();
 		retval.start = input.LT(1);
@@ -1871,19 +1872,19 @@ public class ThriftParser extends Parser {
 		RewriteRuleSubtreeStream stream_type_annotations=new RewriteRuleSubtreeStream(adaptor,"rule type_annotations");
 
 		try {
-			// Thrift.g:139:5: ( STRUCT IDENTIFIER LCURLY ( field )* RCURLY ( type_annotations )? -> ^( STRUCT IDENTIFIER ( field )* ( type_annotations )? ) )
-			// Thrift.g:139:7: STRUCT IDENTIFIER LCURLY ( field )* RCURLY ( type_annotations )?
+			// Thrift.g:119:5: ( STRUCT IDENTIFIER LCURLY ( field )* RCURLY ( type_annotations )? -> ^( STRUCT IDENTIFIER ( field )* ( type_annotations )? ) )
+			// Thrift.g:119:7: STRUCT IDENTIFIER LCURLY ( field )* RCURLY ( type_annotations )?
 			{
-			STRUCT55=(Token)match(input,STRUCT,FOLLOW_STRUCT_in_struct902);  
+			STRUCT55=(Token)match(input,STRUCT,FOLLOW_STRUCT_in_struct906);  
 			stream_STRUCT.add(STRUCT55);
 
-			IDENTIFIER56=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_struct904);  
+			IDENTIFIER56=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_struct908);  
 			stream_IDENTIFIER.add(IDENTIFIER56);
 
-			LCURLY57=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_struct906);  
+			LCURLY57=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_struct910);  
 			stream_LCURLY.add(LCURLY57);
 
-			// Thrift.g:139:32: ( field )*
+			// Thrift.g:119:32: ( field )*
 			loop15:
 			while (true) {
 				int alt15=2;
@@ -1894,9 +1895,9 @@ public class ThriftParser extends Parser {
 
 				switch (alt15) {
 				case 1 :
-					// Thrift.g:139:32: field
+					// Thrift.g:119:32: field
 					{
-					pushFollow(FOLLOW_field_in_struct908);
+					pushFollow(FOLLOW_field_in_struct912);
 					field58=field();
 					state._fsp--;
 
@@ -1909,20 +1910,20 @@ public class ThriftParser extends Parser {
 				}
 			}
 
-			RCURLY59=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_struct911);  
+			RCURLY59=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_struct915);  
 			stream_RCURLY.add(RCURLY59);
 
-			// Thrift.g:139:46: ( type_annotations )?
+			// Thrift.g:119:46: ( type_annotations )?
 			int alt16=2;
 			int LA16_0 = input.LA(1);
-			if ( (LA16_0==61) ) {
+			if ( (LA16_0==62) ) {
 				alt16=1;
 			}
 			switch (alt16) {
 				case 1 :
-					// Thrift.g:139:46: type_annotations
+					// Thrift.g:119:46: type_annotations
 					{
-					pushFollow(FOLLOW_type_annotations_in_struct913);
+					pushFollow(FOLLOW_type_annotations_in_struct917);
 					type_annotations60=type_annotations();
 					state._fsp--;
 
@@ -1933,7 +1934,7 @@ public class ThriftParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: type_annotations, STRUCT, field, IDENTIFIER
+			// elements: field, type_annotations, STRUCT, IDENTIFIER
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1943,20 +1944,20 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 139:64: -> ^( STRUCT IDENTIFIER ( field )* ( type_annotations )? )
+			// 119:64: -> ^( STRUCT IDENTIFIER ( field )* ( type_annotations )? )
 			{
-				// Thrift.g:139:67: ^( STRUCT IDENTIFIER ( field )* ( type_annotations )? )
+				// Thrift.g:119:67: ^( STRUCT IDENTIFIER ( field )* ( type_annotations )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_STRUCT.nextNode(), root_1);
 				adaptor.addChild(root_1, stream_IDENTIFIER.nextNode());
-				// Thrift.g:139:87: ( field )*
+				// Thrift.g:119:87: ( field )*
 				while ( stream_field.hasNext() ) {
 					adaptor.addChild(root_1, stream_field.nextTree());
 				}
 				stream_field.reset();
 
-				// Thrift.g:139:94: ( type_annotations )?
+				// Thrift.g:119:94: ( type_annotations )?
 				if ( stream_type_annotations.hasNext() ) {
 					adaptor.addChild(root_1, stream_type_annotations.nextTree());
 				}
@@ -1999,7 +2000,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "union"
-	// Thrift.g:142:1: union : UNION IDENTIFIER LCURLY ( field )* RCURLY ( type_annotations )? -> ^( UNION IDENTIFIER ( field )* ( type_annotations )? ) ;
+	// Thrift.g:122:1: union : UNION IDENTIFIER LCURLY ( field )* RCURLY ( type_annotations )? -> ^( UNION IDENTIFIER ( field )* ( type_annotations )? ) ;
 	public final ThriftParser.union_return union() throws RecognitionException {
 		ThriftParser.union_return retval = new ThriftParser.union_return();
 		retval.start = input.LT(1);
@@ -2025,19 +2026,19 @@ public class ThriftParser extends Parser {
 		RewriteRuleSubtreeStream stream_type_annotations=new RewriteRuleSubtreeStream(adaptor,"rule type_annotations");
 
 		try {
-			// Thrift.g:143:5: ( UNION IDENTIFIER LCURLY ( field )* RCURLY ( type_annotations )? -> ^( UNION IDENTIFIER ( field )* ( type_annotations )? ) )
-			// Thrift.g:143:7: UNION IDENTIFIER LCURLY ( field )* RCURLY ( type_annotations )?
+			// Thrift.g:123:5: ( UNION IDENTIFIER LCURLY ( field )* RCURLY ( type_annotations )? -> ^( UNION IDENTIFIER ( field )* ( type_annotations )? ) )
+			// Thrift.g:123:7: UNION IDENTIFIER LCURLY ( field )* RCURLY ( type_annotations )?
 			{
-			UNION61=(Token)match(input,UNION,FOLLOW_UNION_in_union945);  
+			UNION61=(Token)match(input,UNION,FOLLOW_UNION_in_union949);  
 			stream_UNION.add(UNION61);
 
-			IDENTIFIER62=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_union947);  
+			IDENTIFIER62=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_union951);  
 			stream_IDENTIFIER.add(IDENTIFIER62);
 
-			LCURLY63=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_union949);  
+			LCURLY63=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_union953);  
 			stream_LCURLY.add(LCURLY63);
 
-			// Thrift.g:143:31: ( field )*
+			// Thrift.g:123:31: ( field )*
 			loop17:
 			while (true) {
 				int alt17=2;
@@ -2048,9 +2049,9 @@ public class ThriftParser extends Parser {
 
 				switch (alt17) {
 				case 1 :
-					// Thrift.g:143:31: field
+					// Thrift.g:123:31: field
 					{
-					pushFollow(FOLLOW_field_in_union951);
+					pushFollow(FOLLOW_field_in_union955);
 					field64=field();
 					state._fsp--;
 
@@ -2063,20 +2064,20 @@ public class ThriftParser extends Parser {
 				}
 			}
 
-			RCURLY65=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_union954);  
+			RCURLY65=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_union958);  
 			stream_RCURLY.add(RCURLY65);
 
-			// Thrift.g:143:45: ( type_annotations )?
+			// Thrift.g:123:45: ( type_annotations )?
 			int alt18=2;
 			int LA18_0 = input.LA(1);
-			if ( (LA18_0==61) ) {
+			if ( (LA18_0==62) ) {
 				alt18=1;
 			}
 			switch (alt18) {
 				case 1 :
-					// Thrift.g:143:45: type_annotations
+					// Thrift.g:123:45: type_annotations
 					{
-					pushFollow(FOLLOW_type_annotations_in_union956);
+					pushFollow(FOLLOW_type_annotations_in_union960);
 					type_annotations66=type_annotations();
 					state._fsp--;
 
@@ -2087,7 +2088,7 @@ public class ThriftParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: UNION, field, IDENTIFIER, type_annotations
+			// elements: field, UNION, IDENTIFIER, type_annotations
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -2097,20 +2098,20 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 143:63: -> ^( UNION IDENTIFIER ( field )* ( type_annotations )? )
+			// 123:63: -> ^( UNION IDENTIFIER ( field )* ( type_annotations )? )
 			{
-				// Thrift.g:143:66: ^( UNION IDENTIFIER ( field )* ( type_annotations )? )
+				// Thrift.g:123:66: ^( UNION IDENTIFIER ( field )* ( type_annotations )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_UNION.nextNode(), root_1);
 				adaptor.addChild(root_1, stream_IDENTIFIER.nextNode());
-				// Thrift.g:143:85: ( field )*
+				// Thrift.g:123:85: ( field )*
 				while ( stream_field.hasNext() ) {
 					adaptor.addChild(root_1, stream_field.nextTree());
 				}
 				stream_field.reset();
 
-				// Thrift.g:143:92: ( type_annotations )?
+				// Thrift.g:123:92: ( type_annotations )?
 				if ( stream_type_annotations.hasNext() ) {
 					adaptor.addChild(root_1, stream_type_annotations.nextTree());
 				}
@@ -2153,7 +2154,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "exception"
-	// Thrift.g:146:1: exception : EXCEPTION IDENTIFIER LCURLY ( field )* RCURLY ( type_annotations )? -> ^( EXCEPTION IDENTIFIER ( field )* ( type_annotations )? ) ;
+	// Thrift.g:126:1: exception : EXCEPTION IDENTIFIER LCURLY ( field )* RCURLY ( type_annotations )? -> ^( EXCEPTION IDENTIFIER ( field )* ( type_annotations )? ) ;
 	public final ThriftParser.exception_return exception() throws RecognitionException {
 		ThriftParser.exception_return retval = new ThriftParser.exception_return();
 		retval.start = input.LT(1);
@@ -2179,19 +2180,19 @@ public class ThriftParser extends Parser {
 		RewriteRuleSubtreeStream stream_type_annotations=new RewriteRuleSubtreeStream(adaptor,"rule type_annotations");
 
 		try {
-			// Thrift.g:147:5: ( EXCEPTION IDENTIFIER LCURLY ( field )* RCURLY ( type_annotations )? -> ^( EXCEPTION IDENTIFIER ( field )* ( type_annotations )? ) )
-			// Thrift.g:147:7: EXCEPTION IDENTIFIER LCURLY ( field )* RCURLY ( type_annotations )?
+			// Thrift.g:127:5: ( EXCEPTION IDENTIFIER LCURLY ( field )* RCURLY ( type_annotations )? -> ^( EXCEPTION IDENTIFIER ( field )* ( type_annotations )? ) )
+			// Thrift.g:127:7: EXCEPTION IDENTIFIER LCURLY ( field )* RCURLY ( type_annotations )?
 			{
-			EXCEPTION67=(Token)match(input,EXCEPTION,FOLLOW_EXCEPTION_in_exception988);  
+			EXCEPTION67=(Token)match(input,EXCEPTION,FOLLOW_EXCEPTION_in_exception992);  
 			stream_EXCEPTION.add(EXCEPTION67);
 
-			IDENTIFIER68=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_exception990);  
+			IDENTIFIER68=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_exception994);  
 			stream_IDENTIFIER.add(IDENTIFIER68);
 
-			LCURLY69=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_exception992);  
+			LCURLY69=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_exception996);  
 			stream_LCURLY.add(LCURLY69);
 
-			// Thrift.g:147:35: ( field )*
+			// Thrift.g:127:35: ( field )*
 			loop19:
 			while (true) {
 				int alt19=2;
@@ -2202,9 +2203,9 @@ public class ThriftParser extends Parser {
 
 				switch (alt19) {
 				case 1 :
-					// Thrift.g:147:35: field
+					// Thrift.g:127:35: field
 					{
-					pushFollow(FOLLOW_field_in_exception994);
+					pushFollow(FOLLOW_field_in_exception998);
 					field70=field();
 					state._fsp--;
 
@@ -2217,20 +2218,20 @@ public class ThriftParser extends Parser {
 				}
 			}
 
-			RCURLY71=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_exception997);  
+			RCURLY71=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_exception1001);  
 			stream_RCURLY.add(RCURLY71);
 
-			// Thrift.g:147:49: ( type_annotations )?
+			// Thrift.g:127:49: ( type_annotations )?
 			int alt20=2;
 			int LA20_0 = input.LA(1);
-			if ( (LA20_0==61) ) {
+			if ( (LA20_0==62) ) {
 				alt20=1;
 			}
 			switch (alt20) {
 				case 1 :
-					// Thrift.g:147:49: type_annotations
+					// Thrift.g:127:49: type_annotations
 					{
-					pushFollow(FOLLOW_type_annotations_in_exception999);
+					pushFollow(FOLLOW_type_annotations_in_exception1003);
 					type_annotations72=type_annotations();
 					state._fsp--;
 
@@ -2241,7 +2242,7 @@ public class ThriftParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: EXCEPTION, IDENTIFIER, type_annotations, field
+			// elements: field, type_annotations, IDENTIFIER, EXCEPTION
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -2251,20 +2252,20 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 147:67: -> ^( EXCEPTION IDENTIFIER ( field )* ( type_annotations )? )
+			// 127:67: -> ^( EXCEPTION IDENTIFIER ( field )* ( type_annotations )? )
 			{
-				// Thrift.g:147:70: ^( EXCEPTION IDENTIFIER ( field )* ( type_annotations )? )
+				// Thrift.g:127:70: ^( EXCEPTION IDENTIFIER ( field )* ( type_annotations )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_EXCEPTION.nextNode(), root_1);
 				adaptor.addChild(root_1, stream_IDENTIFIER.nextNode());
-				// Thrift.g:147:93: ( field )*
+				// Thrift.g:127:93: ( field )*
 				while ( stream_field.hasNext() ) {
 					adaptor.addChild(root_1, stream_field.nextTree());
 				}
 				stream_field.reset();
 
-				// Thrift.g:147:100: ( type_annotations )?
+				// Thrift.g:127:100: ( type_annotations )?
 				if ( stream_type_annotations.hasNext() ) {
 					adaptor.addChild(root_1, stream_type_annotations.nextTree());
 				}
@@ -2307,7 +2308,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "service"
-	// Thrift.g:150:1: service : SERVICE s= IDENTIFIER ( EXTENDS e= IDENTIFIER )? LCURLY (f= function )* RCURLY ( type_annotations )? -> ^( SERVICE $s ^( EXTENDS ( $e)? ) ( function )* ( type_annotations )? ) ;
+	// Thrift.g:130:1: service : SERVICE s= IDENTIFIER ( EXTENDS e= IDENTIFIER )? LCURLY (f= function )* RCURLY ( type_annotations )? -> ^( SERVICE $s ^( EXTENDS_ ( $e)? ) ( function )* ( type_annotations )? ) ;
 	public final ThriftParser.service_return service() throws RecognitionException {
 		ThriftParser.service_return retval = new ThriftParser.service_return();
 		retval.start = input.LT(1);
@@ -2338,16 +2339,16 @@ public class ThriftParser extends Parser {
 		RewriteRuleSubtreeStream stream_type_annotations=new RewriteRuleSubtreeStream(adaptor,"rule type_annotations");
 
 		try {
-			// Thrift.g:151:5: ( SERVICE s= IDENTIFIER ( EXTENDS e= IDENTIFIER )? LCURLY (f= function )* RCURLY ( type_annotations )? -> ^( SERVICE $s ^( EXTENDS ( $e)? ) ( function )* ( type_annotations )? ) )
-			// Thrift.g:151:7: SERVICE s= IDENTIFIER ( EXTENDS e= IDENTIFIER )? LCURLY (f= function )* RCURLY ( type_annotations )?
+			// Thrift.g:131:5: ( SERVICE s= IDENTIFIER ( EXTENDS e= IDENTIFIER )? LCURLY (f= function )* RCURLY ( type_annotations )? -> ^( SERVICE $s ^( EXTENDS_ ( $e)? ) ( function )* ( type_annotations )? ) )
+			// Thrift.g:131:7: SERVICE s= IDENTIFIER ( EXTENDS e= IDENTIFIER )? LCURLY (f= function )* RCURLY ( type_annotations )?
 			{
-			SERVICE73=(Token)match(input,SERVICE,FOLLOW_SERVICE_in_service1031);  
+			SERVICE73=(Token)match(input,SERVICE,FOLLOW_SERVICE_in_service1035);  
 			stream_SERVICE.add(SERVICE73);
 
-			s=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_service1035);  
+			s=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_service1039);  
 			stream_IDENTIFIER.add(s);
 
-			// Thrift.g:151:28: ( EXTENDS e= IDENTIFIER )?
+			// Thrift.g:131:28: ( EXTENDS e= IDENTIFIER )?
 			int alt21=2;
 			int LA21_0 = input.LA(1);
 			if ( (LA21_0==EXTENDS) ) {
@@ -2355,12 +2356,12 @@ public class ThriftParser extends Parser {
 			}
 			switch (alt21) {
 				case 1 :
-					// Thrift.g:151:29: EXTENDS e= IDENTIFIER
+					// Thrift.g:131:29: EXTENDS e= IDENTIFIER
 					{
-					EXTENDS74=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_service1038);  
+					EXTENDS74=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_service1042);  
 					stream_EXTENDS.add(EXTENDS74);
 
-					e=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_service1042);  
+					e=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_service1046);  
 					stream_IDENTIFIER.add(e);
 
 					}
@@ -2368,10 +2369,10 @@ public class ThriftParser extends Parser {
 
 			}
 
-			LCURLY75=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_service1046);  
+			LCURLY75=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_service1050);  
 			stream_LCURLY.add(LCURLY75);
 
-			// Thrift.g:151:60: (f= function )*
+			// Thrift.g:131:60: (f= function )*
 			loop22:
 			while (true) {
 				int alt22=2;
@@ -2382,9 +2383,9 @@ public class ThriftParser extends Parser {
 
 				switch (alt22) {
 				case 1 :
-					// Thrift.g:151:60: f= function
+					// Thrift.g:131:60: f= function
 					{
-					pushFollow(FOLLOW_function_in_service1050);
+					pushFollow(FOLLOW_function_in_service1054);
 					f=function();
 					state._fsp--;
 
@@ -2397,20 +2398,20 @@ public class ThriftParser extends Parser {
 				}
 			}
 
-			RCURLY76=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_service1053);  
+			RCURLY76=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_service1057);  
 			stream_RCURLY.add(RCURLY76);
 
-			// Thrift.g:151:78: ( type_annotations )?
+			// Thrift.g:131:78: ( type_annotations )?
 			int alt23=2;
 			int LA23_0 = input.LA(1);
-			if ( (LA23_0==61) ) {
+			if ( (LA23_0==62) ) {
 				alt23=1;
 			}
 			switch (alt23) {
 				case 1 :
-					// Thrift.g:151:78: type_annotations
+					// Thrift.g:131:78: type_annotations
 					{
-					pushFollow(FOLLOW_type_annotations_in_service1055);
+					pushFollow(FOLLOW_type_annotations_in_service1059);
 					type_annotations77=type_annotations();
 					state._fsp--;
 
@@ -2421,7 +2422,7 @@ public class ThriftParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: function, SERVICE, type_annotations, e, EXTENDS, s
+			// elements: e, s, type_annotations, function, SERVICE
 			// token labels: s, e
 			// rule labels: retval
 			// token list labels: 
@@ -2433,18 +2434,18 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 151:96: -> ^( SERVICE $s ^( EXTENDS ( $e)? ) ( function )* ( type_annotations )? )
+			// 131:96: -> ^( SERVICE $s ^( EXTENDS_ ( $e)? ) ( function )* ( type_annotations )? )
 			{
-				// Thrift.g:151:99: ^( SERVICE $s ^( EXTENDS ( $e)? ) ( function )* ( type_annotations )? )
+				// Thrift.g:131:99: ^( SERVICE $s ^( EXTENDS_ ( $e)? ) ( function )* ( type_annotations )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_SERVICE.nextNode(), root_1);
 				adaptor.addChild(root_1, stream_s.nextNode());
-				// Thrift.g:151:112: ^( EXTENDS ( $e)? )
+				// Thrift.g:131:112: ^( EXTENDS_ ( $e)? )
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
-				root_2 = (CommonTree)adaptor.becomeRoot(stream_EXTENDS.nextNode(), root_2);
-				// Thrift.g:151:123: ( $e)?
+				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(EXTENDS_, "EXTENDS_"), root_2);
+				// Thrift.g:131:124: ( $e)?
 				if ( stream_e.hasNext() ) {
 					adaptor.addChild(root_2, stream_e.nextNode());
 				}
@@ -2453,13 +2454,13 @@ public class ThriftParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// Thrift.g:151:127: ( function )*
+				// Thrift.g:131:128: ( function )*
 				while ( stream_function.hasNext() ) {
 					adaptor.addChild(root_1, stream_function.nextTree());
 				}
 				stream_function.reset();
 
-				// Thrift.g:151:137: ( type_annotations )?
+				// Thrift.g:131:138: ( type_annotations )?
 				if ( stream_type_annotations.hasNext() ) {
 					adaptor.addChild(root_1, stream_type_annotations.nextTree());
 				}
@@ -2502,7 +2503,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "field_id"
-	// Thrift.g:155:1: field_id : integer ':' -> ^( FIELD_ID integer ) ;
+	// Thrift.g:135:1: field_id : integer ':' -> ^( FIELD_ID_ integer ) ;
 	public final ThriftParser.field_id_return field_id() throws RecognitionException {
 		ThriftParser.field_id_return retval = new ThriftParser.field_id_return();
 		retval.start = input.LT(1);
@@ -2513,20 +2514,20 @@ public class ThriftParser extends Parser {
 		ParserRuleReturnScope integer78 =null;
 
 		CommonTree char_literal79_tree=null;
-		RewriteRuleTokenStream stream_64=new RewriteRuleTokenStream(adaptor,"token 64");
+		RewriteRuleTokenStream stream_65=new RewriteRuleTokenStream(adaptor,"token 65");
 		RewriteRuleSubtreeStream stream_integer=new RewriteRuleSubtreeStream(adaptor,"rule integer");
 
 		try {
-			// Thrift.g:156:5: ( integer ':' -> ^( FIELD_ID integer ) )
-			// Thrift.g:156:7: integer ':'
+			// Thrift.g:136:5: ( integer ':' -> ^( FIELD_ID_ integer ) )
+			// Thrift.g:136:7: integer ':'
 			{
-			pushFollow(FOLLOW_integer_in_field_id1097);
+			pushFollow(FOLLOW_integer_in_field_id1101);
 			integer78=integer();
 			state._fsp--;
 
 			stream_integer.add(integer78.getTree());
-			char_literal79=(Token)match(input,64,FOLLOW_64_in_field_id1099);  
-			stream_64.add(char_literal79);
+			char_literal79=(Token)match(input,65,FOLLOW_65_in_field_id1103);  
+			stream_65.add(char_literal79);
 
 			// AST REWRITE
 			// elements: integer
@@ -2539,12 +2540,12 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 156:19: -> ^( FIELD_ID integer )
+			// 136:19: -> ^( FIELD_ID_ integer )
 			{
-				// Thrift.g:156:22: ^( FIELD_ID integer )
+				// Thrift.g:136:22: ^( FIELD_ID_ integer )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FIELD_ID, "FIELD_ID"), root_1);
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FIELD_ID_, "FIELD_ID_"), root_1);
 				adaptor.addChild(root_1, stream_integer.nextTree());
 				adaptor.addChild(root_0, root_1);
 				}
@@ -2583,7 +2584,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "field"
-	// Thrift.g:159:1: field : ( field_id )? ( field_req )? field_type IDENTIFIER ( '=' const_value )? ( type_annotations )? ( list_separator )? -> ^( FIELD IDENTIFIER field_type ( field_id )? ^( REQUIREDNESS ( field_req )? ) ( const_value )? ( type_annotations )? ) ;
+	// Thrift.g:139:1: field : ( field_id )? ( field_req )? field_type IDENTIFIER ( '=' const_value )? ( type_annotations )? ( list_separator )? -> ^( FIELD_ IDENTIFIER field_type ( field_id )? ^( REQUIREDNESS_ ( field_req )? ) ( const_value )? ( type_annotations )? ) ;
 	public final ThriftParser.field_return field() throws RecognitionException {
 		ThriftParser.field_return retval = new ThriftParser.field_return();
 		retval.start = input.LT(1);
@@ -2601,7 +2602,7 @@ public class ThriftParser extends Parser {
 
 		CommonTree IDENTIFIER83_tree=null;
 		CommonTree char_literal84_tree=null;
-		RewriteRuleTokenStream stream_66=new RewriteRuleTokenStream(adaptor,"token 66");
+		RewriteRuleTokenStream stream_67=new RewriteRuleTokenStream(adaptor,"token 67");
 		RewriteRuleTokenStream stream_IDENTIFIER=new RewriteRuleTokenStream(adaptor,"token IDENTIFIER");
 		RewriteRuleSubtreeStream stream_field_id=new RewriteRuleSubtreeStream(adaptor,"rule field_id");
 		RewriteRuleSubtreeStream stream_list_separator=new RewriteRuleSubtreeStream(adaptor,"rule list_separator");
@@ -2611,10 +2612,10 @@ public class ThriftParser extends Parser {
 		RewriteRuleSubtreeStream stream_type_annotations=new RewriteRuleSubtreeStream(adaptor,"rule type_annotations");
 
 		try {
-			// Thrift.g:160:5: ( ( field_id )? ( field_req )? field_type IDENTIFIER ( '=' const_value )? ( type_annotations )? ( list_separator )? -> ^( FIELD IDENTIFIER field_type ( field_id )? ^( REQUIREDNESS ( field_req )? ) ( const_value )? ( type_annotations )? ) )
-			// Thrift.g:160:7: ( field_id )? ( field_req )? field_type IDENTIFIER ( '=' const_value )? ( type_annotations )? ( list_separator )?
+			// Thrift.g:140:5: ( ( field_id )? ( field_req )? field_type IDENTIFIER ( '=' const_value )? ( type_annotations )? ( list_separator )? -> ^( FIELD_ IDENTIFIER field_type ( field_id )? ^( REQUIREDNESS_ ( field_req )? ) ( const_value )? ( type_annotations )? ) )
+			// Thrift.g:140:7: ( field_id )? ( field_req )? field_type IDENTIFIER ( '=' const_value )? ( type_annotations )? ( list_separator )?
 			{
-			// Thrift.g:160:7: ( field_id )?
+			// Thrift.g:140:7: ( field_id )?
 			int alt24=2;
 			int LA24_0 = input.LA(1);
 			if ( (LA24_0==HEX_INTEGER||LA24_0==INTEGER) ) {
@@ -2622,9 +2623,9 @@ public class ThriftParser extends Parser {
 			}
 			switch (alt24) {
 				case 1 :
-					// Thrift.g:160:7: field_id
+					// Thrift.g:140:7: field_id
 					{
-					pushFollow(FOLLOW_field_id_in_field1124);
+					pushFollow(FOLLOW_field_id_in_field1128);
 					field_id80=field_id();
 					state._fsp--;
 
@@ -2634,7 +2635,7 @@ public class ThriftParser extends Parser {
 
 			}
 
-			// Thrift.g:160:17: ( field_req )?
+			// Thrift.g:140:17: ( field_req )?
 			int alt25=2;
 			int LA25_0 = input.LA(1);
 			if ( (LA25_0==OPTIONAL||LA25_0==REQUIRED) ) {
@@ -2642,9 +2643,9 @@ public class ThriftParser extends Parser {
 			}
 			switch (alt25) {
 				case 1 :
-					// Thrift.g:160:17: field_req
+					// Thrift.g:140:17: field_req
 					{
-					pushFollow(FOLLOW_field_req_in_field1127);
+					pushFollow(FOLLOW_field_req_in_field1131);
 					field_req81=field_req();
 					state._fsp--;
 
@@ -2654,28 +2655,28 @@ public class ThriftParser extends Parser {
 
 			}
 
-			pushFollow(FOLLOW_field_type_in_field1130);
+			pushFollow(FOLLOW_field_type_in_field1134);
 			field_type82=field_type();
 			state._fsp--;
 
 			stream_field_type.add(field_type82.getTree());
-			IDENTIFIER83=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_field1132);  
+			IDENTIFIER83=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_field1136);  
 			stream_IDENTIFIER.add(IDENTIFIER83);
 
-			// Thrift.g:160:50: ( '=' const_value )?
+			// Thrift.g:140:50: ( '=' const_value )?
 			int alt26=2;
 			int LA26_0 = input.LA(1);
-			if ( (LA26_0==66) ) {
+			if ( (LA26_0==67) ) {
 				alt26=1;
 			}
 			switch (alt26) {
 				case 1 :
-					// Thrift.g:160:51: '=' const_value
+					// Thrift.g:140:51: '=' const_value
 					{
-					char_literal84=(Token)match(input,66,FOLLOW_66_in_field1135);  
-					stream_66.add(char_literal84);
+					char_literal84=(Token)match(input,67,FOLLOW_67_in_field1139);  
+					stream_67.add(char_literal84);
 
-					pushFollow(FOLLOW_const_value_in_field1137);
+					pushFollow(FOLLOW_const_value_in_field1141);
 					const_value85=const_value();
 					state._fsp--;
 
@@ -2685,17 +2686,17 @@ public class ThriftParser extends Parser {
 
 			}
 
-			// Thrift.g:160:69: ( type_annotations )?
+			// Thrift.g:140:69: ( type_annotations )?
 			int alt27=2;
 			int LA27_0 = input.LA(1);
-			if ( (LA27_0==61) ) {
+			if ( (LA27_0==62) ) {
 				alt27=1;
 			}
 			switch (alt27) {
 				case 1 :
-					// Thrift.g:160:69: type_annotations
+					// Thrift.g:140:69: type_annotations
 					{
-					pushFollow(FOLLOW_type_annotations_in_field1141);
+					pushFollow(FOLLOW_type_annotations_in_field1145);
 					type_annotations86=type_annotations();
 					state._fsp--;
 
@@ -2705,7 +2706,7 @@ public class ThriftParser extends Parser {
 
 			}
 
-			// Thrift.g:160:87: ( list_separator )?
+			// Thrift.g:140:87: ( list_separator )?
 			int alt28=2;
 			int LA28_0 = input.LA(1);
 			if ( (LA28_0==COMMA||LA28_0==SEMICOLON) ) {
@@ -2713,9 +2714,9 @@ public class ThriftParser extends Parser {
 			}
 			switch (alt28) {
 				case 1 :
-					// Thrift.g:160:87: list_separator
+					// Thrift.g:140:87: list_separator
 					{
-					pushFollow(FOLLOW_list_separator_in_field1144);
+					pushFollow(FOLLOW_list_separator_in_field1148);
 					list_separator87=list_separator();
 					state._fsp--;
 
@@ -2726,7 +2727,7 @@ public class ThriftParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: const_value, field_id, field_req, IDENTIFIER, field_type, type_annotations
+			// elements: IDENTIFIER, type_annotations, field_req, const_value, field_id, field_type
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -2736,25 +2737,25 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 161:9: -> ^( FIELD IDENTIFIER field_type ( field_id )? ^( REQUIREDNESS ( field_req )? ) ( const_value )? ( type_annotations )? )
+			// 141:9: -> ^( FIELD_ IDENTIFIER field_type ( field_id )? ^( REQUIREDNESS_ ( field_req )? ) ( const_value )? ( type_annotations )? )
 			{
-				// Thrift.g:161:12: ^( FIELD IDENTIFIER field_type ( field_id )? ^( REQUIREDNESS ( field_req )? ) ( const_value )? ( type_annotations )? )
+				// Thrift.g:141:12: ^( FIELD_ IDENTIFIER field_type ( field_id )? ^( REQUIREDNESS_ ( field_req )? ) ( const_value )? ( type_annotations )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FIELD, "FIELD"), root_1);
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FIELD_, "FIELD_"), root_1);
 				adaptor.addChild(root_1, stream_IDENTIFIER.nextNode());
 				adaptor.addChild(root_1, stream_field_type.nextTree());
-				// Thrift.g:161:42: ( field_id )?
+				// Thrift.g:141:43: ( field_id )?
 				if ( stream_field_id.hasNext() ) {
 					adaptor.addChild(root_1, stream_field_id.nextTree());
 				}
 				stream_field_id.reset();
 
-				// Thrift.g:161:52: ^( REQUIREDNESS ( field_req )? )
+				// Thrift.g:141:53: ^( REQUIREDNESS_ ( field_req )? )
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
-				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(REQUIREDNESS, "REQUIREDNESS"), root_2);
-				// Thrift.g:161:67: ( field_req )?
+				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(REQUIREDNESS_, "REQUIREDNESS_"), root_2);
+				// Thrift.g:141:69: ( field_req )?
 				if ( stream_field_req.hasNext() ) {
 					adaptor.addChild(root_2, stream_field_req.nextTree());
 				}
@@ -2763,13 +2764,13 @@ public class ThriftParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// Thrift.g:161:79: ( const_value )?
+				// Thrift.g:141:81: ( const_value )?
 				if ( stream_const_value.hasNext() ) {
 					adaptor.addChild(root_1, stream_const_value.nextTree());
 				}
 				stream_const_value.reset();
 
-				// Thrift.g:161:92: ( type_annotations )?
+				// Thrift.g:141:94: ( type_annotations )?
 				if ( stream_type_annotations.hasNext() ) {
 					adaptor.addChild(root_1, stream_type_annotations.nextTree());
 				}
@@ -2812,7 +2813,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "field_req"
-	// Thrift.g:164:1: field_req : ( REQUIRED | OPTIONAL );
+	// Thrift.g:144:1: field_req : ( REQUIRED | OPTIONAL );
 	public final ThriftParser.field_req_return field_req() throws RecognitionException {
 		ThriftParser.field_req_return retval = new ThriftParser.field_req_return();
 		retval.start = input.LT(1);
@@ -2824,7 +2825,7 @@ public class ThriftParser extends Parser {
 		CommonTree set88_tree=null;
 
 		try {
-			// Thrift.g:165:5: ( REQUIRED | OPTIONAL )
+			// Thrift.g:145:5: ( REQUIRED | OPTIONAL )
 			// Thrift.g:
 			{
 			root_0 = (CommonTree)adaptor.nil();
@@ -2869,7 +2870,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "function"
-	// Thrift.g:170:1: function : ( function_mode )? function_type IDENTIFIER '(' ( field )* ')' ( throws_list )? ( type_annotations )? ( list_separator )? -> ^( METHOD IDENTIFIER function_type ^( ARGS ( field )* ) ( function_mode )? ( throws_list )? ( type_annotations )? ) ;
+	// Thrift.g:150:1: function : ( function_mode )? function_type IDENTIFIER '(' ( field )* ')' ( throws_list )? ( type_annotations )? ( list_separator )? -> ^( METHOD_ IDENTIFIER function_type ^( ARGS_ ( field )* ) ( function_mode )? ( throws_list )? ( type_annotations )? ) ;
 	public final ThriftParser.function_return function() throws RecognitionException {
 		ThriftParser.function_return retval = new ThriftParser.function_return();
 		retval.start = input.LT(1);
@@ -2889,9 +2890,9 @@ public class ThriftParser extends Parser {
 		CommonTree IDENTIFIER91_tree=null;
 		CommonTree char_literal92_tree=null;
 		CommonTree char_literal94_tree=null;
-		RewriteRuleTokenStream stream_61=new RewriteRuleTokenStream(adaptor,"token 61");
 		RewriteRuleTokenStream stream_IDENTIFIER=new RewriteRuleTokenStream(adaptor,"token IDENTIFIER");
 		RewriteRuleTokenStream stream_62=new RewriteRuleTokenStream(adaptor,"token 62");
+		RewriteRuleTokenStream stream_63=new RewriteRuleTokenStream(adaptor,"token 63");
 		RewriteRuleSubtreeStream stream_list_separator=new RewriteRuleSubtreeStream(adaptor,"rule list_separator");
 		RewriteRuleSubtreeStream stream_throws_list=new RewriteRuleSubtreeStream(adaptor,"rule throws_list");
 		RewriteRuleSubtreeStream stream_field=new RewriteRuleSubtreeStream(adaptor,"rule field");
@@ -2900,10 +2901,10 @@ public class ThriftParser extends Parser {
 		RewriteRuleSubtreeStream stream_function_mode=new RewriteRuleSubtreeStream(adaptor,"rule function_mode");
 
 		try {
-			// Thrift.g:171:5: ( ( function_mode )? function_type IDENTIFIER '(' ( field )* ')' ( throws_list )? ( type_annotations )? ( list_separator )? -> ^( METHOD IDENTIFIER function_type ^( ARGS ( field )* ) ( function_mode )? ( throws_list )? ( type_annotations )? ) )
-			// Thrift.g:171:7: ( function_mode )? function_type IDENTIFIER '(' ( field )* ')' ( throws_list )? ( type_annotations )? ( list_separator )?
+			// Thrift.g:151:5: ( ( function_mode )? function_type IDENTIFIER '(' ( field )* ')' ( throws_list )? ( type_annotations )? ( list_separator )? -> ^( METHOD_ IDENTIFIER function_type ^( ARGS_ ( field )* ) ( function_mode )? ( throws_list )? ( type_annotations )? ) )
+			// Thrift.g:151:7: ( function_mode )? function_type IDENTIFIER '(' ( field )* ')' ( throws_list )? ( type_annotations )? ( list_separator )?
 			{
-			// Thrift.g:171:7: ( function_mode )?
+			// Thrift.g:151:7: ( function_mode )?
 			int alt29=2;
 			int LA29_0 = input.LA(1);
 			if ( (LA29_0==ASYNC||LA29_0==DEFERRED||LA29_0==EVENT||LA29_0==ONEWAY) ) {
@@ -2911,9 +2912,9 @@ public class ThriftParser extends Parser {
 			}
 			switch (alt29) {
 				case 1 :
-					// Thrift.g:171:7: function_mode
+					// Thrift.g:151:7: function_mode
 					{
-					pushFollow(FOLLOW_function_mode_in_function1222);
+					pushFollow(FOLLOW_function_mode_in_function1226);
 					function_mode89=function_mode();
 					state._fsp--;
 
@@ -2923,18 +2924,18 @@ public class ThriftParser extends Parser {
 
 			}
 
-			pushFollow(FOLLOW_function_type_in_function1225);
+			pushFollow(FOLLOW_function_type_in_function1229);
 			function_type90=function_type();
 			state._fsp--;
 
 			stream_function_type.add(function_type90.getTree());
-			IDENTIFIER91=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_function1227);  
+			IDENTIFIER91=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_function1231);  
 			stream_IDENTIFIER.add(IDENTIFIER91);
 
-			char_literal92=(Token)match(input,61,FOLLOW_61_in_function1229);  
-			stream_61.add(char_literal92);
+			char_literal92=(Token)match(input,62,FOLLOW_62_in_function1233);  
+			stream_62.add(char_literal92);
 
-			// Thrift.g:171:51: ( field )*
+			// Thrift.g:151:51: ( field )*
 			loop30:
 			while (true) {
 				int alt30=2;
@@ -2945,9 +2946,9 @@ public class ThriftParser extends Parser {
 
 				switch (alt30) {
 				case 1 :
-					// Thrift.g:171:51: field
+					// Thrift.g:151:51: field
 					{
-					pushFollow(FOLLOW_field_in_function1231);
+					pushFollow(FOLLOW_field_in_function1235);
 					field93=field();
 					state._fsp--;
 
@@ -2960,10 +2961,10 @@ public class ThriftParser extends Parser {
 				}
 			}
 
-			char_literal94=(Token)match(input,62,FOLLOW_62_in_function1234);  
-			stream_62.add(char_literal94);
+			char_literal94=(Token)match(input,63,FOLLOW_63_in_function1238);  
+			stream_63.add(char_literal94);
 
-			// Thrift.g:171:62: ( throws_list )?
+			// Thrift.g:151:62: ( throws_list )?
 			int alt31=2;
 			int LA31_0 = input.LA(1);
 			if ( (LA31_0==THROWS) ) {
@@ -2971,9 +2972,9 @@ public class ThriftParser extends Parser {
 			}
 			switch (alt31) {
 				case 1 :
-					// Thrift.g:171:62: throws_list
+					// Thrift.g:151:62: throws_list
 					{
-					pushFollow(FOLLOW_throws_list_in_function1236);
+					pushFollow(FOLLOW_throws_list_in_function1240);
 					throws_list95=throws_list();
 					state._fsp--;
 
@@ -2983,17 +2984,17 @@ public class ThriftParser extends Parser {
 
 			}
 
-			// Thrift.g:171:75: ( type_annotations )?
+			// Thrift.g:151:75: ( type_annotations )?
 			int alt32=2;
 			int LA32_0 = input.LA(1);
-			if ( (LA32_0==61) ) {
+			if ( (LA32_0==62) ) {
 				alt32=1;
 			}
 			switch (alt32) {
 				case 1 :
-					// Thrift.g:171:75: type_annotations
+					// Thrift.g:151:75: type_annotations
 					{
-					pushFollow(FOLLOW_type_annotations_in_function1239);
+					pushFollow(FOLLOW_type_annotations_in_function1243);
 					type_annotations96=type_annotations();
 					state._fsp--;
 
@@ -3003,7 +3004,7 @@ public class ThriftParser extends Parser {
 
 			}
 
-			// Thrift.g:171:93: ( list_separator )?
+			// Thrift.g:151:93: ( list_separator )?
 			int alt33=2;
 			int LA33_0 = input.LA(1);
 			if ( (LA33_0==COMMA||LA33_0==SEMICOLON) ) {
@@ -3011,9 +3012,9 @@ public class ThriftParser extends Parser {
 			}
 			switch (alt33) {
 				case 1 :
-					// Thrift.g:171:93: list_separator
+					// Thrift.g:151:93: list_separator
 					{
-					pushFollow(FOLLOW_list_separator_in_function1242);
+					pushFollow(FOLLOW_list_separator_in_function1246);
 					list_separator97=list_separator();
 					state._fsp--;
 
@@ -3024,7 +3025,7 @@ public class ThriftParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: function_type, type_annotations, IDENTIFIER, field, function_mode, throws_list
+			// elements: throws_list, field, function_mode, type_annotations, function_type, IDENTIFIER
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -3034,19 +3035,19 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 172:9: -> ^( METHOD IDENTIFIER function_type ^( ARGS ( field )* ) ( function_mode )? ( throws_list )? ( type_annotations )? )
+			// 152:9: -> ^( METHOD_ IDENTIFIER function_type ^( ARGS_ ( field )* ) ( function_mode )? ( throws_list )? ( type_annotations )? )
 			{
-				// Thrift.g:172:12: ^( METHOD IDENTIFIER function_type ^( ARGS ( field )* ) ( function_mode )? ( throws_list )? ( type_annotations )? )
+				// Thrift.g:152:12: ^( METHOD_ IDENTIFIER function_type ^( ARGS_ ( field )* ) ( function_mode )? ( throws_list )? ( type_annotations )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD, "METHOD"), root_1);
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_, "METHOD_"), root_1);
 				adaptor.addChild(root_1, stream_IDENTIFIER.nextNode());
 				adaptor.addChild(root_1, stream_function_type.nextTree());
-				// Thrift.g:172:46: ^( ARGS ( field )* )
+				// Thrift.g:152:47: ^( ARGS_ ( field )* )
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
-				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ARGS, "ARGS"), root_2);
-				// Thrift.g:172:53: ( field )*
+				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ARGS_, "ARGS_"), root_2);
+				// Thrift.g:152:55: ( field )*
 				while ( stream_field.hasNext() ) {
 					adaptor.addChild(root_2, stream_field.nextTree());
 				}
@@ -3055,19 +3056,19 @@ public class ThriftParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// Thrift.g:172:61: ( function_mode )?
+				// Thrift.g:152:63: ( function_mode )?
 				if ( stream_function_mode.hasNext() ) {
 					adaptor.addChild(root_1, stream_function_mode.nextTree());
 				}
 				stream_function_mode.reset();
 
-				// Thrift.g:172:76: ( throws_list )?
+				// Thrift.g:152:78: ( throws_list )?
 				if ( stream_throws_list.hasNext() ) {
 					adaptor.addChild(root_1, stream_throws_list.nextTree());
 				}
 				stream_throws_list.reset();
 
-				// Thrift.g:172:89: ( type_annotations )?
+				// Thrift.g:152:91: ( type_annotations )?
 				if ( stream_type_annotations.hasNext() ) {
 					adaptor.addChild(root_1, stream_type_annotations.nextTree());
 				}
@@ -3110,7 +3111,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "function_mode"
-	// Thrift.g:175:1: function_mode : ( EVENT | ONEWAY | ASYNC | DEFERRED );
+	// Thrift.g:155:1: function_mode : ( EVENT | ONEWAY | ASYNC | DEFERRED );
 	public final ThriftParser.function_mode_return function_mode() throws RecognitionException {
 		ThriftParser.function_mode_return retval = new ThriftParser.function_mode_return();
 		retval.start = input.LT(1);
@@ -3122,7 +3123,7 @@ public class ThriftParser extends Parser {
 		CommonTree set98_tree=null;
 
 		try {
-			// Thrift.g:176:5: ( EVENT | ONEWAY | ASYNC | DEFERRED )
+			// Thrift.g:156:5: ( EVENT | ONEWAY | ASYNC | DEFERRED )
 			// Thrift.g:
 			{
 			root_0 = (CommonTree)adaptor.nil();
@@ -3167,7 +3168,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "function_type"
-	// Thrift.g:179:1: function_type : ( field_type | VOID );
+	// Thrift.g:159:1: function_type : ( field_type | VOID );
 	public final ThriftParser.function_type_return function_type() throws RecognitionException {
 		ThriftParser.function_type_return retval = new ThriftParser.function_type_return();
 		retval.start = input.LT(1);
@@ -3180,7 +3181,7 @@ public class ThriftParser extends Parser {
 		CommonTree VOID100_tree=null;
 
 		try {
-			// Thrift.g:180:5: ( field_type | VOID )
+			// Thrift.g:160:5: ( field_type | VOID )
 			int alt34=2;
 			int LA34_0 = input.LA(1);
 			if ( (LA34_0==IDENTIFIER||LA34_0==LIST||LA34_0==MAP||LA34_0==SET||(LA34_0 >= TYPE_BINARY && LA34_0 <= TYPE_STRING)) ) {
@@ -3198,12 +3199,12 @@ public class ThriftParser extends Parser {
 
 			switch (alt34) {
 				case 1 :
-					// Thrift.g:180:7: field_type
+					// Thrift.g:160:7: field_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_field_type_in_function_type1324);
+					pushFollow(FOLLOW_field_type_in_function_type1328);
 					field_type99=field_type();
 					state._fsp--;
 
@@ -3212,12 +3213,12 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 2 :
-					// Thrift.g:181:7: VOID
+					// Thrift.g:161:7: VOID
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					VOID100=(Token)match(input,VOID,FOLLOW_VOID_in_function_type1332); 
+					VOID100=(Token)match(input,VOID,FOLLOW_VOID_in_function_type1336); 
 					VOID100_tree = (CommonTree)adaptor.create(VOID100);
 					adaptor.addChild(root_0, VOID100_tree);
 
@@ -3252,7 +3253,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "throws_list"
-	// Thrift.g:184:1: throws_list : THROWS '(' ( field )* ')' -> ^( THROWS ( field )* ) ;
+	// Thrift.g:164:1: throws_list : THROWS '(' ( field )* ')' -> ^( THROWS ( field )* ) ;
 	public final ThriftParser.throws_list_return throws_list() throws RecognitionException {
 		ThriftParser.throws_list_return retval = new ThriftParser.throws_list_return();
 		retval.start = input.LT(1);
@@ -3268,21 +3269,21 @@ public class ThriftParser extends Parser {
 		CommonTree char_literal102_tree=null;
 		CommonTree char_literal104_tree=null;
 		RewriteRuleTokenStream stream_THROWS=new RewriteRuleTokenStream(adaptor,"token THROWS");
-		RewriteRuleTokenStream stream_61=new RewriteRuleTokenStream(adaptor,"token 61");
 		RewriteRuleTokenStream stream_62=new RewriteRuleTokenStream(adaptor,"token 62");
+		RewriteRuleTokenStream stream_63=new RewriteRuleTokenStream(adaptor,"token 63");
 		RewriteRuleSubtreeStream stream_field=new RewriteRuleSubtreeStream(adaptor,"rule field");
 
 		try {
-			// Thrift.g:185:5: ( THROWS '(' ( field )* ')' -> ^( THROWS ( field )* ) )
-			// Thrift.g:185:7: THROWS '(' ( field )* ')'
+			// Thrift.g:165:5: ( THROWS '(' ( field )* ')' -> ^( THROWS ( field )* ) )
+			// Thrift.g:165:7: THROWS '(' ( field )* ')'
 			{
-			THROWS101=(Token)match(input,THROWS,FOLLOW_THROWS_in_throws_list1349);  
+			THROWS101=(Token)match(input,THROWS,FOLLOW_THROWS_in_throws_list1353);  
 			stream_THROWS.add(THROWS101);
 
-			char_literal102=(Token)match(input,61,FOLLOW_61_in_throws_list1351);  
-			stream_61.add(char_literal102);
+			char_literal102=(Token)match(input,62,FOLLOW_62_in_throws_list1355);  
+			stream_62.add(char_literal102);
 
-			// Thrift.g:185:18: ( field )*
+			// Thrift.g:165:18: ( field )*
 			loop35:
 			while (true) {
 				int alt35=2;
@@ -3293,9 +3294,9 @@ public class ThriftParser extends Parser {
 
 				switch (alt35) {
 				case 1 :
-					// Thrift.g:185:18: field
+					// Thrift.g:165:18: field
 					{
-					pushFollow(FOLLOW_field_in_throws_list1353);
+					pushFollow(FOLLOW_field_in_throws_list1357);
 					field103=field();
 					state._fsp--;
 
@@ -3308,11 +3309,11 @@ public class ThriftParser extends Parser {
 				}
 			}
 
-			char_literal104=(Token)match(input,62,FOLLOW_62_in_throws_list1356);  
-			stream_62.add(char_literal104);
+			char_literal104=(Token)match(input,63,FOLLOW_63_in_throws_list1360);  
+			stream_63.add(char_literal104);
 
 			// AST REWRITE
-			// elements: field, THROWS
+			// elements: THROWS, field
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -3322,13 +3323,13 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 185:29: -> ^( THROWS ( field )* )
+			// 165:29: -> ^( THROWS ( field )* )
 			{
-				// Thrift.g:185:32: ^( THROWS ( field )* )
+				// Thrift.g:165:32: ^( THROWS ( field )* )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_THROWS.nextNode(), root_1);
-				// Thrift.g:185:41: ( field )*
+				// Thrift.g:165:41: ( field )*
 				while ( stream_field.hasNext() ) {
 					adaptor.addChild(root_1, stream_field.nextTree());
 				}
@@ -3371,7 +3372,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "type_annotations"
-	// Thrift.g:189:1: type_annotations : '(' ( type_annotation )* ')' -> ^( TYPES ( type_annotation )* ) ;
+	// Thrift.g:169:1: type_annotations : '(' ( type_annotation )* ')' -> ^( TYPES_ ( type_annotation )* ) ;
 	public final ThriftParser.type_annotations_return type_annotations() throws RecognitionException {
 		ThriftParser.type_annotations_return retval = new ThriftParser.type_annotations_return();
 		retval.start = input.LT(1);
@@ -3384,18 +3385,18 @@ public class ThriftParser extends Parser {
 
 		CommonTree char_literal105_tree=null;
 		CommonTree char_literal107_tree=null;
-		RewriteRuleTokenStream stream_61=new RewriteRuleTokenStream(adaptor,"token 61");
 		RewriteRuleTokenStream stream_62=new RewriteRuleTokenStream(adaptor,"token 62");
+		RewriteRuleTokenStream stream_63=new RewriteRuleTokenStream(adaptor,"token 63");
 		RewriteRuleSubtreeStream stream_type_annotation=new RewriteRuleSubtreeStream(adaptor,"rule type_annotation");
 
 		try {
-			// Thrift.g:190:5: ( '(' ( type_annotation )* ')' -> ^( TYPES ( type_annotation )* ) )
-			// Thrift.g:190:7: '(' ( type_annotation )* ')'
+			// Thrift.g:170:5: ( '(' ( type_annotation )* ')' -> ^( TYPES_ ( type_annotation )* ) )
+			// Thrift.g:170:7: '(' ( type_annotation )* ')'
 			{
-			char_literal105=(Token)match(input,61,FOLLOW_61_in_type_annotations1383);  
-			stream_61.add(char_literal105);
+			char_literal105=(Token)match(input,62,FOLLOW_62_in_type_annotations1387);  
+			stream_62.add(char_literal105);
 
-			// Thrift.g:190:11: ( type_annotation )*
+			// Thrift.g:170:11: ( type_annotation )*
 			loop36:
 			while (true) {
 				int alt36=2;
@@ -3406,9 +3407,9 @@ public class ThriftParser extends Parser {
 
 				switch (alt36) {
 				case 1 :
-					// Thrift.g:190:11: type_annotation
+					// Thrift.g:170:11: type_annotation
 					{
-					pushFollow(FOLLOW_type_annotation_in_type_annotations1385);
+					pushFollow(FOLLOW_type_annotation_in_type_annotations1389);
 					type_annotation106=type_annotation();
 					state._fsp--;
 
@@ -3421,8 +3422,8 @@ public class ThriftParser extends Parser {
 				}
 			}
 
-			char_literal107=(Token)match(input,62,FOLLOW_62_in_type_annotations1388);  
-			stream_62.add(char_literal107);
+			char_literal107=(Token)match(input,63,FOLLOW_63_in_type_annotations1392);  
+			stream_63.add(char_literal107);
 
 			// AST REWRITE
 			// elements: type_annotation
@@ -3435,13 +3436,13 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 190:32: -> ^( TYPES ( type_annotation )* )
+			// 170:32: -> ^( TYPES_ ( type_annotation )* )
 			{
-				// Thrift.g:190:35: ^( TYPES ( type_annotation )* )
+				// Thrift.g:170:35: ^( TYPES_ ( type_annotation )* )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TYPES, "TYPES"), root_1);
-				// Thrift.g:190:43: ( type_annotation )*
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TYPES_, "TYPES_"), root_1);
+				// Thrift.g:170:44: ( type_annotation )*
 				while ( stream_type_annotation.hasNext() ) {
 					adaptor.addChild(root_1, stream_type_annotation.nextTree());
 				}
@@ -3484,7 +3485,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "type_annotation"
-	// Thrift.g:193:1: type_annotation : IDENTIFIER ( '=' annotation_value )? ( list_separator )? -> ^( TYPE IDENTIFIER ( annotation_value )? ) ;
+	// Thrift.g:173:1: type_annotation : IDENTIFIER ( '=' annotation_value )? ( list_separator )? -> ^( TYPE_ IDENTIFIER ( annotation_value )? ) ;
 	public final ThriftParser.type_annotation_return type_annotation() throws RecognitionException {
 		ThriftParser.type_annotation_return retval = new ThriftParser.type_annotation_return();
 		retval.start = input.LT(1);
@@ -3498,32 +3499,32 @@ public class ThriftParser extends Parser {
 
 		CommonTree IDENTIFIER108_tree=null;
 		CommonTree char_literal109_tree=null;
-		RewriteRuleTokenStream stream_66=new RewriteRuleTokenStream(adaptor,"token 66");
+		RewriteRuleTokenStream stream_67=new RewriteRuleTokenStream(adaptor,"token 67");
 		RewriteRuleTokenStream stream_IDENTIFIER=new RewriteRuleTokenStream(adaptor,"token IDENTIFIER");
 		RewriteRuleSubtreeStream stream_annotation_value=new RewriteRuleSubtreeStream(adaptor,"rule annotation_value");
 		RewriteRuleSubtreeStream stream_list_separator=new RewriteRuleSubtreeStream(adaptor,"rule list_separator");
 
 		try {
-			// Thrift.g:194:5: ( IDENTIFIER ( '=' annotation_value )? ( list_separator )? -> ^( TYPE IDENTIFIER ( annotation_value )? ) )
-			// Thrift.g:194:7: IDENTIFIER ( '=' annotation_value )? ( list_separator )?
+			// Thrift.g:174:5: ( IDENTIFIER ( '=' annotation_value )? ( list_separator )? -> ^( TYPE_ IDENTIFIER ( annotation_value )? ) )
+			// Thrift.g:174:7: IDENTIFIER ( '=' annotation_value )? ( list_separator )?
 			{
-			IDENTIFIER108=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_type_annotation1414);  
+			IDENTIFIER108=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_type_annotation1418);  
 			stream_IDENTIFIER.add(IDENTIFIER108);
 
-			// Thrift.g:194:18: ( '=' annotation_value )?
+			// Thrift.g:174:18: ( '=' annotation_value )?
 			int alt37=2;
 			int LA37_0 = input.LA(1);
-			if ( (LA37_0==66) ) {
+			if ( (LA37_0==67) ) {
 				alt37=1;
 			}
 			switch (alt37) {
 				case 1 :
-					// Thrift.g:194:19: '=' annotation_value
+					// Thrift.g:174:19: '=' annotation_value
 					{
-					char_literal109=(Token)match(input,66,FOLLOW_66_in_type_annotation1417);  
-					stream_66.add(char_literal109);
+					char_literal109=(Token)match(input,67,FOLLOW_67_in_type_annotation1421);  
+					stream_67.add(char_literal109);
 
-					pushFollow(FOLLOW_annotation_value_in_type_annotation1419);
+					pushFollow(FOLLOW_annotation_value_in_type_annotation1423);
 					annotation_value110=annotation_value();
 					state._fsp--;
 
@@ -3533,7 +3534,7 @@ public class ThriftParser extends Parser {
 
 			}
 
-			// Thrift.g:194:42: ( list_separator )?
+			// Thrift.g:174:42: ( list_separator )?
 			int alt38=2;
 			int LA38_0 = input.LA(1);
 			if ( (LA38_0==COMMA||LA38_0==SEMICOLON) ) {
@@ -3541,9 +3542,9 @@ public class ThriftParser extends Parser {
 			}
 			switch (alt38) {
 				case 1 :
-					// Thrift.g:194:42: list_separator
+					// Thrift.g:174:42: list_separator
 					{
-					pushFollow(FOLLOW_list_separator_in_type_annotation1423);
+					pushFollow(FOLLOW_list_separator_in_type_annotation1427);
 					list_separator111=list_separator();
 					state._fsp--;
 
@@ -3554,7 +3555,7 @@ public class ThriftParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: annotation_value, IDENTIFIER
+			// elements: IDENTIFIER, annotation_value
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -3564,14 +3565,14 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 194:58: -> ^( TYPE IDENTIFIER ( annotation_value )? )
+			// 174:58: -> ^( TYPE_ IDENTIFIER ( annotation_value )? )
 			{
-				// Thrift.g:194:61: ^( TYPE IDENTIFIER ( annotation_value )? )
+				// Thrift.g:174:61: ^( TYPE_ IDENTIFIER ( annotation_value )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TYPE, "TYPE"), root_1);
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TYPE_, "TYPE_"), root_1);
 				adaptor.addChild(root_1, stream_IDENTIFIER.nextNode());
-				// Thrift.g:194:79: ( annotation_value )?
+				// Thrift.g:174:80: ( annotation_value )?
 				if ( stream_annotation_value.hasNext() ) {
 					adaptor.addChild(root_1, stream_annotation_value.nextTree());
 				}
@@ -3614,7 +3615,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "annotation_value"
-	// Thrift.g:197:1: annotation_value : ( integer | LITERAL );
+	// Thrift.g:177:1: annotation_value : ( integer | LITERAL );
 	public final ThriftParser.annotation_value_return annotation_value() throws RecognitionException {
 		ThriftParser.annotation_value_return retval = new ThriftParser.annotation_value_return();
 		retval.start = input.LT(1);
@@ -3627,7 +3628,7 @@ public class ThriftParser extends Parser {
 		CommonTree LITERAL113_tree=null;
 
 		try {
-			// Thrift.g:198:5: ( integer | LITERAL )
+			// Thrift.g:178:5: ( integer | LITERAL )
 			int alt39=2;
 			int LA39_0 = input.LA(1);
 			if ( (LA39_0==HEX_INTEGER||LA39_0==INTEGER) ) {
@@ -3645,12 +3646,12 @@ public class ThriftParser extends Parser {
 
 			switch (alt39) {
 				case 1 :
-					// Thrift.g:198:7: integer
+					// Thrift.g:178:7: integer
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_integer_in_annotation_value1452);
+					pushFollow(FOLLOW_integer_in_annotation_value1456);
 					integer112=integer();
 					state._fsp--;
 
@@ -3659,12 +3660,12 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 2 :
-					// Thrift.g:198:17: LITERAL
+					// Thrift.g:178:17: LITERAL
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					LITERAL113=(Token)match(input,LITERAL,FOLLOW_LITERAL_in_annotation_value1456); 
+					LITERAL113=(Token)match(input,LITERAL,FOLLOW_LITERAL_in_annotation_value1460); 
 					LITERAL113_tree = (CommonTree)adaptor.create(LITERAL113);
 					adaptor.addChild(root_0, LITERAL113_tree);
 
@@ -3699,7 +3700,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "field_type"
-	// Thrift.g:202:1: field_type : ( base_type | IDENTIFIER | container_type );
+	// Thrift.g:182:1: field_type : ( base_type | IDENTIFIER | container_type );
 	public final ThriftParser.field_type_return field_type() throws RecognitionException {
 		ThriftParser.field_type_return retval = new ThriftParser.field_type_return();
 		retval.start = input.LT(1);
@@ -3713,7 +3714,7 @@ public class ThriftParser extends Parser {
 		CommonTree IDENTIFIER115_tree=null;
 
 		try {
-			// Thrift.g:203:5: ( base_type | IDENTIFIER | container_type )
+			// Thrift.g:183:5: ( base_type | IDENTIFIER | container_type )
 			int alt40=3;
 			switch ( input.LA(1) ) {
 			case TYPE_BINARY:
@@ -3747,12 +3748,12 @@ public class ThriftParser extends Parser {
 			}
 			switch (alt40) {
 				case 1 :
-					// Thrift.g:203:7: base_type
+					// Thrift.g:183:7: base_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_base_type_in_field_type1474);
+					pushFollow(FOLLOW_base_type_in_field_type1478);
 					base_type114=base_type();
 					state._fsp--;
 
@@ -3761,24 +3762,24 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 2 :
-					// Thrift.g:203:19: IDENTIFIER
+					// Thrift.g:183:19: IDENTIFIER
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					IDENTIFIER115=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_field_type1478); 
+					IDENTIFIER115=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_field_type1482); 
 					IDENTIFIER115_tree = (CommonTree)adaptor.create(IDENTIFIER115);
 					adaptor.addChild(root_0, IDENTIFIER115_tree);
 
 					}
 					break;
 				case 3 :
-					// Thrift.g:203:32: container_type
+					// Thrift.g:183:32: container_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_container_type_in_field_type1482);
+					pushFollow(FOLLOW_container_type_in_field_type1486);
 					container_type116=container_type();
 					state._fsp--;
 
@@ -3815,7 +3816,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "base_type"
-	// Thrift.g:206:1: base_type : real_base_type ( type_annotations )? ;
+	// Thrift.g:186:1: base_type : real_base_type ( type_annotations )? ;
 	public final ThriftParser.base_type_return base_type() throws RecognitionException {
 		ThriftParser.base_type_return retval = new ThriftParser.base_type_return();
 		retval.start = input.LT(1);
@@ -3827,29 +3828,29 @@ public class ThriftParser extends Parser {
 
 
 		try {
-			// Thrift.g:207:5: ( real_base_type ( type_annotations )? )
-			// Thrift.g:207:7: real_base_type ( type_annotations )?
+			// Thrift.g:187:5: ( real_base_type ( type_annotations )? )
+			// Thrift.g:187:7: real_base_type ( type_annotations )?
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_real_base_type_in_base_type1499);
+			pushFollow(FOLLOW_real_base_type_in_base_type1503);
 			real_base_type117=real_base_type();
 			state._fsp--;
 
 			adaptor.addChild(root_0, real_base_type117.getTree());
 
-			// Thrift.g:207:22: ( type_annotations )?
+			// Thrift.g:187:22: ( type_annotations )?
 			int alt41=2;
 			int LA41_0 = input.LA(1);
-			if ( (LA41_0==61) ) {
+			if ( (LA41_0==62) ) {
 				alt41=1;
 			}
 			switch (alt41) {
 				case 1 :
-					// Thrift.g:207:22: type_annotations
+					// Thrift.g:187:22: type_annotations
 					{
-					pushFollow(FOLLOW_type_annotations_in_base_type1501);
+					pushFollow(FOLLOW_type_annotations_in_base_type1505);
 					type_annotations118=type_annotations();
 					state._fsp--;
 
@@ -3889,7 +3890,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "container_type"
-	// Thrift.g:210:1: container_type : ( map_type | set_type | list_type ) ( type_annotations )? ;
+	// Thrift.g:190:1: container_type : ( map_type | set_type | list_type ) ( type_annotations )? ;
 	public final ThriftParser.container_type_return container_type() throws RecognitionException {
 		ThriftParser.container_type_return retval = new ThriftParser.container_type_return();
 		retval.start = input.LT(1);
@@ -3903,13 +3904,13 @@ public class ThriftParser extends Parser {
 
 
 		try {
-			// Thrift.g:211:5: ( ( map_type | set_type | list_type ) ( type_annotations )? )
-			// Thrift.g:211:7: ( map_type | set_type | list_type ) ( type_annotations )?
+			// Thrift.g:191:5: ( ( map_type | set_type | list_type ) ( type_annotations )? )
+			// Thrift.g:191:7: ( map_type | set_type | list_type ) ( type_annotations )?
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			// Thrift.g:211:7: ( map_type | set_type | list_type )
+			// Thrift.g:191:7: ( map_type | set_type | list_type )
 			int alt42=3;
 			switch ( input.LA(1) ) {
 			case MAP:
@@ -3934,9 +3935,9 @@ public class ThriftParser extends Parser {
 			}
 			switch (alt42) {
 				case 1 :
-					// Thrift.g:211:8: map_type
+					// Thrift.g:191:8: map_type
 					{
-					pushFollow(FOLLOW_map_type_in_container_type1520);
+					pushFollow(FOLLOW_map_type_in_container_type1524);
 					map_type119=map_type();
 					state._fsp--;
 
@@ -3945,9 +3946,9 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 2 :
-					// Thrift.g:211:19: set_type
+					// Thrift.g:191:19: set_type
 					{
-					pushFollow(FOLLOW_set_type_in_container_type1524);
+					pushFollow(FOLLOW_set_type_in_container_type1528);
 					set_type120=set_type();
 					state._fsp--;
 
@@ -3956,9 +3957,9 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 3 :
-					// Thrift.g:211:30: list_type
+					// Thrift.g:191:30: list_type
 					{
-					pushFollow(FOLLOW_list_type_in_container_type1528);
+					pushFollow(FOLLOW_list_type_in_container_type1532);
 					list_type121=list_type();
 					state._fsp--;
 
@@ -3969,17 +3970,17 @@ public class ThriftParser extends Parser {
 
 			}
 
-			// Thrift.g:211:41: ( type_annotations )?
+			// Thrift.g:191:41: ( type_annotations )?
 			int alt43=2;
 			int LA43_0 = input.LA(1);
-			if ( (LA43_0==61) ) {
+			if ( (LA43_0==62) ) {
 				alt43=1;
 			}
 			switch (alt43) {
 				case 1 :
-					// Thrift.g:211:41: type_annotations
+					// Thrift.g:191:41: type_annotations
 					{
-					pushFollow(FOLLOW_type_annotations_in_container_type1531);
+					pushFollow(FOLLOW_type_annotations_in_container_type1535);
 					type_annotations122=type_annotations();
 					state._fsp--;
 
@@ -4019,7 +4020,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "map_type"
-	// Thrift.g:214:1: map_type : MAP ( cpp_type )? '<' field_type COMMA field_type '>' -> ^( MAP field_type field_type ( cpp_type )? ) ;
+	// Thrift.g:194:1: map_type : MAP ( cpp_type )? '<' field_type COMMA field_type '>' -> ^( MAP field_type field_type ( cpp_type )? ) ;
 	public final ThriftParser.map_type_return map_type() throws RecognitionException {
 		ThriftParser.map_type_return retval = new ThriftParser.map_type_return();
 		retval.start = input.LT(1);
@@ -4039,30 +4040,30 @@ public class ThriftParser extends Parser {
 		CommonTree COMMA127_tree=null;
 		CommonTree char_literal129_tree=null;
 		RewriteRuleTokenStream stream_COMMA=new RewriteRuleTokenStream(adaptor,"token COMMA");
-		RewriteRuleTokenStream stream_67=new RewriteRuleTokenStream(adaptor,"token 67");
+		RewriteRuleTokenStream stream_66=new RewriteRuleTokenStream(adaptor,"token 66");
+		RewriteRuleTokenStream stream_68=new RewriteRuleTokenStream(adaptor,"token 68");
 		RewriteRuleTokenStream stream_MAP=new RewriteRuleTokenStream(adaptor,"token MAP");
-		RewriteRuleTokenStream stream_65=new RewriteRuleTokenStream(adaptor,"token 65");
 		RewriteRuleSubtreeStream stream_cpp_type=new RewriteRuleSubtreeStream(adaptor,"rule cpp_type");
 		RewriteRuleSubtreeStream stream_field_type=new RewriteRuleSubtreeStream(adaptor,"rule field_type");
 
 		try {
-			// Thrift.g:215:5: ( MAP ( cpp_type )? '<' field_type COMMA field_type '>' -> ^( MAP field_type field_type ( cpp_type )? ) )
-			// Thrift.g:215:7: MAP ( cpp_type )? '<' field_type COMMA field_type '>'
+			// Thrift.g:195:5: ( MAP ( cpp_type )? '<' field_type COMMA field_type '>' -> ^( MAP field_type field_type ( cpp_type )? ) )
+			// Thrift.g:195:7: MAP ( cpp_type )? '<' field_type COMMA field_type '>'
 			{
-			MAP123=(Token)match(input,MAP,FOLLOW_MAP_in_map_type1549);  
+			MAP123=(Token)match(input,MAP,FOLLOW_MAP_in_map_type1553);  
 			stream_MAP.add(MAP123);
 
-			// Thrift.g:215:11: ( cpp_type )?
+			// Thrift.g:195:11: ( cpp_type )?
 			int alt44=2;
 			int LA44_0 = input.LA(1);
-			if ( (LA44_0==72) ) {
+			if ( (LA44_0==73) ) {
 				alt44=1;
 			}
 			switch (alt44) {
 				case 1 :
-					// Thrift.g:215:11: cpp_type
+					// Thrift.g:195:11: cpp_type
 					{
-					pushFollow(FOLLOW_cpp_type_in_map_type1551);
+					pushFollow(FOLLOW_cpp_type_in_map_type1555);
 					cpp_type124=cpp_type();
 					state._fsp--;
 
@@ -4072,27 +4073,27 @@ public class ThriftParser extends Parser {
 
 			}
 
-			char_literal125=(Token)match(input,65,FOLLOW_65_in_map_type1554);  
-			stream_65.add(char_literal125);
+			char_literal125=(Token)match(input,66,FOLLOW_66_in_map_type1558);  
+			stream_66.add(char_literal125);
 
-			pushFollow(FOLLOW_field_type_in_map_type1556);
+			pushFollow(FOLLOW_field_type_in_map_type1560);
 			field_type126=field_type();
 			state._fsp--;
 
 			stream_field_type.add(field_type126.getTree());
-			COMMA127=(Token)match(input,COMMA,FOLLOW_COMMA_in_map_type1558);  
+			COMMA127=(Token)match(input,COMMA,FOLLOW_COMMA_in_map_type1562);  
 			stream_COMMA.add(COMMA127);
 
-			pushFollow(FOLLOW_field_type_in_map_type1560);
+			pushFollow(FOLLOW_field_type_in_map_type1564);
 			field_type128=field_type();
 			state._fsp--;
 
 			stream_field_type.add(field_type128.getTree());
-			char_literal129=(Token)match(input,67,FOLLOW_67_in_map_type1562);  
-			stream_67.add(char_literal129);
+			char_literal129=(Token)match(input,68,FOLLOW_68_in_map_type1566);  
+			stream_68.add(char_literal129);
 
 			// AST REWRITE
-			// elements: MAP, field_type, field_type, cpp_type
+			// elements: cpp_type, MAP, field_type, field_type
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -4102,15 +4103,15 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 215:57: -> ^( MAP field_type field_type ( cpp_type )? )
+			// 195:57: -> ^( MAP field_type field_type ( cpp_type )? )
 			{
-				// Thrift.g:215:60: ^( MAP field_type field_type ( cpp_type )? )
+				// Thrift.g:195:60: ^( MAP field_type field_type ( cpp_type )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_MAP.nextNode(), root_1);
 				adaptor.addChild(root_1, stream_field_type.nextTree());
 				adaptor.addChild(root_1, stream_field_type.nextTree());
-				// Thrift.g:215:88: ( cpp_type )?
+				// Thrift.g:195:88: ( cpp_type )?
 				if ( stream_cpp_type.hasNext() ) {
 					adaptor.addChild(root_1, stream_cpp_type.nextTree());
 				}
@@ -4153,7 +4154,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "set_type"
-	// Thrift.g:218:1: set_type : SET ( cpp_type )? '<' field_type '>' -> ^( SET field_type ( cpp_type )? ) ;
+	// Thrift.g:198:1: set_type : SET ( cpp_type )? '<' field_type '>' -> ^( SET field_type ( cpp_type )? ) ;
 	public final ThriftParser.set_type_return set_type() throws RecognitionException {
 		ThriftParser.set_type_return retval = new ThriftParser.set_type_return();
 		retval.start = input.LT(1);
@@ -4169,30 +4170,30 @@ public class ThriftParser extends Parser {
 		CommonTree SET130_tree=null;
 		CommonTree char_literal132_tree=null;
 		CommonTree char_literal134_tree=null;
-		RewriteRuleTokenStream stream_67=new RewriteRuleTokenStream(adaptor,"token 67");
+		RewriteRuleTokenStream stream_66=new RewriteRuleTokenStream(adaptor,"token 66");
+		RewriteRuleTokenStream stream_68=new RewriteRuleTokenStream(adaptor,"token 68");
 		RewriteRuleTokenStream stream_SET=new RewriteRuleTokenStream(adaptor,"token SET");
-		RewriteRuleTokenStream stream_65=new RewriteRuleTokenStream(adaptor,"token 65");
 		RewriteRuleSubtreeStream stream_cpp_type=new RewriteRuleSubtreeStream(adaptor,"rule cpp_type");
 		RewriteRuleSubtreeStream stream_field_type=new RewriteRuleSubtreeStream(adaptor,"rule field_type");
 
 		try {
-			// Thrift.g:219:5: ( SET ( cpp_type )? '<' field_type '>' -> ^( SET field_type ( cpp_type )? ) )
-			// Thrift.g:219:7: SET ( cpp_type )? '<' field_type '>'
+			// Thrift.g:199:5: ( SET ( cpp_type )? '<' field_type '>' -> ^( SET field_type ( cpp_type )? ) )
+			// Thrift.g:199:7: SET ( cpp_type )? '<' field_type '>'
 			{
-			SET130=(Token)match(input,SET,FOLLOW_SET_in_set_type1592);  
+			SET130=(Token)match(input,SET,FOLLOW_SET_in_set_type1596);  
 			stream_SET.add(SET130);
 
-			// Thrift.g:219:11: ( cpp_type )?
+			// Thrift.g:199:11: ( cpp_type )?
 			int alt45=2;
 			int LA45_0 = input.LA(1);
-			if ( (LA45_0==72) ) {
+			if ( (LA45_0==73) ) {
 				alt45=1;
 			}
 			switch (alt45) {
 				case 1 :
-					// Thrift.g:219:11: cpp_type
+					// Thrift.g:199:11: cpp_type
 					{
-					pushFollow(FOLLOW_cpp_type_in_set_type1594);
+					pushFollow(FOLLOW_cpp_type_in_set_type1598);
 					cpp_type131=cpp_type();
 					state._fsp--;
 
@@ -4202,19 +4203,19 @@ public class ThriftParser extends Parser {
 
 			}
 
-			char_literal132=(Token)match(input,65,FOLLOW_65_in_set_type1597);  
-			stream_65.add(char_literal132);
+			char_literal132=(Token)match(input,66,FOLLOW_66_in_set_type1601);  
+			stream_66.add(char_literal132);
 
-			pushFollow(FOLLOW_field_type_in_set_type1599);
+			pushFollow(FOLLOW_field_type_in_set_type1603);
 			field_type133=field_type();
 			state._fsp--;
 
 			stream_field_type.add(field_type133.getTree());
-			char_literal134=(Token)match(input,67,FOLLOW_67_in_set_type1601);  
-			stream_67.add(char_literal134);
+			char_literal134=(Token)match(input,68,FOLLOW_68_in_set_type1605);  
+			stream_68.add(char_literal134);
 
 			// AST REWRITE
-			// elements: SET, cpp_type, field_type
+			// elements: cpp_type, field_type, SET
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -4224,14 +4225,14 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 219:40: -> ^( SET field_type ( cpp_type )? )
+			// 199:40: -> ^( SET field_type ( cpp_type )? )
 			{
-				// Thrift.g:219:43: ^( SET field_type ( cpp_type )? )
+				// Thrift.g:199:43: ^( SET field_type ( cpp_type )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_SET.nextNode(), root_1);
 				adaptor.addChild(root_1, stream_field_type.nextTree());
-				// Thrift.g:219:60: ( cpp_type )?
+				// Thrift.g:199:60: ( cpp_type )?
 				if ( stream_cpp_type.hasNext() ) {
 					adaptor.addChild(root_1, stream_cpp_type.nextTree());
 				}
@@ -4274,7 +4275,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "list_type"
-	// Thrift.g:222:1: list_type : LIST '<' field_type '>' ( cpp_type )? -> ^( LIST field_type ( cpp_type )? ) ;
+	// Thrift.g:202:1: list_type : LIST '<' field_type '>' ( cpp_type )? -> ^( LIST field_type ( cpp_type )? ) ;
 	public final ThriftParser.list_type_return list_type() throws RecognitionException {
 		ThriftParser.list_type_return retval = new ThriftParser.list_type_return();
 		retval.start = input.LT(1);
@@ -4290,41 +4291,41 @@ public class ThriftParser extends Parser {
 		CommonTree LIST135_tree=null;
 		CommonTree char_literal136_tree=null;
 		CommonTree char_literal138_tree=null;
-		RewriteRuleTokenStream stream_67=new RewriteRuleTokenStream(adaptor,"token 67");
+		RewriteRuleTokenStream stream_66=new RewriteRuleTokenStream(adaptor,"token 66");
+		RewriteRuleTokenStream stream_68=new RewriteRuleTokenStream(adaptor,"token 68");
 		RewriteRuleTokenStream stream_LIST=new RewriteRuleTokenStream(adaptor,"token LIST");
-		RewriteRuleTokenStream stream_65=new RewriteRuleTokenStream(adaptor,"token 65");
 		RewriteRuleSubtreeStream stream_cpp_type=new RewriteRuleSubtreeStream(adaptor,"rule cpp_type");
 		RewriteRuleSubtreeStream stream_field_type=new RewriteRuleSubtreeStream(adaptor,"rule field_type");
 
 		try {
-			// Thrift.g:223:5: ( LIST '<' field_type '>' ( cpp_type )? -> ^( LIST field_type ( cpp_type )? ) )
-			// Thrift.g:223:7: LIST '<' field_type '>' ( cpp_type )?
+			// Thrift.g:203:5: ( LIST '<' field_type '>' ( cpp_type )? -> ^( LIST field_type ( cpp_type )? ) )
+			// Thrift.g:203:7: LIST '<' field_type '>' ( cpp_type )?
 			{
-			LIST135=(Token)match(input,LIST,FOLLOW_LIST_in_list_type1629);  
+			LIST135=(Token)match(input,LIST,FOLLOW_LIST_in_list_type1633);  
 			stream_LIST.add(LIST135);
 
-			char_literal136=(Token)match(input,65,FOLLOW_65_in_list_type1631);  
-			stream_65.add(char_literal136);
+			char_literal136=(Token)match(input,66,FOLLOW_66_in_list_type1635);  
+			stream_66.add(char_literal136);
 
-			pushFollow(FOLLOW_field_type_in_list_type1633);
+			pushFollow(FOLLOW_field_type_in_list_type1637);
 			field_type137=field_type();
 			state._fsp--;
 
 			stream_field_type.add(field_type137.getTree());
-			char_literal138=(Token)match(input,67,FOLLOW_67_in_list_type1635);  
-			stream_67.add(char_literal138);
+			char_literal138=(Token)match(input,68,FOLLOW_68_in_list_type1639);  
+			stream_68.add(char_literal138);
 
-			// Thrift.g:223:31: ( cpp_type )?
+			// Thrift.g:203:31: ( cpp_type )?
 			int alt46=2;
 			int LA46_0 = input.LA(1);
-			if ( (LA46_0==72) ) {
+			if ( (LA46_0==73) ) {
 				alt46=1;
 			}
 			switch (alt46) {
 				case 1 :
-					// Thrift.g:223:31: cpp_type
+					// Thrift.g:203:31: cpp_type
 					{
-					pushFollow(FOLLOW_cpp_type_in_list_type1637);
+					pushFollow(FOLLOW_cpp_type_in_list_type1641);
 					cpp_type139=cpp_type();
 					state._fsp--;
 
@@ -4345,14 +4346,14 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 223:41: -> ^( LIST field_type ( cpp_type )? )
+			// 203:41: -> ^( LIST field_type ( cpp_type )? )
 			{
-				// Thrift.g:223:44: ^( LIST field_type ( cpp_type )? )
+				// Thrift.g:203:44: ^( LIST field_type ( cpp_type )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_LIST.nextNode(), root_1);
 				adaptor.addChild(root_1, stream_field_type.nextTree());
-				// Thrift.g:223:62: ( cpp_type )?
+				// Thrift.g:203:62: ( cpp_type )?
 				if ( stream_cpp_type.hasNext() ) {
 					adaptor.addChild(root_1, stream_cpp_type.nextTree());
 				}
@@ -4395,7 +4396,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "cpp_type"
-	// Thrift.g:226:1: cpp_type : 'cpp_type' LITERAL -> ^( CPP_TYPE LITERAL ) ;
+	// Thrift.g:206:1: cpp_type : 'cpp_type' LITERAL -> ^( CPP_TYPE_ LITERAL ) ;
 	public final ThriftParser.cpp_type_return cpp_type() throws RecognitionException {
 		ThriftParser.cpp_type_return retval = new ThriftParser.cpp_type_return();
 		retval.start = input.LT(1);
@@ -4408,16 +4409,16 @@ public class ThriftParser extends Parser {
 		CommonTree string_literal140_tree=null;
 		CommonTree LITERAL141_tree=null;
 		RewriteRuleTokenStream stream_LITERAL=new RewriteRuleTokenStream(adaptor,"token LITERAL");
-		RewriteRuleTokenStream stream_72=new RewriteRuleTokenStream(adaptor,"token 72");
+		RewriteRuleTokenStream stream_73=new RewriteRuleTokenStream(adaptor,"token 73");
 
 		try {
-			// Thrift.g:227:5: ( 'cpp_type' LITERAL -> ^( CPP_TYPE LITERAL ) )
-			// Thrift.g:227:7: 'cpp_type' LITERAL
+			// Thrift.g:207:5: ( 'cpp_type' LITERAL -> ^( CPP_TYPE_ LITERAL ) )
+			// Thrift.g:207:7: 'cpp_type' LITERAL
 			{
-			string_literal140=(Token)match(input,72,FOLLOW_72_in_cpp_type1666);  
-			stream_72.add(string_literal140);
+			string_literal140=(Token)match(input,73,FOLLOW_73_in_cpp_type1670);  
+			stream_73.add(string_literal140);
 
-			LITERAL141=(Token)match(input,LITERAL,FOLLOW_LITERAL_in_cpp_type1668);  
+			LITERAL141=(Token)match(input,LITERAL,FOLLOW_LITERAL_in_cpp_type1672);  
 			stream_LITERAL.add(LITERAL141);
 
 			// AST REWRITE
@@ -4431,12 +4432,12 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 227:26: -> ^( CPP_TYPE LITERAL )
+			// 207:26: -> ^( CPP_TYPE_ LITERAL )
 			{
-				// Thrift.g:227:29: ^( CPP_TYPE LITERAL )
+				// Thrift.g:207:29: ^( CPP_TYPE_ LITERAL )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CPP_TYPE, "CPP_TYPE"), root_1);
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CPP_TYPE_, "CPP_TYPE_"), root_1);
 				adaptor.addChild(root_1, stream_LITERAL.nextNode());
 				adaptor.addChild(root_0, root_1);
 				}
@@ -4475,7 +4476,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "const_value"
-	// Thrift.g:231:1: const_value : ( integer | DOUBLE | LITERAL | IDENTIFIER | const_list | const_map );
+	// Thrift.g:211:1: const_value : ( integer | DOUBLE | LITERAL | IDENTIFIER | const_list | const_map );
 	public final ThriftParser.const_value_return const_value() throws RecognitionException {
 		ThriftParser.const_value_return retval = new ThriftParser.const_value_return();
 		retval.start = input.LT(1);
@@ -4494,7 +4495,7 @@ public class ThriftParser extends Parser {
 		CommonTree IDENTIFIER145_tree=null;
 
 		try {
-			// Thrift.g:232:5: ( integer | DOUBLE | LITERAL | IDENTIFIER | const_list | const_map )
+			// Thrift.g:212:5: ( integer | DOUBLE | LITERAL | IDENTIFIER | const_list | const_map )
 			int alt47=6;
 			switch ( input.LA(1) ) {
 			case HEX_INTEGER:
@@ -4518,7 +4519,7 @@ public class ThriftParser extends Parser {
 				alt47=4;
 				}
 				break;
-			case 68:
+			case 69:
 				{
 				alt47=5;
 				}
@@ -4535,12 +4536,12 @@ public class ThriftParser extends Parser {
 			}
 			switch (alt47) {
 				case 1 :
-					// Thrift.g:232:7: integer
+					// Thrift.g:212:7: integer
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_integer_in_const_value1694);
+					pushFollow(FOLLOW_integer_in_const_value1698);
 					integer142=integer();
 					state._fsp--;
 
@@ -4549,48 +4550,48 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 2 :
-					// Thrift.g:232:17: DOUBLE
+					// Thrift.g:212:17: DOUBLE
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					DOUBLE143=(Token)match(input,DOUBLE,FOLLOW_DOUBLE_in_const_value1698); 
+					DOUBLE143=(Token)match(input,DOUBLE,FOLLOW_DOUBLE_in_const_value1702); 
 					DOUBLE143_tree = (CommonTree)adaptor.create(DOUBLE143);
 					adaptor.addChild(root_0, DOUBLE143_tree);
 
 					}
 					break;
 				case 3 :
-					// Thrift.g:232:26: LITERAL
+					// Thrift.g:212:26: LITERAL
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					LITERAL144=(Token)match(input,LITERAL,FOLLOW_LITERAL_in_const_value1702); 
+					LITERAL144=(Token)match(input,LITERAL,FOLLOW_LITERAL_in_const_value1706); 
 					LITERAL144_tree = (CommonTree)adaptor.create(LITERAL144);
 					adaptor.addChild(root_0, LITERAL144_tree);
 
 					}
 					break;
 				case 4 :
-					// Thrift.g:232:36: IDENTIFIER
+					// Thrift.g:212:36: IDENTIFIER
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					IDENTIFIER145=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_const_value1706); 
+					IDENTIFIER145=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_const_value1710); 
 					IDENTIFIER145_tree = (CommonTree)adaptor.create(IDENTIFIER145);
 					adaptor.addChild(root_0, IDENTIFIER145_tree);
 
 					}
 					break;
 				case 5 :
-					// Thrift.g:232:49: const_list
+					// Thrift.g:212:49: const_list
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_const_list_in_const_value1710);
+					pushFollow(FOLLOW_const_list_in_const_value1714);
 					const_list146=const_list();
 					state._fsp--;
 
@@ -4599,12 +4600,12 @@ public class ThriftParser extends Parser {
 					}
 					break;
 				case 6 :
-					// Thrift.g:232:62: const_map
+					// Thrift.g:212:62: const_map
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_const_map_in_const_value1714);
+					pushFollow(FOLLOW_const_map_in_const_value1718);
 					const_map147=const_map();
 					state._fsp--;
 
@@ -4641,7 +4642,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "integer"
-	// Thrift.g:235:1: integer : ( INTEGER | HEX_INTEGER );
+	// Thrift.g:215:1: integer : ( INTEGER | HEX_INTEGER );
 	public final ThriftParser.integer_return integer() throws RecognitionException {
 		ThriftParser.integer_return retval = new ThriftParser.integer_return();
 		retval.start = input.LT(1);
@@ -4653,7 +4654,7 @@ public class ThriftParser extends Parser {
 		CommonTree set148_tree=null;
 
 		try {
-			// Thrift.g:236:5: ( INTEGER | HEX_INTEGER )
+			// Thrift.g:216:5: ( INTEGER | HEX_INTEGER )
 			// Thrift.g:
 			{
 			root_0 = (CommonTree)adaptor.nil();
@@ -4698,7 +4699,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "const_list"
-	// Thrift.g:253:1: const_list : '[' ( const_value ( list_separator )? )* ']' -> ^( LIST ( const_value )* ) ;
+	// Thrift.g:233:1: const_list : '[' ( const_value ( list_separator )? )* ']' -> ^( LIST ( const_value )* ) ;
 	public final ThriftParser.const_list_return const_list() throws RecognitionException {
 		ThriftParser.const_list_return retval = new ThriftParser.const_list_return();
 		retval.start = input.LT(1);
@@ -4712,37 +4713,37 @@ public class ThriftParser extends Parser {
 
 		CommonTree char_literal149_tree=null;
 		CommonTree char_literal152_tree=null;
-		RewriteRuleTokenStream stream_68=new RewriteRuleTokenStream(adaptor,"token 68");
 		RewriteRuleTokenStream stream_69=new RewriteRuleTokenStream(adaptor,"token 69");
+		RewriteRuleTokenStream stream_70=new RewriteRuleTokenStream(adaptor,"token 70");
 		RewriteRuleSubtreeStream stream_list_separator=new RewriteRuleSubtreeStream(adaptor,"rule list_separator");
 		RewriteRuleSubtreeStream stream_const_value=new RewriteRuleSubtreeStream(adaptor,"rule const_value");
 
 		try {
-			// Thrift.g:254:5: ( '[' ( const_value ( list_separator )? )* ']' -> ^( LIST ( const_value )* ) )
-			// Thrift.g:254:7: '[' ( const_value ( list_separator )? )* ']'
+			// Thrift.g:234:5: ( '[' ( const_value ( list_separator )? )* ']' -> ^( LIST ( const_value )* ) )
+			// Thrift.g:234:7: '[' ( const_value ( list_separator )? )* ']'
 			{
-			char_literal149=(Token)match(input,68,FOLLOW_68_in_const_list1864);  
-			stream_68.add(char_literal149);
+			char_literal149=(Token)match(input,69,FOLLOW_69_in_const_list1868);  
+			stream_69.add(char_literal149);
 
-			// Thrift.g:254:11: ( const_value ( list_separator )? )*
+			// Thrift.g:234:11: ( const_value ( list_separator )? )*
 			loop49:
 			while (true) {
 				int alt49=2;
 				int LA49_0 = input.LA(1);
-				if ( (LA49_0==DOUBLE||(LA49_0 >= HEX_INTEGER && LA49_0 <= IDENTIFIER)||(LA49_0 >= INTEGER && LA49_0 <= LCURLY)||LA49_0==LITERAL||LA49_0==68) ) {
+				if ( (LA49_0==DOUBLE||(LA49_0 >= HEX_INTEGER && LA49_0 <= IDENTIFIER)||(LA49_0 >= INTEGER && LA49_0 <= LCURLY)||LA49_0==LITERAL||LA49_0==69) ) {
 					alt49=1;
 				}
 
 				switch (alt49) {
 				case 1 :
-					// Thrift.g:254:12: const_value ( list_separator )?
+					// Thrift.g:234:12: const_value ( list_separator )?
 					{
-					pushFollow(FOLLOW_const_value_in_const_list1867);
+					pushFollow(FOLLOW_const_value_in_const_list1871);
 					const_value150=const_value();
 					state._fsp--;
 
 					stream_const_value.add(const_value150.getTree());
-					// Thrift.g:254:24: ( list_separator )?
+					// Thrift.g:234:24: ( list_separator )?
 					int alt48=2;
 					int LA48_0 = input.LA(1);
 					if ( (LA48_0==COMMA||LA48_0==SEMICOLON) ) {
@@ -4750,9 +4751,9 @@ public class ThriftParser extends Parser {
 					}
 					switch (alt48) {
 						case 1 :
-							// Thrift.g:254:24: list_separator
+							// Thrift.g:234:24: list_separator
 							{
-							pushFollow(FOLLOW_list_separator_in_const_list1869);
+							pushFollow(FOLLOW_list_separator_in_const_list1873);
 							list_separator151=list_separator();
 							state._fsp--;
 
@@ -4770,8 +4771,8 @@ public class ThriftParser extends Parser {
 				}
 			}
 
-			char_literal152=(Token)match(input,69,FOLLOW_69_in_const_list1874);  
-			stream_69.add(char_literal152);
+			char_literal152=(Token)match(input,70,FOLLOW_70_in_const_list1878);  
+			stream_70.add(char_literal152);
 
 			// AST REWRITE
 			// elements: const_value
@@ -4784,13 +4785,13 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 254:46: -> ^( LIST ( const_value )* )
+			// 234:46: -> ^( LIST ( const_value )* )
 			{
-				// Thrift.g:254:49: ^( LIST ( const_value )* )
+				// Thrift.g:234:49: ^( LIST ( const_value )* )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LIST, "LIST"), root_1);
-				// Thrift.g:254:56: ( const_value )*
+				// Thrift.g:234:56: ( const_value )*
 				while ( stream_const_value.hasNext() ) {
 					adaptor.addChild(root_1, stream_const_value.nextTree());
 				}
@@ -4833,7 +4834,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "const_map_entry"
-	// Thrift.g:257:1: const_map_entry : k= const_value ':' v= const_value ( list_separator )? -> ^( ENTRY $k $v) ;
+	// Thrift.g:237:1: const_map_entry : k= const_value ':' v= const_value ( list_separator )? -> ^( ENTRY_ $k $v) ;
 	public final ThriftParser.const_map_entry_return const_map_entry() throws RecognitionException {
 		ThriftParser.const_map_entry_return retval = new ThriftParser.const_map_entry_return();
 		retval.start = input.LT(1);
@@ -4846,28 +4847,28 @@ public class ThriftParser extends Parser {
 		ParserRuleReturnScope list_separator154 =null;
 
 		CommonTree char_literal153_tree=null;
-		RewriteRuleTokenStream stream_64=new RewriteRuleTokenStream(adaptor,"token 64");
+		RewriteRuleTokenStream stream_65=new RewriteRuleTokenStream(adaptor,"token 65");
 		RewriteRuleSubtreeStream stream_list_separator=new RewriteRuleSubtreeStream(adaptor,"rule list_separator");
 		RewriteRuleSubtreeStream stream_const_value=new RewriteRuleSubtreeStream(adaptor,"rule const_value");
 
 		try {
-			// Thrift.g:258:5: (k= const_value ':' v= const_value ( list_separator )? -> ^( ENTRY $k $v) )
-			// Thrift.g:258:7: k= const_value ':' v= const_value ( list_separator )?
+			// Thrift.g:238:5: (k= const_value ':' v= const_value ( list_separator )? -> ^( ENTRY_ $k $v) )
+			// Thrift.g:238:7: k= const_value ':' v= const_value ( list_separator )?
 			{
-			pushFollow(FOLLOW_const_value_in_const_map_entry1902);
+			pushFollow(FOLLOW_const_value_in_const_map_entry1906);
 			k=const_value();
 			state._fsp--;
 
 			stream_const_value.add(k.getTree());
-			char_literal153=(Token)match(input,64,FOLLOW_64_in_const_map_entry1904);  
-			stream_64.add(char_literal153);
+			char_literal153=(Token)match(input,65,FOLLOW_65_in_const_map_entry1908);  
+			stream_65.add(char_literal153);
 
-			pushFollow(FOLLOW_const_value_in_const_map_entry1908);
+			pushFollow(FOLLOW_const_value_in_const_map_entry1912);
 			v=const_value();
 			state._fsp--;
 
 			stream_const_value.add(v.getTree());
-			// Thrift.g:258:39: ( list_separator )?
+			// Thrift.g:238:39: ( list_separator )?
 			int alt50=2;
 			int LA50_0 = input.LA(1);
 			if ( (LA50_0==COMMA||LA50_0==SEMICOLON) ) {
@@ -4875,9 +4876,9 @@ public class ThriftParser extends Parser {
 			}
 			switch (alt50) {
 				case 1 :
-					// Thrift.g:258:39: list_separator
+					// Thrift.g:238:39: list_separator
 					{
-					pushFollow(FOLLOW_list_separator_in_const_map_entry1910);
+					pushFollow(FOLLOW_list_separator_in_const_map_entry1914);
 					list_separator154=list_separator();
 					state._fsp--;
 
@@ -4888,7 +4889,7 @@ public class ThriftParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: v, k
+			// elements: k, v
 			// token labels: 
 			// rule labels: v, k, retval
 			// token list labels: 
@@ -4900,12 +4901,12 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 258:55: -> ^( ENTRY $k $v)
+			// 238:55: -> ^( ENTRY_ $k $v)
 			{
-				// Thrift.g:258:58: ^( ENTRY $k $v)
+				// Thrift.g:238:58: ^( ENTRY_ $k $v)
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ENTRY, "ENTRY"), root_1);
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ENTRY_, "ENTRY_"), root_1);
 				adaptor.addChild(root_1, stream_k.nextTree());
 				adaptor.addChild(root_1, stream_v.nextTree());
 				adaptor.addChild(root_0, root_1);
@@ -4945,7 +4946,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "const_map"
-	// Thrift.g:261:1: const_map : LCURLY ( const_map_entry )* RCURLY -> ^( MAP ( const_map_entry )* ) ;
+	// Thrift.g:241:1: const_map : LCURLY ( const_map_entry )* RCURLY -> ^( MAP ( const_map_entry )* ) ;
 	public final ThriftParser.const_map_return const_map() throws RecognitionException {
 		ThriftParser.const_map_return retval = new ThriftParser.const_map_return();
 		retval.start = input.LT(1);
@@ -4963,26 +4964,26 @@ public class ThriftParser extends Parser {
 		RewriteRuleSubtreeStream stream_const_map_entry=new RewriteRuleSubtreeStream(adaptor,"rule const_map_entry");
 
 		try {
-			// Thrift.g:262:5: ( LCURLY ( const_map_entry )* RCURLY -> ^( MAP ( const_map_entry )* ) )
-			// Thrift.g:262:7: LCURLY ( const_map_entry )* RCURLY
+			// Thrift.g:242:5: ( LCURLY ( const_map_entry )* RCURLY -> ^( MAP ( const_map_entry )* ) )
+			// Thrift.g:242:7: LCURLY ( const_map_entry )* RCURLY
 			{
-			LCURLY155=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_const_map1940);  
+			LCURLY155=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_const_map1944);  
 			stream_LCURLY.add(LCURLY155);
 
-			// Thrift.g:262:14: ( const_map_entry )*
+			// Thrift.g:242:14: ( const_map_entry )*
 			loop51:
 			while (true) {
 				int alt51=2;
 				int LA51_0 = input.LA(1);
-				if ( (LA51_0==DOUBLE||(LA51_0 >= HEX_INTEGER && LA51_0 <= IDENTIFIER)||(LA51_0 >= INTEGER && LA51_0 <= LCURLY)||LA51_0==LITERAL||LA51_0==68) ) {
+				if ( (LA51_0==DOUBLE||(LA51_0 >= HEX_INTEGER && LA51_0 <= IDENTIFIER)||(LA51_0 >= INTEGER && LA51_0 <= LCURLY)||LA51_0==LITERAL||LA51_0==69) ) {
 					alt51=1;
 				}
 
 				switch (alt51) {
 				case 1 :
-					// Thrift.g:262:14: const_map_entry
+					// Thrift.g:242:14: const_map_entry
 					{
-					pushFollow(FOLLOW_const_map_entry_in_const_map1942);
+					pushFollow(FOLLOW_const_map_entry_in_const_map1946);
 					const_map_entry156=const_map_entry();
 					state._fsp--;
 
@@ -4995,7 +4996,7 @@ public class ThriftParser extends Parser {
 				}
 			}
 
-			RCURLY157=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_const_map1945);  
+			RCURLY157=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_const_map1949);  
 			stream_RCURLY.add(RCURLY157);
 
 			// AST REWRITE
@@ -5009,13 +5010,13 @@ public class ThriftParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 262:38: -> ^( MAP ( const_map_entry )* )
+			// 242:38: -> ^( MAP ( const_map_entry )* )
 			{
-				// Thrift.g:262:41: ^( MAP ( const_map_entry )* )
+				// Thrift.g:242:41: ^( MAP ( const_map_entry )* )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(MAP, "MAP"), root_1);
-				// Thrift.g:262:47: ( const_map_entry )*
+				// Thrift.g:242:47: ( const_map_entry )*
 				while ( stream_const_map_entry.hasNext() ) {
 					adaptor.addChild(root_1, stream_const_map_entry.nextTree());
 				}
@@ -5058,7 +5059,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "list_separator"
-	// Thrift.g:265:1: list_separator : ( COMMA | SEMICOLON );
+	// Thrift.g:245:1: list_separator : ( COMMA | SEMICOLON );
 	public final ThriftParser.list_separator_return list_separator() throws RecognitionException {
 		ThriftParser.list_separator_return retval = new ThriftParser.list_separator_return();
 		retval.start = input.LT(1);
@@ -5070,7 +5071,7 @@ public class ThriftParser extends Parser {
 		CommonTree set158_tree=null;
 
 		try {
-			// Thrift.g:266:5: ( COMMA | SEMICOLON )
+			// Thrift.g:246:5: ( COMMA | SEMICOLON )
 			// Thrift.g:
 			{
 			root_0 = (CommonTree)adaptor.nil();
@@ -5115,7 +5116,7 @@ public class ThriftParser extends Parser {
 
 
 	// $ANTLR start "real_base_type"
-	// Thrift.g:269:1: real_base_type : ( TYPE_BOOL | TYPE_BYTE | TYPE_I16 | TYPE_I32 | TYPE_I64 | TYPE_DOUBLE | TYPE_STRING | TYPE_BINARY );
+	// Thrift.g:249:1: real_base_type : ( TYPE_BOOL | TYPE_BYTE | TYPE_I16 | TYPE_I32 | TYPE_I64 | TYPE_DOUBLE | TYPE_STRING | TYPE_BINARY );
 	public final ThriftParser.real_base_type_return real_base_type() throws RecognitionException {
 		ThriftParser.real_base_type_return retval = new ThriftParser.real_base_type_return();
 		retval.start = input.LT(1);
@@ -5127,7 +5128,7 @@ public class ThriftParser extends Parser {
 		CommonTree set159_tree=null;
 
 		try {
-			// Thrift.g:270:5: ( TYPE_BOOL | TYPE_BYTE | TYPE_I16 | TYPE_I32 | TYPE_I64 | TYPE_DOUBLE | TYPE_STRING | TYPE_BINARY )
+			// Thrift.g:250:5: ( TYPE_BOOL | TYPE_BYTE | TYPE_I16 | TYPE_I32 | TYPE_I64 | TYPE_DOUBLE | TYPE_STRING | TYPE_BINARY )
 			// Thrift.g:
 			{
 			root_0 = (CommonTree)adaptor.nil();
@@ -5167,169 +5168,169 @@ public class ThriftParser extends Parser {
 
 
 
-	public static final BitSet FOLLOW_header_in_document384 = new BitSet(new long[]{0x04012C24040A0100L,0x00000000000002C0L});
-	public static final BitSet FOLLOW_definition_in_document387 = new BitSet(new long[]{0x04012C20000A0100L});
-	public static final BitSet FOLLOW_EOF_in_document390 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_include_in_header420 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_namespace_in_header424 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_cpp_include_in_header428 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INCLUDE_in_include445 = new BitSet(new long[]{0x0000000080000000L});
-	public static final BitSet FOLLOW_LITERAL_in_include447 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_PACKAGE_in_dpackage472 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_dpackage476 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_LCURLY_in_dpackage478 = new BitSet(new long[]{0x04012C60000A0100L});
-	public static final BitSet FOLLOW_definition_in_dpackage480 = new BitSet(new long[]{0x04012C60000A0100L});
-	public static final BitSet FOLLOW_RCURLY_in_dpackage483 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NAMESPACE_in_namespace513 = new BitSet(new long[]{0x8000000000000000L});
-	public static final BitSet FOLLOW_63_in_namespace515 = new BitSet(new long[]{0x0000000082000000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_namespace520 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_in_namespace526 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NAMESPACE_in_namespace544 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_namespace548 = new BitSet(new long[]{0x0000000082000000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_namespace553 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_in_namespace559 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_71_in_namespace580 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_namespace582 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_73_in_namespace601 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_namespace603 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_70_in_cpp_include631 = new BitSet(new long[]{0x0000000080000000L});
-	public static final BitSet FOLLOW_LITERAL_in_cpp_include633 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_dpackage_in_definition659 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_const_rule_in_definition663 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_typedef_in_definition667 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_enum_rule_in_definition671 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_senum_in_definition675 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_struct_in_definition679 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_union_in_definition683 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_exception_in_definition687 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_service_in_definition691 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CONST_in_const_rule708 = new BitSet(new long[]{0x03FC100142000000L});
-	public static final BitSet FOLLOW_field_type_in_const_rule710 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_const_rule712 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_66_in_const_rule714 = new BitSet(new long[]{0x000000009B008000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_const_value_in_const_rule716 = new BitSet(new long[]{0x0000020000000042L});
-	public static final BitSet FOLLOW_list_separator_in_const_rule718 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TYPEDEF_in_typedef756 = new BitSet(new long[]{0x03FC100142000000L});
-	public static final BitSet FOLLOW_field_type_in_typedef758 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_typedef760 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ENUM_in_enum_rule787 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_enum_rule789 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_LCURLY_in_enum_rule791 = new BitSet(new long[]{0x0000004002000000L});
-	public static final BitSet FOLLOW_enum_field_in_enum_rule793 = new BitSet(new long[]{0x0000004002000000L});
-	public static final BitSet FOLLOW_RCURLY_in_enum_rule796 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_enum_field824 = new BitSet(new long[]{0x0000020000000042L,0x0000000000000004L});
-	public static final BitSet FOLLOW_66_in_enum_field827 = new BitSet(new long[]{0x0000000009000000L});
-	public static final BitSet FOLLOW_integer_in_enum_field829 = new BitSet(new long[]{0x0000020000000042L});
-	public static final BitSet FOLLOW_list_separator_in_enum_field833 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_SENUM_in_senum860 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_senum862 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_LCURLY_in_senum864 = new BitSet(new long[]{0x0000004080000000L});
-	public static final BitSet FOLLOW_LITERAL_in_senum867 = new BitSet(new long[]{0x0000024080000040L});
-	public static final BitSet FOLLOW_list_separator_in_senum869 = new BitSet(new long[]{0x0000004080000000L});
-	public static final BitSet FOLLOW_RCURLY_in_senum874 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_STRUCT_in_struct902 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_struct904 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_LCURLY_in_struct906 = new BitSet(new long[]{0x03FC10D14B000000L});
-	public static final BitSet FOLLOW_field_in_struct908 = new BitSet(new long[]{0x03FC10D14B000000L});
-	public static final BitSet FOLLOW_RCURLY_in_struct911 = new BitSet(new long[]{0x2000000000000002L});
-	public static final BitSet FOLLOW_type_annotations_in_struct913 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_UNION_in_union945 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_union947 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_LCURLY_in_union949 = new BitSet(new long[]{0x03FC10D14B000000L});
-	public static final BitSet FOLLOW_field_in_union951 = new BitSet(new long[]{0x03FC10D14B000000L});
-	public static final BitSet FOLLOW_RCURLY_in_union954 = new BitSet(new long[]{0x2000000000000002L});
-	public static final BitSet FOLLOW_type_annotations_in_union956 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_EXCEPTION_in_exception988 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_exception990 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_LCURLY_in_exception992 = new BitSet(new long[]{0x03FC10D14B000000L});
-	public static final BitSet FOLLOW_field_in_exception994 = new BitSet(new long[]{0x03FC10D14B000000L});
-	public static final BitSet FOLLOW_RCURLY_in_exception997 = new BitSet(new long[]{0x2000000000000002L});
-	public static final BitSet FOLLOW_type_annotations_in_exception999 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_SERVICE_in_service1031 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_service1035 = new BitSet(new long[]{0x0000000010100000L});
-	public static final BitSet FOLLOW_EXTENDS_in_service1038 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_service1042 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_LCURLY_in_service1046 = new BitSet(new long[]{0x0BFC104942041020L});
-	public static final BitSet FOLLOW_function_in_service1050 = new BitSet(new long[]{0x0BFC104942041020L});
-	public static final BitSet FOLLOW_RCURLY_in_service1053 = new BitSet(new long[]{0x2000000000000002L});
-	public static final BitSet FOLLOW_type_annotations_in_service1055 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_integer_in_field_id1097 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-	public static final BitSet FOLLOW_64_in_field_id1099 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_field_id_in_field1124 = new BitSet(new long[]{0x03FC109142000000L});
-	public static final BitSet FOLLOW_field_req_in_field1127 = new BitSet(new long[]{0x03FC100142000000L});
-	public static final BitSet FOLLOW_field_type_in_field1130 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_field1132 = new BitSet(new long[]{0x2000020000000042L,0x0000000000000004L});
-	public static final BitSet FOLLOW_66_in_field1135 = new BitSet(new long[]{0x000000009B008000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_const_value_in_field1137 = new BitSet(new long[]{0x2000020000000042L});
-	public static final BitSet FOLLOW_type_annotations_in_field1141 = new BitSet(new long[]{0x0000020000000042L});
-	public static final BitSet FOLLOW_list_separator_in_field1144 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_function_mode_in_function1222 = new BitSet(new long[]{0x0BFC100142000000L});
-	public static final BitSet FOLLOW_function_type_in_function1225 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_function1227 = new BitSet(new long[]{0x2000000000000000L});
-	public static final BitSet FOLLOW_61_in_function1229 = new BitSet(new long[]{0x43FC10914B000000L});
-	public static final BitSet FOLLOW_field_in_function1231 = new BitSet(new long[]{0x43FC10914B000000L});
-	public static final BitSet FOLLOW_62_in_function1234 = new BitSet(new long[]{0x2000420000000042L});
-	public static final BitSet FOLLOW_throws_list_in_function1236 = new BitSet(new long[]{0x2000020000000042L});
-	public static final BitSet FOLLOW_type_annotations_in_function1239 = new BitSet(new long[]{0x0000020000000042L});
-	public static final BitSet FOLLOW_list_separator_in_function1242 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_field_type_in_function_type1324 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_VOID_in_function_type1332 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_THROWS_in_throws_list1349 = new BitSet(new long[]{0x2000000000000000L});
-	public static final BitSet FOLLOW_61_in_throws_list1351 = new BitSet(new long[]{0x43FC10914B000000L});
-	public static final BitSet FOLLOW_field_in_throws_list1353 = new BitSet(new long[]{0x43FC10914B000000L});
-	public static final BitSet FOLLOW_62_in_throws_list1356 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_61_in_type_annotations1383 = new BitSet(new long[]{0x4000000002000000L});
-	public static final BitSet FOLLOW_type_annotation_in_type_annotations1385 = new BitSet(new long[]{0x4000000002000000L});
-	public static final BitSet FOLLOW_62_in_type_annotations1388 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_type_annotation1414 = new BitSet(new long[]{0x0000020000000042L,0x0000000000000004L});
-	public static final BitSet FOLLOW_66_in_type_annotation1417 = new BitSet(new long[]{0x0000000089000000L});
-	public static final BitSet FOLLOW_annotation_value_in_type_annotation1419 = new BitSet(new long[]{0x0000020000000042L});
-	public static final BitSet FOLLOW_list_separator_in_type_annotation1423 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_integer_in_annotation_value1452 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_in_annotation_value1456 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_base_type_in_field_type1474 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_field_type1478 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_container_type_in_field_type1482 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_real_base_type_in_base_type1499 = new BitSet(new long[]{0x2000000000000002L});
-	public static final BitSet FOLLOW_type_annotations_in_base_type1501 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_map_type_in_container_type1520 = new BitSet(new long[]{0x2000000000000002L});
-	public static final BitSet FOLLOW_set_type_in_container_type1524 = new BitSet(new long[]{0x2000000000000002L});
-	public static final BitSet FOLLOW_list_type_in_container_type1528 = new BitSet(new long[]{0x2000000000000002L});
-	public static final BitSet FOLLOW_type_annotations_in_container_type1531 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_MAP_in_map_type1549 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000102L});
-	public static final BitSet FOLLOW_cpp_type_in_map_type1551 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
-	public static final BitSet FOLLOW_65_in_map_type1554 = new BitSet(new long[]{0x03FC100142000000L});
-	public static final BitSet FOLLOW_field_type_in_map_type1556 = new BitSet(new long[]{0x0000000000000040L});
-	public static final BitSet FOLLOW_COMMA_in_map_type1558 = new BitSet(new long[]{0x03FC100142000000L});
-	public static final BitSet FOLLOW_field_type_in_map_type1560 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-	public static final BitSet FOLLOW_67_in_map_type1562 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_SET_in_set_type1592 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000102L});
-	public static final BitSet FOLLOW_cpp_type_in_set_type1594 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
-	public static final BitSet FOLLOW_65_in_set_type1597 = new BitSet(new long[]{0x03FC100142000000L});
-	public static final BitSet FOLLOW_field_type_in_set_type1599 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-	public static final BitSet FOLLOW_67_in_set_type1601 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LIST_in_list_type1629 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
-	public static final BitSet FOLLOW_65_in_list_type1631 = new BitSet(new long[]{0x03FC100142000000L});
-	public static final BitSet FOLLOW_field_type_in_list_type1633 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-	public static final BitSet FOLLOW_67_in_list_type1635 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000100L});
-	public static final BitSet FOLLOW_cpp_type_in_list_type1637 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_72_in_cpp_type1666 = new BitSet(new long[]{0x0000000080000000L});
-	public static final BitSet FOLLOW_LITERAL_in_cpp_type1668 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_integer_in_const_value1694 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DOUBLE_in_const_value1698 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_in_const_value1702 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_const_value1706 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_const_list_in_const_value1710 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_const_map_in_const_value1714 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_68_in_const_list1864 = new BitSet(new long[]{0x000000009B008000L,0x0000000000000030L});
-	public static final BitSet FOLLOW_const_value_in_const_list1867 = new BitSet(new long[]{0x000002009B008040L,0x0000000000000030L});
-	public static final BitSet FOLLOW_list_separator_in_const_list1869 = new BitSet(new long[]{0x000000009B008000L,0x0000000000000030L});
-	public static final BitSet FOLLOW_69_in_const_list1874 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_const_value_in_const_map_entry1902 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-	public static final BitSet FOLLOW_64_in_const_map_entry1904 = new BitSet(new long[]{0x000000009B008000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_const_value_in_const_map_entry1908 = new BitSet(new long[]{0x0000020000000042L});
-	public static final BitSet FOLLOW_list_separator_in_const_map_entry1910 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LCURLY_in_const_map1940 = new BitSet(new long[]{0x000000409B008000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_const_map_entry_in_const_map1942 = new BitSet(new long[]{0x000000409B008000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_RCURLY_in_const_map1945 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_header_in_document388 = new BitSet(new long[]{0x08015848080A0100L,0x0000000000000580L});
+	public static final BitSet FOLLOW_definition_in_document391 = new BitSet(new long[]{0x08015840000A0100L});
+	public static final BitSet FOLLOW_EOF_in_document394 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_include_in_header424 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_namespace_in_header428 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_cpp_include_in_header432 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INCLUDE_in_include449 = new BitSet(new long[]{0x0000000100000000L});
+	public static final BitSet FOLLOW_LITERAL_in_include451 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_PACKAGE_in_dpackage476 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_dpackage480 = new BitSet(new long[]{0x0000000020000000L});
+	public static final BitSet FOLLOW_LCURLY_in_dpackage482 = new BitSet(new long[]{0x080158C0000A0100L});
+	public static final BitSet FOLLOW_definition_in_dpackage484 = new BitSet(new long[]{0x080158C0000A0100L});
+	public static final BitSet FOLLOW_RCURLY_in_dpackage487 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NAMESPACE_in_namespace517 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+	public static final BitSet FOLLOW_64_in_namespace519 = new BitSet(new long[]{0x0000000104000000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_namespace524 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_in_namespace530 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NAMESPACE_in_namespace548 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_namespace552 = new BitSet(new long[]{0x0000000104000000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_namespace557 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_in_namespace563 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_72_in_namespace584 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_namespace586 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_74_in_namespace605 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_namespace607 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_71_in_cpp_include635 = new BitSet(new long[]{0x0000000100000000L});
+	public static final BitSet FOLLOW_LITERAL_in_cpp_include637 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_dpackage_in_definition663 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_const_rule_in_definition667 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_typedef_in_definition671 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_enum_rule_in_definition675 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_senum_in_definition679 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_struct_in_definition683 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_union_in_definition687 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_exception_in_definition691 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_service_in_definition695 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CONST_in_const_rule712 = new BitSet(new long[]{0x07F8200284000000L});
+	public static final BitSet FOLLOW_field_type_in_const_rule714 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_const_rule716 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_67_in_const_rule718 = new BitSet(new long[]{0x0000000136008000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_const_value_in_const_rule720 = new BitSet(new long[]{0x0000040000000042L});
+	public static final BitSet FOLLOW_list_separator_in_const_rule722 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TYPEDEF_in_typedef760 = new BitSet(new long[]{0x07F8200284000000L});
+	public static final BitSet FOLLOW_field_type_in_typedef762 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_typedef764 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ENUM_in_enum_rule791 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_enum_rule793 = new BitSet(new long[]{0x0000000020000000L});
+	public static final BitSet FOLLOW_LCURLY_in_enum_rule795 = new BitSet(new long[]{0x0000008004000000L});
+	public static final BitSet FOLLOW_enum_field_in_enum_rule797 = new BitSet(new long[]{0x0000008004000000L});
+	public static final BitSet FOLLOW_RCURLY_in_enum_rule800 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_enum_field828 = new BitSet(new long[]{0x0000040000000042L,0x0000000000000008L});
+	public static final BitSet FOLLOW_67_in_enum_field831 = new BitSet(new long[]{0x0000000012000000L});
+	public static final BitSet FOLLOW_integer_in_enum_field833 = new BitSet(new long[]{0x0000040000000042L});
+	public static final BitSet FOLLOW_list_separator_in_enum_field837 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_SENUM_in_senum864 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_senum866 = new BitSet(new long[]{0x0000000020000000L});
+	public static final BitSet FOLLOW_LCURLY_in_senum868 = new BitSet(new long[]{0x0000008100000000L});
+	public static final BitSet FOLLOW_LITERAL_in_senum871 = new BitSet(new long[]{0x0000048100000040L});
+	public static final BitSet FOLLOW_list_separator_in_senum873 = new BitSet(new long[]{0x0000008100000000L});
+	public static final BitSet FOLLOW_RCURLY_in_senum878 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_STRUCT_in_struct906 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_struct908 = new BitSet(new long[]{0x0000000020000000L});
+	public static final BitSet FOLLOW_LCURLY_in_struct910 = new BitSet(new long[]{0x07F821A296000000L});
+	public static final BitSet FOLLOW_field_in_struct912 = new BitSet(new long[]{0x07F821A296000000L});
+	public static final BitSet FOLLOW_RCURLY_in_struct915 = new BitSet(new long[]{0x4000000000000002L});
+	public static final BitSet FOLLOW_type_annotations_in_struct917 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_UNION_in_union949 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_union951 = new BitSet(new long[]{0x0000000020000000L});
+	public static final BitSet FOLLOW_LCURLY_in_union953 = new BitSet(new long[]{0x07F821A296000000L});
+	public static final BitSet FOLLOW_field_in_union955 = new BitSet(new long[]{0x07F821A296000000L});
+	public static final BitSet FOLLOW_RCURLY_in_union958 = new BitSet(new long[]{0x4000000000000002L});
+	public static final BitSet FOLLOW_type_annotations_in_union960 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_EXCEPTION_in_exception992 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_exception994 = new BitSet(new long[]{0x0000000020000000L});
+	public static final BitSet FOLLOW_LCURLY_in_exception996 = new BitSet(new long[]{0x07F821A296000000L});
+	public static final BitSet FOLLOW_field_in_exception998 = new BitSet(new long[]{0x07F821A296000000L});
+	public static final BitSet FOLLOW_RCURLY_in_exception1001 = new BitSet(new long[]{0x4000000000000002L});
+	public static final BitSet FOLLOW_type_annotations_in_exception1003 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_SERVICE_in_service1035 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_service1039 = new BitSet(new long[]{0x0000000020100000L});
+	public static final BitSet FOLLOW_EXTENDS_in_service1042 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_service1046 = new BitSet(new long[]{0x0000000020000000L});
+	public static final BitSet FOLLOW_LCURLY_in_service1050 = new BitSet(new long[]{0x17F8209284041020L});
+	public static final BitSet FOLLOW_function_in_service1054 = new BitSet(new long[]{0x17F8209284041020L});
+	public static final BitSet FOLLOW_RCURLY_in_service1057 = new BitSet(new long[]{0x4000000000000002L});
+	public static final BitSet FOLLOW_type_annotations_in_service1059 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_integer_in_field_id1101 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+	public static final BitSet FOLLOW_65_in_field_id1103 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_field_id_in_field1128 = new BitSet(new long[]{0x07F8212284000000L});
+	public static final BitSet FOLLOW_field_req_in_field1131 = new BitSet(new long[]{0x07F8200284000000L});
+	public static final BitSet FOLLOW_field_type_in_field1134 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_field1136 = new BitSet(new long[]{0x4000040000000042L,0x0000000000000008L});
+	public static final BitSet FOLLOW_67_in_field1139 = new BitSet(new long[]{0x0000000136008000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_const_value_in_field1141 = new BitSet(new long[]{0x4000040000000042L});
+	public static final BitSet FOLLOW_type_annotations_in_field1145 = new BitSet(new long[]{0x0000040000000042L});
+	public static final BitSet FOLLOW_list_separator_in_field1148 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_function_mode_in_function1226 = new BitSet(new long[]{0x17F8200284000000L});
+	public static final BitSet FOLLOW_function_type_in_function1229 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_function1231 = new BitSet(new long[]{0x4000000000000000L});
+	public static final BitSet FOLLOW_62_in_function1233 = new BitSet(new long[]{0x87F8212296000000L});
+	public static final BitSet FOLLOW_field_in_function1235 = new BitSet(new long[]{0x87F8212296000000L});
+	public static final BitSet FOLLOW_63_in_function1238 = new BitSet(new long[]{0x4000840000000042L});
+	public static final BitSet FOLLOW_throws_list_in_function1240 = new BitSet(new long[]{0x4000040000000042L});
+	public static final BitSet FOLLOW_type_annotations_in_function1243 = new BitSet(new long[]{0x0000040000000042L});
+	public static final BitSet FOLLOW_list_separator_in_function1246 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_field_type_in_function_type1328 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_VOID_in_function_type1336 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_THROWS_in_throws_list1353 = new BitSet(new long[]{0x4000000000000000L});
+	public static final BitSet FOLLOW_62_in_throws_list1355 = new BitSet(new long[]{0x87F8212296000000L});
+	public static final BitSet FOLLOW_field_in_throws_list1357 = new BitSet(new long[]{0x87F8212296000000L});
+	public static final BitSet FOLLOW_63_in_throws_list1360 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_62_in_type_annotations1387 = new BitSet(new long[]{0x8000000004000000L});
+	public static final BitSet FOLLOW_type_annotation_in_type_annotations1389 = new BitSet(new long[]{0x8000000004000000L});
+	public static final BitSet FOLLOW_63_in_type_annotations1392 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_type_annotation1418 = new BitSet(new long[]{0x0000040000000042L,0x0000000000000008L});
+	public static final BitSet FOLLOW_67_in_type_annotation1421 = new BitSet(new long[]{0x0000000112000000L});
+	public static final BitSet FOLLOW_annotation_value_in_type_annotation1423 = new BitSet(new long[]{0x0000040000000042L});
+	public static final BitSet FOLLOW_list_separator_in_type_annotation1427 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_integer_in_annotation_value1456 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_in_annotation_value1460 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_base_type_in_field_type1478 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_field_type1482 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_container_type_in_field_type1486 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_real_base_type_in_base_type1503 = new BitSet(new long[]{0x4000000000000002L});
+	public static final BitSet FOLLOW_type_annotations_in_base_type1505 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_map_type_in_container_type1524 = new BitSet(new long[]{0x4000000000000002L});
+	public static final BitSet FOLLOW_set_type_in_container_type1528 = new BitSet(new long[]{0x4000000000000002L});
+	public static final BitSet FOLLOW_list_type_in_container_type1532 = new BitSet(new long[]{0x4000000000000002L});
+	public static final BitSet FOLLOW_type_annotations_in_container_type1535 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_MAP_in_map_type1553 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000204L});
+	public static final BitSet FOLLOW_cpp_type_in_map_type1555 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+	public static final BitSet FOLLOW_66_in_map_type1558 = new BitSet(new long[]{0x07F8200284000000L});
+	public static final BitSet FOLLOW_field_type_in_map_type1560 = new BitSet(new long[]{0x0000000000000040L});
+	public static final BitSet FOLLOW_COMMA_in_map_type1562 = new BitSet(new long[]{0x07F8200284000000L});
+	public static final BitSet FOLLOW_field_type_in_map_type1564 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+	public static final BitSet FOLLOW_68_in_map_type1566 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_SET_in_set_type1596 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000204L});
+	public static final BitSet FOLLOW_cpp_type_in_set_type1598 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+	public static final BitSet FOLLOW_66_in_set_type1601 = new BitSet(new long[]{0x07F8200284000000L});
+	public static final BitSet FOLLOW_field_type_in_set_type1603 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+	public static final BitSet FOLLOW_68_in_set_type1605 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LIST_in_list_type1633 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+	public static final BitSet FOLLOW_66_in_list_type1635 = new BitSet(new long[]{0x07F8200284000000L});
+	public static final BitSet FOLLOW_field_type_in_list_type1637 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+	public static final BitSet FOLLOW_68_in_list_type1639 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000200L});
+	public static final BitSet FOLLOW_cpp_type_in_list_type1641 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_73_in_cpp_type1670 = new BitSet(new long[]{0x0000000100000000L});
+	public static final BitSet FOLLOW_LITERAL_in_cpp_type1672 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_integer_in_const_value1698 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DOUBLE_in_const_value1702 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_in_const_value1706 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_const_value1710 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_const_list_in_const_value1714 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_const_map_in_const_value1718 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_69_in_const_list1868 = new BitSet(new long[]{0x0000000136008000L,0x0000000000000060L});
+	public static final BitSet FOLLOW_const_value_in_const_list1871 = new BitSet(new long[]{0x0000040136008040L,0x0000000000000060L});
+	public static final BitSet FOLLOW_list_separator_in_const_list1873 = new BitSet(new long[]{0x0000000136008000L,0x0000000000000060L});
+	public static final BitSet FOLLOW_70_in_const_list1878 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_const_value_in_const_map_entry1906 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+	public static final BitSet FOLLOW_65_in_const_map_entry1908 = new BitSet(new long[]{0x0000000136008000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_const_value_in_const_map_entry1912 = new BitSet(new long[]{0x0000040000000042L});
+	public static final BitSet FOLLOW_list_separator_in_const_map_entry1914 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LCURLY_in_const_map1944 = new BitSet(new long[]{0x0000008136008000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_const_map_entry_in_const_map1946 = new BitSet(new long[]{0x0000008136008000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_RCURLY_in_const_map1949 = new BitSet(new long[]{0x0000000000000002L});
 }

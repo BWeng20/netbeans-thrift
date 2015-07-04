@@ -119,7 +119,7 @@ public final class ThriftLanguageHierarchy extends  LanguageHierarchy<ThriftToke
         {
             tid = new ThriftTokenId( "", ThriftTokenId.SEPARATROR , id );
             idToToken_.put(id, tid);
-            System.err.println("Unknown tokenId "+id );
+            // System.err.println("Unknown tokenId "+id );
         }
 
         return tid;
@@ -129,10 +129,10 @@ public final class ThriftLanguageHierarchy extends  LanguageHierarchy<ThriftToke
     {
         if ( null == language_ )
         {
-            System.out.println("Creating Language!");
+            // System.out.println("Creating Language!");
             language_ = new ThriftLanguageHierarchy().language();
         }       
-        System.out.println("Language -> "+language_);
+        // System.out.println("Language -> "+language_);
         return language_;
     }
     

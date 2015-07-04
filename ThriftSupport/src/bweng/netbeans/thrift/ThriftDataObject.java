@@ -14,7 +14,11 @@ import java.util.List;
 import org.antlr.runtime.ANTLRInputStream;
 import org.netbeans.core.spi.multiview.MultiViewElement;
 import org.netbeans.core.spi.multiview.text.MultiViewEditorElement;
+import org.openide.filesystems.FileAttributeEvent;
+import org.openide.filesystems.FileChangeListener;
+import org.openide.filesystems.FileEvent;
 import org.openide.filesystems.FileObject;
+import org.openide.filesystems.FileRenameEvent;
 import org.openide.filesystems.MIMEResolver;
 import org.openide.loaders.DataNode;
 import org.openide.loaders.DataObject;
@@ -26,6 +30,8 @@ import org.openide.nodes.ChildFactory;
 import org.openide.nodes.Children;
 import org.openide.nodes.Node;
 import org.openide.util.Lookup;
+import org.openide.util.LookupEvent;
+import org.openide.util.LookupListener;
 import org.openide.util.NbBundle.Messages;
 import org.openide.windows.TopComponent;
 
@@ -81,7 +87,7 @@ public class ThriftDataObject extends MultiDataObject {
                 getLookup()); 
     }    
     
-    private static class ThriftChildFactory extends ChildFactory<String> 
+    private static class ThriftChildFactory extends ChildFactory<String> implements FileChangeListener
     {
 
         private final ThriftDataObject dObj;
@@ -89,6 +95,9 @@ public class ThriftDataObject extends MultiDataObject {
         public ThriftChildFactory(ThriftDataObject dObj) 
         {
             this.dObj = dObj;
+            
+            dObj.getPrimaryFile().addFileChangeListener(this);
+            
         }
 
         @Override
@@ -123,6 +132,46 @@ public class ThriftDataObject extends MultiDataObject {
                   
             return childNode;
         }
+
+
+      @Override
+      public void fileFolderCreated(FileEvent fe)
+      {
+         System.out.println("fileFolderCreated "+fe);
+      }
+
+      @Override
+      public void fileDataCreated(FileEvent fe)
+      {
+         System.out.println("fileDataCreated "+fe);
+      }
+
+      @Override
+      public void fileChanged(FileEvent fe)
+      {
+         System.out.println("fileChanged "+fe);
+         refresh(true);
+      }
+
+      @Override
+      public void fileDeleted(FileEvent fe)
+      {
+         System.out.println("fileDeleted "+fe);
+      }
+
+      @Override
+      public void fileRenamed(FileRenameEvent fe)
+      {
+         System.out.println("fileRenamed "+fe);         
+      }
+
+      @Override
+      public void fileAttributeChanged(FileAttributeEvent fe)
+      {
+         System.out.println("fileAttributeChanged "+fe);
+       
+      }
+        
     }
 
 }

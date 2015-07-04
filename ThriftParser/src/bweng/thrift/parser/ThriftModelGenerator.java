@@ -494,7 +494,7 @@ public final class ThriftModelGenerator
             CommonTree ct = (CommonTree)dt.getChild(i);
             switch ( ct.getType() )
             {   
-                case ThriftParser.FIELD:
+                case ThriftParser.FIELD_:
                     s.fields_.add( gen_field( ct ));
                     break;
             }
@@ -509,7 +509,7 @@ public final class ThriftModelGenerator
         
         if ( 2 <= dt.getChildCount() )
             f.type_ = gen_fieldtype( (CommonTree)dt.getChild(1) );
-        f.id_ = get_integer( (CommonTree)dt.getFirstChildWithType( ThriftParser.FIELD_ID ) );
+        f.id_ = get_integer( (CommonTree)dt.getFirstChildWithType( ThriftParser.FIELD_ID_ ) );
         return f;
     }
     
@@ -548,7 +548,7 @@ public final class ThriftModelGenerator
             CommonTree dtF = (CommonTree)dt.getChild(i);
             switch ( dtF.getType() )
             {
-                case ThriftParser.METHOD: 
+                case ThriftParser.METHOD_: 
                     s.functions_.add(gen_function(dtF));
                     break;
             }
@@ -566,7 +566,7 @@ public final class ThriftModelGenerator
             CommonTree dtP = (CommonTree)dt.getChild(i);
             switch ( dtP.getType() )
             {
-                case ThriftParser.FIELD: 
+                case ThriftParser.FIELD_: 
                     p.add(gen_field(dtP));
                     break;
             }
@@ -583,7 +583,7 @@ public final class ThriftModelGenerator
             f.return_type_ = gen_fieldtype((CommonTree)dt.getChild(1));
         
         add_comment( dt, f );        
-        f.parameters_ = gen_parameters((CommonTree)dt.getFirstChildWithType(ThriftParser.ARGS));
+        f.parameters_ = gen_parameters((CommonTree)dt.getFirstChildWithType(ThriftParser.ARGS_));
         return f;
     }
 }

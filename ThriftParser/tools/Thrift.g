@@ -7,18 +7,19 @@ options {
 }
 
 tokens {
-    DOCUMENT;
-    DEFAULT_NAMESPACE;
-    CPP_INCLUDE;
-    FIELD_ID;
-    FIELD;
-    ENTRY;
-    REQUIREDNESS;
-    METHOD;
-    ARGS;
-    TYPES;
-    TYPE;
-    CPP_TYPE;
+    DOCUMENT_;
+    EXTENDS_;
+    DEFAULT_NAMESPACE_;
+    CPP_INCLUDE_;
+    FIELD_ID_;
+    FIELD_;
+    ENTRY_;
+    REQUIREDNESS_;
+    METHOD_;
+    ARGS_;
+    TYPES_;
+    TYPE_;
+    CPP_TYPE_;
 }
 
 @header {
@@ -61,7 +62,7 @@ LCURLY  : '{' ;
 RCURLY  : '}' ;
 
 document
-    : header* definition* EOF -> ^(DOCUMENT header* definition*)
+    : header* definition* EOF -> ^(DOCUMENT_ header* definition*)
     ;
 
 
@@ -78,14 +79,14 @@ dpackage
     ;
 
 namespace
-    : NAMESPACE '*' (v=IDENTIFIER | v=LITERAL) -> ^(DEFAULT_NAMESPACE $v)
+    : NAMESPACE '*' (v=IDENTIFIER | v=LITERAL) -> ^(DEFAULT_NAMESPACE_ $v)
     | NAMESPACE k=IDENTIFIER (v=IDENTIFIER | v=LITERAL) -> ^(NAMESPACE $k $v)
     | 'cpp_namespace' IDENTIFIER -> ^(NAMESPACE IDENTIFIER["cpp"] IDENTIFIER)
     | 'php_namespace' IDENTIFIER -> ^(NAMESPACE IDENTIFIER["php"] IDENTIFIER)
     ;
 
 cpp_include
-    : 'cpp_include' LITERAL -> ^(CPP_INCLUDE LITERAL)
+    : 'cpp_include' LITERAL -> ^(CPP_INCLUDE_ LITERAL)
     ;
 
 
@@ -127,17 +128,17 @@ exception
     ;
 
 service
-    : SERVICE s=IDENTIFIER (EXTENDS e=IDENTIFIER)? LCURLY f=function* RCURLY type_annotations? -> ^(SERVICE $s ^(EXTENDS $e?) function* type_annotations?)
+    : SERVICE s=IDENTIFIER (EXTENDS e=IDENTIFIER)? LCURLY f=function* RCURLY type_annotations? -> ^(SERVICE $s ^(EXTENDS_ $e?) function* type_annotations?)
     ;
 
 
 field_id
-    : integer ':' -> ^(FIELD_ID integer)
+    : integer ':' -> ^(FIELD_ID_ integer)
     ;
 
 field
     : field_id? field_req? field_type IDENTIFIER ('=' const_value)? type_annotations? list_separator?
-        -> ^(FIELD IDENTIFIER field_type field_id? ^(REQUIREDNESS field_req?) const_value? type_annotations?)
+        -> ^(FIELD_ IDENTIFIER field_type field_id? ^(REQUIREDNESS_ field_req?) const_value? type_annotations?)
     ;
 
 field_req
@@ -148,7 +149,7 @@ field_req
 
 function
     : function_mode? function_type IDENTIFIER '(' field* ')' throws_list? type_annotations? list_separator?
-        -> ^(METHOD IDENTIFIER function_type ^(ARGS field*) function_mode? throws_list? type_annotations?)
+        -> ^(METHOD_ IDENTIFIER function_type ^(ARGS_ field*) function_mode? throws_list? type_annotations?)
     ;
 
 function_mode
@@ -166,11 +167,11 @@ throws_list
 
 
 type_annotations
-    : '(' type_annotation* ')' -> ^(TYPES type_annotation*)
+    : '(' type_annotation* ')' -> ^(TYPES_ type_annotation*)
     ;
 
 type_annotation
-    : IDENTIFIER ('=' annotation_value)? list_separator? -> ^(TYPE IDENTIFIER annotation_value?)
+    : IDENTIFIER ('=' annotation_value)? list_separator? -> ^(TYPE_ IDENTIFIER annotation_value?)
     ;
 
 annotation_value
@@ -203,7 +204,7 @@ list_type
     ;
 
 cpp_type
-    : 'cpp_type' LITERAL -> ^(CPP_TYPE LITERAL)
+    : 'cpp_type' LITERAL -> ^(CPP_TYPE_ LITERAL)
     ;
 
 
@@ -234,7 +235,7 @@ const_list
     ;
 
 const_map_entry
-    : k=const_value ':' v=const_value list_separator? -> ^(ENTRY $k $v)
+    : k=const_value ':' v=const_value list_separator? -> ^(ENTRY_ $k $v)
     ;
 
 const_map
@@ -260,7 +261,7 @@ TYPE_BINARY: 'binary';
 
 LITERAL
     : (('"' ~'"'* '"') | ('\'' ~'\''* '\''))
-        { setText(getText().substring(1, getText().length() - 1)); }
+        { if (getText().length()>2) setText(getText().substring(1, getText().length() - 1)); }
     ;
 
 IDENTIFIER
