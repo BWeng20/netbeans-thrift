@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bweng.thrift.parser;
 
 import bweng.thrift.parser.model.ThriftDocument;
@@ -34,10 +29,6 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.antlr.runtime.tree.CommonTree;
 
-/**
- *
- * @author BWengenroth
- */
 public final class ThriftModelGenerator 
 {
     ThriftDocument doc_;   
@@ -281,7 +272,7 @@ public final class ThriftModelGenerator
    
     private void add_comment( CommonTree dt, ThriftObject obj )
     {       
-        obj.comment_ = lexer_.collectComment( dt.getLine() );    
+        obj.comment_ = lexer_.collectComment( dt.getLine()-1 );    
     }
     
     private ThriftType resolve_type( String name )
@@ -369,6 +360,9 @@ public final class ThriftModelGenerator
         p.types_= new ArrayList<>();
         p.name_ = get_identifier( dt );
         p.name_fully_qualified_ = get_fully_qualifiedname( p.name_ ) ;
+        p.line_  = dt.getLine() -1 ;
+        p.column_= dt.getCharPositionInLine();        
+
         add_comment( dt, p );
         
         current_package_ = p;
@@ -430,7 +424,10 @@ public final class ThriftModelGenerator
     {
         tp.name_ = get_identifier(dt);
         tp.name_fully_qualified_ = get_fully_qualifiedname( tp.name_ );
-        tp.package_ = current_package_;        
+        tp.package_ = current_package_;
+        tp.line_  = dt.getLine() - 1;
+        tp.column_= dt.getCharPositionInLine();        
+
         add_comment(dt, tp);
     }
     
@@ -541,6 +538,8 @@ public final class ThriftModelGenerator
         s.name_     = get_identifier( dt );
         s.package_  = current_package_;
         s.functions_= new ArrayList<>();
+        s.line_     = dt.getLine() - 1 ;
+        s.column_   = dt.getCharPositionInLine();
         add_comment( dt, s );
         
         for (int i = 3 ; i<dt.getChildCount() ; ++i )
@@ -579,6 +578,8 @@ public final class ThriftModelGenerator
         ThriftFunction f = new ThriftFunction();
         f.name_ = get_identifier(dt);
         f.parameters_ = new ArrayList<>();        
+        f.line_  = dt.getLine() - 1;
+        f.column_= dt.getCharPositionInLine();        
         if ( 1 < dt.getChildCount() )
             f.return_type_ = gen_fieldtype((CommonTree)dt.getChild(1));
         

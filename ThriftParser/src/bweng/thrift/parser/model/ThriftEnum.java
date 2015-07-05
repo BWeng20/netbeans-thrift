@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  *
- * @author BWengenroth
+ * @author Bernd Wengenroth
  */
 public class ThriftEnum extends ThriftType 
 {

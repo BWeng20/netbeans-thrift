@@ -1,9 +1,9 @@
 package bweng.thrift.parser.model;
 
 /**
- * @author BWengenroth
+ * @author Bernd Wengenroth
  */
-public class ThriftInclude 
+public class ThriftInclude extends ThriftParserInfo
 {
     public String path_;
 

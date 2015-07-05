@@ -7,7 +7,7 @@ import org.antlr.runtime.TokenSource;
 
 /**
  *
- * @author BWengenroth
+ * @author Bernd Wengenroth
  */
 public class ThriftCommentLexer implements TokenSource 
 {

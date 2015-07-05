@@ -2,9 +2,9 @@ package bweng.thrift.parser.model;
 
 /**
  *
- * @author BWengenroth
+ * @author Bernd Wengenroth
  */
-public class ThriftEnumValue 
+public class ThriftEnumValue extends ThriftParserInfo
 {
     public String name_;
     public int value_;

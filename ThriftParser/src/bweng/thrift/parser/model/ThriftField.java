@@ -7,7 +7,7 @@ package bweng.thrift.parser.model;
 
 /**
  *
- * @author BWengenroth
+ * @author Bernd Wengenroth
  */
 public final class ThriftField extends ThriftObject
 {

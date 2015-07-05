@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author BWengenroth
+ * @author Bernd Wengenroth
  */
 public final class ThriftStruct extends ThriftType
 {

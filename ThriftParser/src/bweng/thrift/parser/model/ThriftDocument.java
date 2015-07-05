@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  *
- * @author BWengenroth
+ * @author Bernd Wengenroth
  */
 public class ThriftDocument 
 {   

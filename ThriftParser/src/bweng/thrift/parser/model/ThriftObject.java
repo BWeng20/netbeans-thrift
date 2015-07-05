@@ -2,9 +2,9 @@ package bweng.thrift.parser.model;
 
 /**
  *
- * @author BWengenroth
+ * @author Bernd Wengenroth
  */
-public class ThriftObject 
+public class ThriftObject extends ThriftParserInfo
 {
     public String comment_;
     public ThriftVersion version_;    
