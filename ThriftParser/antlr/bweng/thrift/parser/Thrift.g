@@ -60,6 +60,8 @@ NAMESPACE: 'namespace' ;
 
 LCURLY  : '{' ;
 RCURLY  : '}' ;
+ASSIGN  : '=' ;
+COLON   : ':' ;
 
 document
     : header* definition* EOF -> ^(DOCUMENT_ header* definition*)
@@ -95,7 +97,7 @@ definition
     ;
 
 const_rule
-    : CONST field_type IDENTIFIER '=' const_value list_separator?
+    : CONST field_type IDENTIFIER ASSIGN const_value list_separator?
         -> ^(CONST IDENTIFIER field_type const_value)
     ;
 
@@ -133,7 +135,7 @@ service
 
 
 field_id
-    : integer ':' -> ^(FIELD_ID_ integer)
+    : integer COLON -> ^(FIELD_ID_ integer)
     ;
 
 field

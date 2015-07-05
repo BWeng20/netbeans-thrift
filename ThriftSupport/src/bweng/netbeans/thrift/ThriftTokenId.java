@@ -16,6 +16,7 @@ public final class ThriftTokenId implements TokenId
     public final static String COMMENT    = "comment";
     public final static String SEPARATROR = "separator";
     public final static String WHITESPACE = "whitespace";
+    public final static String OPERATOR   = "operator";
     public final static String DEFAULT    = "default";
     
     public ThriftTokenId(            

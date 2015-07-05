@@ -2,7 +2,6 @@ package bweng.netbeans.thrift;
 
 import bweng.thrift.parser.ThriftParser;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -81,7 +80,11 @@ public final class ThriftLanguageHierarchy extends  LanguageHierarchy<ThriftToke
                  new ThriftTokenId( ThriftParser.SEMICOLON,   ThriftTokenId.SEPARATROR),
                  new ThriftTokenId( ThriftParser.LCURLY,      ThriftTokenId.SEPARATROR),
                  new ThriftTokenId( ThriftParser.RCURLY,      ThriftTokenId.SEPARATROR),
-                 new ThriftTokenId( ThriftParser.COMMA,       ThriftTokenId.SEPARATROR)
+                 new ThriftTokenId( ThriftParser.COMMA,       ThriftTokenId.SEPARATROR),
+                 new ThriftTokenId( ThriftParser.COLON,       ThriftTokenId.SEPARATROR),
+                 
+                 new ThriftTokenId( ThriftParser.ASSIGN,      ThriftTokenId.OPERATOR)
+                 
             };        
         
         tokens_ = new ArrayList<ThriftTokenId>(ThriftParser.tokenNames.length);

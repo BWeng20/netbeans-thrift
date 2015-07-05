@@ -8,6 +8,7 @@
     <fontcolor name="comment"           foreColor="gray"   default="default"/>
     <fontcolor name="separator"         foreColor="black"  default="default"/>
     <fontcolor name="whitespace"        foreColor="black"  default="default"/>    
+    <fontcolor name="operator"          foreColor="blue"   default="default"/>    
     <fontcolor name="default"           foreColor="black"  default="default"/>    
     
 </fontscolors>
