@@ -90,9 +90,9 @@ public class ThriftDataObject extends MultiDataObject {
        {
          FileObject fObj = getPrimaryFile();      
          try
-         {
+         {            
             ThriftLexer lex = new ThriftLexer(new ANTLRInputStream(fObj.getInputStream()));
-            doc_ = new ThriftModelGenerator().generateModel(lex);
+            doc_ = new ThriftModelGenerator().generateModel( fObj.getName(), lex );
          }
          catch (IOException ex)
          {

@@ -29,7 +29,7 @@ public class ThriftSubChildFactory extends ChildFactory<ThriftObject>
       {
          if ( obj instanceof  ThriftFunction )
          {
-            return 0 < ((ThriftFunction)obj).parameters_.size();
+            return false ; // 0 < ((ThriftFunction)obj).parameters_.size();
          }
          else if ( obj instanceof  ThriftService )
          {

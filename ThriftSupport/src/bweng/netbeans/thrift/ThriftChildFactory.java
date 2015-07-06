@@ -26,15 +26,24 @@ class ThriftChildFactory extends ThriftSubChildFactory implements FileChangeList
       ThriftDocument doc = dObj.getDocument();
       if ( null != doc )
       {
-         for (ThriftPackage pk : doc.packages_)
+         if ( 0<doc.packages_.size() )
          {
-            if ( pk.name_.isEmpty() )
+            // DAI Mode...
+            for (ThriftPackage pk : doc.packages_)
             {
-               for (ThriftService s : pk.services_)
-                  list.add( s );                     
+               if ( pk.name_.isEmpty() )
+               {
+                  for (ThriftService s : pk.services_)
+                     list.add( s );                     
+               }
+               else
+                  list.add( pk );
             }
-            else
-               list.add( pk );
+         }
+         else
+         {
+            for (ThriftService s : doc.services_)
+               list.add( s );                     
          }
       }      
       return true;

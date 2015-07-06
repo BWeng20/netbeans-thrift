@@ -12,10 +12,16 @@ public class ThriftDocument
     // Operating system dependend path where the document was loaded from or null.
     public String ospath_;
     
+    // File name without extension.
+    public String name_;
+    
     public List<ThriftInclude> includes_;
     
-    // All package (also all sub-packages)
+    // All packages (also all sub-packages) [DAI Extension].
     public List<ThriftPackage> packages_;   
+
+    // All servives (also from all sub-packages)
+    public List<ThriftService> services_;      
     
     // All types defined in this document
     public Map<String, ThriftType> types_;    
@@ -26,7 +32,7 @@ public class ThriftDocument
     @Override
     public String toString()
     {
-        return ""+packages_;
+        return ""+(0<packages_.size()?packages_:services_);
     }
     
 }

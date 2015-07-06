@@ -3,7 +3,7 @@ package bweng.thrift.parser.model;
 import java.util.List;
 
 /**
- *
+ * Package [DAI Extension]. 
  * @author Bernd Wengenroth
  */
 public class ThriftPackage extends ThriftObject

@@ -1,19 +1,6 @@
 package bweng.thrift.parser;
 
-import bweng.thrift.parser.model.ThriftDocument;
-import bweng.thrift.parser.model.ThriftEnum;
-import bweng.thrift.parser.model.ThriftEnumValue;
-import bweng.thrift.parser.model.ThriftField;
-import bweng.thrift.parser.model.ThriftFunction;
-import bweng.thrift.parser.model.ThriftInclude;
-import bweng.thrift.parser.model.ThriftListType;
-import bweng.thrift.parser.model.ThriftObject;
-import bweng.thrift.parser.model.ThriftPackage;
-import bweng.thrift.parser.model.ThriftService;
-import bweng.thrift.parser.model.ThriftStruct;
-import bweng.thrift.parser.model.ThriftType;
-import bweng.thrift.parser.model.ThriftTypeRef;
-import bweng.thrift.parser.model.ThriftTypedef;
+import bweng.thrift.parser.model.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,7 +19,7 @@ import org.antlr.runtime.tree.CommonTree;
 public final class ThriftModelGenerator 
 {
     ThriftDocument doc_;   
-    // Current package
+    // Current package [DAI Extension]
     ThriftPackage  current_package_;
     
     // All types not resolved so far
@@ -124,8 +111,7 @@ public final class ThriftModelGenerator
                 }
             }
         }
-    }    
-    
+    }   
    
     private void loadIncludesInternal( ThriftDocument doc )
     {        
@@ -174,15 +160,27 @@ public final class ThriftModelGenerator
         }
        
     }
+    
+    // Gets the name of the document from the file path.
+    public static String getDocumentName( String ospath )
+    {
+       File f = new File(ospath);      
+       String name = f.getName();
+       int sepidx = name.indexOf('.');
+       if ( sepidx >= 0 )
+         name = name.substring(0, sepidx );
+       return name;
+    }
 
     public synchronized ThriftDocument loadDocument( String ospath ) throws IOException
     {
-        ThriftDocument doc = generateModel(new ThriftLexer(new ANTLRFileStream(ospath)));              
-        doc.ospath_ = ospath;
-        return doc;
+       String name = getDocumentName( ospath );
+       ThriftDocument doc = generateModel(name, new ThriftLexer(new ANTLRFileStream(ospath)));
+       doc.ospath_ = ospath;
+       return doc;
     }
     
-    public synchronized ThriftDocument generateModel( ThriftLexer lex )
+    public synchronized ThriftDocument generateModel( String name, ThriftLexer lex )
     {   
         lexer_  = new ThriftCommentLexer( lex, ThriftLexer.DEFAULT_TOKEN_CHANNEL, ThriftLexer.COMMENT );
         tokens_ = new CommonTokenStream(lexer_);   
@@ -190,10 +188,9 @@ public final class ThriftModelGenerator
         
         ThriftDocument d = null;
         doc_ = null;
-        current_package_ = null;
         try 
         {            
-            d = gen_document( (CommonTree)parser_.document().getTree() );           
+            d = gen_document( name, (CommonTree)parser_.document().getTree() );           
         }
         catch (RecognitionException ex) 
         {
@@ -205,17 +202,14 @@ public final class ThriftModelGenerator
         return d;
     }
     
-    private ThriftDocument gen_document( CommonTree dt )
+    private ThriftDocument gen_document( String name, CommonTree dt )
     {
         ThriftDocument d = new ThriftDocument();
-        
-        current_package_ = new ThriftPackage();
-        current_package_.types_ = new ArrayList<>();
-        current_package_.subpackages_= new ArrayList<>();
-        current_package_.services_= new ArrayList<>();
-        current_package_.name_ = "";
-        current_package_.name_fully_qualified_ = "";
+       
+        current_package_ = null;
         doc_ = d;
+        d.name_ = name;
+        d.services_ = new ArrayList<>();
         d.types_    = new HashMap<>();
         d.unresolved_types_= new HashMap<>();
         // Add all default types to list        
@@ -243,7 +237,7 @@ public final class ThriftModelGenerator
             {
                 // Try to find it in qualified names
                 tpr.resolvedType_ = resolve_type(tpr.declaredName_ );
-                if ( null == tpr.resolvedType_ )
+                if ( null == tpr.resolvedType_ && null != tpr.package_)
                 {
                     // Try to find it in original scope
                     tpr.resolvedType_ = tpr.package_.findTypeInPackage( tpr.declaredName_ );
@@ -266,7 +260,8 @@ public final class ThriftModelGenerator
     private void add_type_to_scope( ThriftType typ )
     {
         doc_.types_.put( typ.name_fully_qualified_, typ );
-        current_package_.types_.add(typ);
+        if ( null != current_package_)
+           current_package_.types_.add(typ);
         
     }
    
@@ -280,6 +275,7 @@ public final class ThriftModelGenerator
         ThriftType tp = doc_.types_.get( name );
         if ( null != tp ) return tp;
         
+        // Go up the package hierachy
         ThriftPackage p = current_package_;
         while( p != null )
         {
@@ -382,11 +378,15 @@ public final class ThriftModelGenerator
             {   
                 case ThriftParser.PACKAGE:
                     ThriftPackage np = gen_package(ct);
-                    current_package_.subpackages_.add( np );
+                    if ( null != current_package_ ) 
+                       current_package_.subpackages_.add( np );
                     doc_.packages_.add( np );
                     break;
-                case ThriftParser.SERVICE:                    
-                    current_package_.services_.add( gen_service( ct ));
+                case ThriftParser.SERVICE:         
+                    ThriftService serv = gen_service( ct );
+                    if ( null != current_package_ ) 
+                       current_package_.services_.add(serv);
+                    doc_.services_.add(serv);
                     break;
                 case ThriftParser.ENUM:
                     gen_enum( ct );
@@ -408,7 +408,12 @@ public final class ThriftModelGenerator
     private String get_fully_qualifiedname( ThriftPackage p, String name )
     {
         StringBuilder sb = new StringBuilder(100);
-        sb.append( p.name_fully_qualified_);
+        if ( null != p)
+           // [DAI Extension]: "packages" are used as parent namespace  
+           sb.append( p.name_fully_qualified_);
+        else
+           // All content is identified by document name.
+           sb.append( doc_.name_ );
         if ( 0 < sb.length() ) sb.append('.');
         sb.append(name);
         return sb.toString();                
@@ -542,7 +547,7 @@ public final class ThriftModelGenerator
         s.column_   = dt.getCharPositionInLine();
         add_comment( dt, s );
         
-        for (int i = 3 ; i<dt.getChildCount() ; ++i )
+        for (int i = 2 ; i<dt.getChildCount() ; ++i )
         {
             CommonTree dtF = (CommonTree)dt.getChild(i);
             switch ( dtF.getType() )
