@@ -1,16 +1,16 @@
-package bweng.netbeans.thrift;
+/* Copyright (c) 2015 Bernd Wengenroth
+ * Licensed under the Apache License, Version 2.0.
+ * See LICENSE file for details.
+ */
+package bweng.netbeans.thrift.nodes;
 
-import bweng.thrift.parser.model.ThriftField;
-import bweng.thrift.parser.model.ThriftFunction;
-import bweng.thrift.parser.model.ThriftObject;
-import bweng.thrift.parser.model.ThriftPackage;
-import bweng.thrift.parser.model.ThriftService;
+import bweng.thrift.parser.model.*;
 import java.util.List;
 import org.openide.nodes.ChildFactory;
 import org.openide.nodes.Node;
 
 /**
- * @author Bernd Wengenroth
+ * Child Factory to create Nodes for Thrift-sub-elements depending of there type.
  */
 public class ThriftSubChildFactory extends ChildFactory<ThriftObject>
 {
@@ -23,6 +23,11 @@ public class ThriftSubChildFactory extends ChildFactory<ThriftObject>
       childObj_ = childObj;
    }
    
+   /**
+    * Helper methods to check if some ThriftObject shall show children or not.
+    * @param obj
+    * @return 
+    */
    public static boolean hasChilds( ThriftObject obj )
    {
       if ( null != obj )
@@ -40,10 +45,21 @@ public class ThriftSubChildFactory extends ChildFactory<ThriftObject>
             return 0 < ((ThriftPackage)obj).subpackages_.size() ||
                    0 < ((ThriftPackage)obj).services_.size();
          }
+         else if ( obj instanceof  ThriftScope )
+         {
+            return 0 < ((ThriftScope)obj).services_.size();
+            // || ((ThriftScope)obj).types_.size();
+         }
       }      
       return false;
    }
    
+   /**
+    * Adds child-"keys" (in our case objects from the parser) into the list.
+    * 
+    * @param list List of Thrift object to put keys in
+    * @return  true always.
+    */
    @Override
    protected boolean createKeys(List<ThriftObject> list)
    {
@@ -69,10 +85,20 @@ public class ThriftSubChildFactory extends ChildFactory<ThriftObject>
             for (ThriftService s: p.services_ )
                list.add( s );
          }
+         else if ( childObj_ instanceof  ThriftScope )
+         {
+            ThriftScope scope = (ThriftScope)childObj_;
+            for (ThriftService s: scope.services_ )
+               list.add( s );
+         }
       }      
       return true;
    }
 
+   /**
+    * Creates a Node depending on the type of the parser object.
+    * @param key The parser object the node shall represent.
+    */
    @Override
    protected Node createNodeForKey(ThriftObject key)
    {
@@ -82,6 +108,8 @@ public class ThriftSubChildFactory extends ChildFactory<ThriftObject>
          return new ThriftFunctionNode((ThriftFunction)key );
       else if ( key instanceof ThriftPackage )
          return new ThriftPackageNode( (ThriftPackage)key );
+      else if ( key instanceof ThriftScope )
+         return new ThriftScopeNode( (ThriftScope)key );
       return null;
    }
 }

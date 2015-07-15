@@ -1,5 +1,10 @@
-package bweng.netbeans.thrift;
+/* Copyright (c) 2015 Bernd Wengenroth
+ * Licensed under the Apache License, Version 2.0.
+ * See LICENSE file for details.
+ */
+package bweng.netbeans.thrift.lexer;
 
+import bweng.netbeans.thrift.ThriftDataObject;
 import bweng.thrift.parser.ThriftParser;
 import java.util.ArrayList;
 import java.util.Collection;

@@ -1,10 +1,17 @@
-package bweng.netbeans.thrift;
+/* Copyright (c) 2015 Bernd Wengenroth
+ * Licensed under the Apache License, Version 2.0.
+ * See LICENSE file for details.
+ */
+package bweng.netbeans.thrift.lexer;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.antlr.runtime.CharStream;
 import org.netbeans.spi.lexer.LexerInput;
 
+/**
+ * Antlr input char stream that get data from a Netbean lexer.
+ */
 public class LexerCharStream implements CharStream
 {
    private class CharStreamState
@@ -38,9 +45,8 @@ public class LexerCharStream implements CharStream
       return "";
         // input_.readText(start, stop).toString();
 
-      // Text-statements from Lecewr will call this method,
-      // but subversiuon input can't handle this and will
-      // throw exceptions!
+      // Text-statements from Lexer will call this method,
+      // but subversiuon lexer-input seems not support this.
    }
 
    @Override

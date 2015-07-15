@@ -4,7 +4,7 @@
 <fontscolors>    
     <fontcolor name="keyword"           foreColor="blue"   default="default"/>
     <fontcolor name="number"            foreColor="red"    default="default"/>    
-    <fontcolor name="identifier"        foreColor="yellow" default="default"/>
+    <fontcolor name="identifier"        foreColor="blue"   default="default"/>
     <fontcolor name="comment"           foreColor="gray"   default="default"/>
     <fontcolor name="separator"         foreColor="black"  default="default"/>
     <fontcolor name="whitespace"        foreColor="black"  default="default"/>    

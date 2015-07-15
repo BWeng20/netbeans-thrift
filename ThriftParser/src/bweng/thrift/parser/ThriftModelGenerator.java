@@ -1,3 +1,7 @@
+/* Copyright (c) 2015 Bernd Wengenroth
+ * Licensed under the Apache License, Version 2.0.
+ * See LICENSE file for details.
+ */
 package bweng.thrift.parser;
 
 import bweng.thrift.parser.model.*;
@@ -16,6 +20,9 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.antlr.runtime.tree.CommonTree;
 
+/**
+ * Generates our Data model from Antlr parser results.
+ */
 public final class ThriftModelGenerator 
 {
     ThriftDocument doc_;   
@@ -25,7 +32,7 @@ public final class ThriftModelGenerator
     // All types not resolved so far
     public Map<String, ThriftType> global_types_;    
     
-    ThriftCommentLexer lexer_;
+    ThriftCommentTokenSource tokensource_;
     ThriftParser   parser_;
     TokenStream tokens_;
     
@@ -60,7 +67,7 @@ public final class ThriftModelGenerator
             for (int i=0 ; i<doc.includes_.size() ; ++i)
                  collect_types( doc.includes_.get(i).doc_ );
             
-            for ( ThriftType tp : doc.types_.values() )
+            for ( ThriftType tp : doc.all_types_.values() )
             {
                 if ( tp instanceof ThriftTypeRef )
                 {
@@ -182,8 +189,8 @@ public final class ThriftModelGenerator
     
     public synchronized ThriftDocument generateModel( String name, ThriftLexer lex )
     {   
-        lexer_  = new ThriftCommentLexer( lex, ThriftLexer.DEFAULT_TOKEN_CHANNEL, ThriftLexer.COMMENT );
-        tokens_ = new CommonTokenStream(lexer_);   
+        tokensource_ = new ThriftCommentTokenSource( lex, ThriftLexer.DEFAULT_TOKEN_CHANNEL, ThriftLexer.COMMENT );
+        tokens_ = new CommonTokenStream(tokensource_);   
         parser_ = new ThriftParser(tokens_);
         
         ThriftDocument d = null;
@@ -198,7 +205,7 @@ public final class ThriftModelGenerator
         }  
         
         tokens_ = null;
-        lexer_  = null;
+        tokensource_  = null;
         return d;
     }
     
@@ -208,23 +215,27 @@ public final class ThriftModelGenerator
        
         current_package_ = null;
         doc_ = d;
+        d.column_ = 0;
+        d.line_   = 0;
         d.name_ = name;
-        d.services_ = new ArrayList<>();
-        d.types_    = new HashMap<>();
-        d.unresolved_types_= new HashMap<>();
-        // Add all default types to list        
-        d.types_.put(ThriftType.VOID  .name_fully_qualified_, ThriftType.VOID );
-        d.types_.put(ThriftType.BOOL  .name_fully_qualified_, ThriftType.BOOL );
-        d.types_.put(ThriftType.INT8  .name_fully_qualified_, ThriftType.INT8 );
-        d.types_.put(ThriftType.INT16 .name_fully_qualified_, ThriftType.INT16 );
-        d.types_.put(ThriftType.INT32 .name_fully_qualified_, ThriftType.INT32 );
-        d.types_.put(ThriftType.INT64 .name_fully_qualified_, ThriftType.INT64 );
-        d.types_.put(ThriftType.DOUBLE.name_fully_qualified_, ThriftType.DOUBLE );
-        d.types_.put(ThriftType.STRING.name_fully_qualified_, ThriftType.STRING );
-        d.types_.put(ThriftType.BINARY.name_fully_qualified_, ThriftType.BINARY );
-        
-        d.packages_ = new ArrayList<>();
+        d.name_fully_qualified_ = name;        
+        d.services_     = new ArrayList<>();
+        d.all_services_ = new ArrayList<>();
+        d.all_packages_ = new ArrayList<>();
         d.includes_ = new ArrayList<>();
+        d.unresolved_types_= new HashMap<>();
+        d.types_ = new ArrayList<>();
+        d.all_types_ = new HashMap<String, ThriftType>();
+        // Add all default types to list        
+        d.all_types_.put(ThriftType.VOID  .name_fully_qualified_, ThriftType.VOID );
+        d.all_types_.put(ThriftType.BOOL  .name_fully_qualified_, ThriftType.BOOL );
+        d.all_types_.put(ThriftType.INT8  .name_fully_qualified_, ThriftType.INT8 );
+        d.all_types_.put(ThriftType.INT16 .name_fully_qualified_, ThriftType.INT16 );
+        d.all_types_.put(ThriftType.INT32 .name_fully_qualified_, ThriftType.INT32 );
+        d.all_types_.put(ThriftType.INT64 .name_fully_qualified_, ThriftType.INT64 );
+        d.all_types_.put(ThriftType.DOUBLE.name_fully_qualified_, ThriftType.DOUBLE );
+        d.all_types_.put(ThriftType.STRING.name_fully_qualified_, ThriftType.STRING );
+        d.all_types_.put(ThriftType.BINARY.name_fully_qualified_, ThriftType.BINARY );
         
         parse_body( dt, 0 );
 
@@ -259,20 +270,23 @@ public final class ThriftModelGenerator
 
     private void add_type_to_scope( ThriftType typ )
     {
-        doc_.types_.put( typ.name_fully_qualified_, typ );
+        typ.setDocument(doc_);
+        doc_.all_types_.put( typ.name_fully_qualified_, typ );
         if ( null != current_package_)
            current_package_.types_.add(typ);
+        else
+           doc_.types_.add(typ);
         
     }
    
     private void add_comment( CommonTree dt, ThriftObject obj )
     {       
-        obj.comment_ = lexer_.collectComment( dt.getLine()-1 );    
+        obj.comment_ = tokensource_.collectComment( dt.getLine()-1 );    
     }
     
     private ThriftType resolve_type( String name )
     {
-        ThriftType tp = doc_.types_.get( name );
+        ThriftType tp = doc_.all_types_.get( name );
         if ( null != tp ) return tp;
         
         // Go up the package hierachy
@@ -280,7 +294,7 @@ public final class ThriftModelGenerator
         while( p != null )
         {
             String fqname = get_fully_qualifiedname(p, name);       
-            tp = doc_.types_.get( fqname );
+            tp = doc_.all_types_.get( fqname );
             if ( null != tp ) return tp;
             p = p.parent_;
         }
@@ -297,6 +311,7 @@ public final class ThriftModelGenerator
             if ( null == tp )
             {
                 ThriftTypeRef tpr = new ThriftTypeRef();
+                tpr.setDocument(doc_);
                 tpr.declaredName_ = name;
                 tpr.package_ = current_package_;
                 doc_.unresolved_types_.put( name , tpr);
@@ -350,10 +365,8 @@ public final class ThriftModelGenerator
     private ThriftPackage gen_package( CommonTree dt )
     {
         ThriftPackage p = new ThriftPackage();
+        p.setDocument(doc_);
         p.parent_ = current_package_;
-        p.subpackages_ = new ArrayList<>();
-        p.services_ = new ArrayList<>();
-        p.types_= new ArrayList<>();
         p.name_ = get_identifier( dt );
         p.name_fully_qualified_ = get_fully_qualifiedname( p.name_ ) ;
         p.line_  = dt.getLine() -1 ;
@@ -380,13 +393,15 @@ public final class ThriftModelGenerator
                     ThriftPackage np = gen_package(ct);
                     if ( null != current_package_ ) 
                        current_package_.subpackages_.add( np );
-                    doc_.packages_.add( np );
+                    doc_.all_packages_.add( np );
                     break;
                 case ThriftParser.SERVICE:         
                     ThriftService serv = gen_service( ct );
                     if ( null != current_package_ ) 
                        current_package_.services_.add(serv);
-                    doc_.services_.add(serv);
+                    else
+                       doc_.services_.add(serv);
+                    doc_.all_services_.add(serv);
                     break;
                 case ThriftParser.ENUM:
                     gen_enum( ct );
@@ -439,6 +454,7 @@ public final class ThriftModelGenerator
     private ThriftListType gen_listtype( CommonTree dt )
     {
         ThriftListType lt = new ThriftListType();
+        lt.setDocument(doc_);
         if ( 0 < dt.getChildCount() )
             lt.value_type_ = gen_fieldtype( (CommonTree)dt.getChild(0) );
         return lt;
@@ -505,7 +521,8 @@ public final class ThriftModelGenerator
 
     private ThriftField gen_field( CommonTree dt )
     {
-        ThriftField f = new ThriftField();       
+        ThriftField f = new ThriftField();
+        f.setDocument(doc_);
         f.name_ = get_identifier( dt );
         add_comment( dt, f );
         
@@ -540,9 +557,10 @@ public final class ThriftModelGenerator
     private ThriftService gen_service( CommonTree dt )
     {
         ThriftService s = new ThriftService();
+        s.setDocument(doc_);
         s.name_     = get_identifier( dt );
+        s.name_fully_qualified_ = get_fully_qualifiedname( s.name_ ) ;
         s.package_  = current_package_;
-        s.functions_= new ArrayList<>();
         s.line_     = dt.getLine() - 1 ;
         s.column_   = dt.getCharPositionInLine();
         add_comment( dt, s );
@@ -581,6 +599,7 @@ public final class ThriftModelGenerator
     private ThriftFunction gen_function( CommonTree dt )
     {
         ThriftFunction f = new ThriftFunction();
+        f.setDocument(doc_);
         f.name_ = get_identifier(dt);
         f.parameters_ = new ArrayList<>();        
         f.line_  = dt.getLine() - 1;

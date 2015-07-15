@@ -1,7 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+ * Copyright (c) 2015 Bernd Wengenroth
+ * 
+ * Licensed under the Apache License, Version 2.0.
+ * See LICENSE file for details.
  */
 @TemplateRegistration(folder = "Other", content = "ThriftTemplate.thrift", displayName="Thrift file")
 package bweng.netbeans.thrift;

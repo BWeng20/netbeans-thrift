@@ -1,15 +1,20 @@
+/* Copyright (c) 2015 Bernd Wengenroth
+ * Licensed under the Apache License, Version 2.0.
+ * See LICENSE file for details.
+ */
 package bweng.thrift.parser.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author Bernd Wengenroth
+ * Part of the data model, representing a Thrift Service.
  */
 public class ThriftService extends ThriftObject
 {
     public String name_;
-    public List<ThriftFunction> functions_;
+    public String name_fully_qualified_;
+    public List<ThriftFunction> functions_ = new ArrayList<>();
     
     /** Parent-Package or null [DAI Extension]. */
     public ThriftPackage package_;
@@ -18,5 +23,5 @@ public class ThriftService extends ThriftObject
     public String toString()
     {
         return name_+functions_;
-    }    
+    }
 }

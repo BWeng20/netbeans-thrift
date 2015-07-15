@@ -1,3 +1,7 @@
+/* Copyright (c) 2015 Bernd Wengenroth
+ * Licensed under the Apache License, Version 2.0.
+ * See LICENSE file for details.
+ */
 package bweng.thrift.parser;
 
 import java.util.ArrayList;
@@ -6,10 +10,9 @@ import org.antlr.runtime.Token;
 import org.antlr.runtime.TokenSource;
 
 /**
- *
- * @author Bernd Wengenroth
+ * TokenSource that stores comments to add them later to Thrift elements.
  */
-public class ThriftCommentLexer implements TokenSource 
+public class ThriftCommentTokenSource implements TokenSource 
 {
   private final TokenSource source_;
   private final int tokenType_;
@@ -24,7 +27,7 @@ public class ThriftCommentLexer implements TokenSource
   };
   private final ArrayList<CommentEntry> comments_= new ArrayList<>(1000);
   
-  public ThriftCommentLexer(TokenSource source, int contentChannel, int commmentTokenType ) 
+  public ThriftCommentTokenSource(TokenSource source, int contentChannel, int commmentTokenType ) 
   {
     this.source_ = source;
     this.contentChannel_ = contentChannel;

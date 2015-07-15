@@ -1,15 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
 <filesystem>
- <folder name="Editors">
-    <folder name="text">
+ <folder name="Actions">
+        <folder name="Window">
+            <file name="bweng-netbeans-thrift-ThriftExplorer.instance">
+                <attr name="iconBase" stringvalue="bweng/netbeans/thrift/resources/Thrift.png"/>
+                <attr name="instanceCreate" methodvalue="org.openide.windows.TopComponent.openAction"/>
+                <attr name="preferredID" stringvalue="ThriftExplorerTopComponent"/>
+            </file>
+            <file name="bweng-netbeans-thrift-ThriftExplorerTopComponent.instance_hidden"/>
+        </folder>
+    </folder>
+    <folder name="Editors">
+    <folder name="application">
+            <folder name="x-thrift">
+                <folder name="MultiView">
+                    <file name="bweng-netbeans-thrift-ThriftExplorerView.instance">
+                        <attr name="class" stringvalue="bweng.netbeans.thrift.ThriftVisualElement"/>
+                        <attr name="iconBase" stringvalue="bweng/netbeans/thrift/resources/Thrift.png"/>
+                        <attr name="instanceClass" stringvalue="org.netbeans.core.multiview.ContextAwareDescription"/>
+                        <attr name="instanceCreate" methodvalue="org.netbeans.core.spi.multiview.MultiViewFactory.createMultiViewDescription"/>
+                        <attr name="persistenceType" intvalue="2"/>
+                        <attr name="position" intvalue="2000"/>
+                        <attr name="preferredID" stringvalue="ThriftVisual"/>
+                    </file>
+                    <file name="bweng-netbeans-thrift-ThriftVisualElement.instance_hidden"/>
+                </folder>
+            </folder>
+        </folder>
+        <folder name="text">
         <folder name="x-thrift">        
             <file name="org-netbeans-modules-editor-NbEditorKit.instance"/>
             <attr name="SystemFileSystem.localizingBundle" stringvalue="bweng.netbeans.thrift.Bundle"/>
             <folder name="FontsColors">
                 <folder name="NetBeans">
                     <folder name="Defaults">
-                        <file name="SyntaxColors.xml" url="SyntaxColors.xml">
+                        <file name="SyntaxColors.xml" url="resources/SyntaxColors.xml">
                             <attr name="SystemFileSystem.localizingBundle" stringvalue="bweng.netbeans.thrift.Bundle"/>
                         </file>
                     </folder>

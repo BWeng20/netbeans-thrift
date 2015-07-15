@@ -1,15 +1,22 @@
-package bweng.netbeans.thrift;
+/* Copyright (c) 2015 Bernd Wengenroth
+ * Licensed under the Apache License, Version 2.0.
+ * See LICENSE file for details.
+ */
+package bweng.netbeans.thrift.nodes;
 
+import bweng.netbeans.thrift.ThriftDataObject;
 import java.util.List;
 import bweng.thrift.parser.model.*;
 import org.openide.filesystems.*;
-import org.openide.nodes.*;
 
 /**
- *
+ * Child Factory used to create the top-level Thrift-Object that 
+ * represents a thrift file in project-explorer.
+ * *
+ * @see ThriftSubChildFactory
  * @author Bernd Wengenroth
  */
-class ThriftChildFactory extends ThriftSubChildFactory implements FileChangeListener
+public class ThriftChildFactory extends ThriftSubChildFactory implements FileChangeListener
 {
    private final ThriftDataObject dObj;
 
@@ -26,24 +33,14 @@ class ThriftChildFactory extends ThriftSubChildFactory implements FileChangeList
       ThriftDocument doc = dObj.getDocument();
       if ( null != doc )
       {
-         if ( 0<doc.packages_.size() )
+         for (ThriftService s : doc.services_)
+            if ( s.package_ == null ) list.add( s );
+         
+         // DAI Mode...
+         for (ThriftPackage pk : doc.all_packages_)
          {
-            // DAI Mode...
-            for (ThriftPackage pk : doc.packages_)
-            {
-               if ( pk.name_.isEmpty() )
-               {
-                  for (ThriftService s : pk.services_)
-                     list.add( s );                     
-               }
-               else
-                  list.add( pk );
-            }
-         }
-         else
-         {
-            for (ThriftService s : doc.services_)
-               list.add( s );                     
+            if ( null == pk.parent_ )
+               list.add( pk );
          }
       }      
       return true;

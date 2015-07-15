@@ -1,13 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* Copyright (c) 2015 Bernd Wengenroth
+ * Licensed under the Apache License, Version 2.0.
+ * See LICENSE file for details.
  */
 package bweng.thrift.parser.model;
 
 /**
- *
- * @author Bernd Wengenroth
+ * Part of the data model, representing a Thrift Field (e.g. as parameter in a Function).
  */
 public final class ThriftField extends ThriftObject
 {

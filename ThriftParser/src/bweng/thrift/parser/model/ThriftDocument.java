@@ -1,30 +1,30 @@
+/* Copyright (c) 2015 Bernd Wengenroth
+ * Licensed under the Apache License, Version 2.0.
+ * See LICENSE file for details.
+ */
 package bweng.thrift.parser.model;
 
 import java.util.List;
 import java.util.Map;
 
 /**
- *
- * @author Bernd Wengenroth
+ * Part of the data model, representing a Thrift Document.
  */
-public class ThriftDocument 
+public class ThriftDocument extends ThriftScope
 {   
     // Operating system dependend path where the document was loaded from or null.
     public String ospath_;
-    
-    // File name without extension.
-    public String name_;
-    
+       
     public List<ThriftInclude> includes_;
-    
+       
     // All packages (also all sub-packages) [DAI Extension].
-    public List<ThriftPackage> packages_;   
+    public List<ThriftPackage> all_packages_;   
 
     // All servives (also from all sub-packages)
-    public List<ThriftService> services_;      
+    public List<ThriftService> all_services_;
     
     // All types defined in this document
-    public Map<String, ThriftType> types_;    
+    public Map<String, ThriftType> all_types_;    
 
     // All yet unresolved types in this document
     public Map<String, ThriftTypeRef> unresolved_types_;    
@@ -32,7 +32,7 @@ public class ThriftDocument
     @Override
     public String toString()
     {
-        return ""+(0<packages_.size()?packages_:services_);
+        return ""+(0<all_packages_.size()?all_packages_:all_services_);
     }
     
 }

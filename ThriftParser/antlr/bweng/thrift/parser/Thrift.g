@@ -20,6 +20,7 @@ tokens {
     TYPES_;
     TYPE_;
     CPP_TYPE_;
+    SERVICE_PTR_TYPE_;
 }
 
 @header {
@@ -182,11 +183,15 @@ annotation_value
 
 
 field_type
-    : base_type | IDENTIFIER | container_type
+    : base_type | IDENTIFIER | container_type | service_ptr
     ;
 
 base_type
     : real_base_type type_annotations?
+    ;
+
+service_ptr
+    : IDENTIFIER '*' type_annotations? -> ^(SERVICE_PTR_TYPE_ IDENTIFIER type_annotations?)
     ;
 
 container_type

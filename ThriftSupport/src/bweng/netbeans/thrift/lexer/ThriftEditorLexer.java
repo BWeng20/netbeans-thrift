@@ -1,4 +1,8 @@
-package bweng.netbeans.thrift;
+/* Copyright (c) 2015 Bernd Wengenroth
+ * Licensed under the Apache License, Version 2.0.
+ * See LICENSE file for details.
+ */
+package bweng.netbeans.thrift.lexer;
 
 import bweng.thrift.parser.ThriftLexer;
 import org.netbeans.api.lexer.Token;

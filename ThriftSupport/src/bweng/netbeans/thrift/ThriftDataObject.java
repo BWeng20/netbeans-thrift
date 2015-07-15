@@ -1,10 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+ * Copyright (c) 2015 Bernd Wengenroth
+ * 
+ * Licensed under the Apache License, Version 2.0.
+ * See LICENSE file for details.
  */
 package bweng.netbeans.thrift;
 
+import bweng.netbeans.thrift.nodes.ThriftChildFactory;
+import bweng.netbeans.thrift.nodes.ThriftNode;
+import org.netbeans.api.project.Project; 
 import bweng.thrift.parser.ThriftLexer;
 import bweng.thrift.parser.ThriftModelGenerator;
 import bweng.thrift.parser.model.ThriftDocument;
@@ -14,7 +18,6 @@ import org.netbeans.core.spi.multiview.MultiViewElement;
 import org.netbeans.core.spi.multiview.text.MultiViewEditorElement;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.MIMEResolver;
-import org.openide.loaders.DataNode;
 import org.openide.loaders.DataObject;
 import org.openide.loaders.DataObjectExistsException;
 import org.openide.loaders.MultiDataObject;
@@ -22,6 +25,7 @@ import org.openide.loaders.MultiFileLoader;
 import org.openide.nodes.Children;
 import org.openide.nodes.Node;
 import org.openide.util.Lookup;
+import org.openide.util.Lookup.Result;
 import org.openide.util.NbBundle.Messages;
 import org.openide.windows.TopComponent;
 
@@ -36,30 +40,37 @@ import org.openide.windows.TopComponent;
 )
 @DataObject.Registration(
         mimeType = "text/x-thrift",
-        iconBase = "bweng/netbeans/thrift/Thrift.png",
+        iconBase = "bweng/netbeans/thrift/resources/Thrift.png",
         displayName = "#LBL_Thrift_LOADER",
         position = 300
 )
 
+/**
+ * Data Object Node to represent a Thrift file.
+ * @author Bernd Wengenroth
+ */
 public class ThriftDataObject extends MultiDataObject {
 
     public final static String mime_type = "text/x-thrift";
     
     private ThriftDocument doc_;
     
+    Result<Project> projectsInLookup; 
+    
     public ThriftDataObject(FileObject pf, MultiFileLoader loader) throws DataObjectExistsException, IOException {
         super(pf, loader);
-        registerEditor("text/x-thrift", true);
+        registerEditor("text/x-thrift", true);        
     }
 
     @Override
-    protected int associateLookup() {
+    protected int associateLookup() 
+    {
         return 1;
     }
 
     @MultiViewElement.Registration(
             displayName = "#LBL_Thrift_EDITOR",
-            iconBase = "bweng/netbeans/thrift/Thrift.png",
+            iconBase = "bweng/netbeans/thrift/resources/Thrift.png",
             mimeType = "text/x-thrift",
             persistenceType = TopComponent.PERSISTENCE_ONLY_OPENED,
             preferredID = "Thrift",
@@ -83,16 +94,17 @@ public class ThriftDataObject extends MultiDataObject {
     {
        doc_ = null;
     }
-    
-    public ThriftDocument getDocument()
+        
+    public synchronized ThriftDocument getDocument()
     {
        if ( null == doc_ )
        {
          FileObject fObj = getPrimaryFile();      
          try
-         {            
+         {
             ThriftLexer lex = new ThriftLexer(new ANTLRInputStream(fObj.getInputStream()));
             doc_ = new ThriftModelGenerator().generateModel( fObj.getName(), lex );
+            if ( doc_ != null) doc_.ospath_ = fObj.getPath();
          }
          catch (IOException ex)
          {
