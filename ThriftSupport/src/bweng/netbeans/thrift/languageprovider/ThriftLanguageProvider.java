@@ -1,8 +1,8 @@
 /* Copyright (c) 2015 Bernd Wengenroth
- * Licensed under the Apache License, Version 2.0.
+ * Licensed under the MIT License.
  * See LICENSE file for details.
  */
-package bweng.netbeans.thrift.lexer;
+package bweng.netbeans.thrift.languageprovider;
 
 import bweng.netbeans.thrift.ThriftDataObject;
 import org.netbeans.api.lexer.InputAttributes;
@@ -28,7 +28,7 @@ public class ThriftLanguageProvider extends LanguageProvider
     }
 
     @Override
-    public LanguageEmbedding<?> findLanguageEmbedding(Token<?> arg0, LanguagePath arg1, InputAttributes arg2) 
+    public LanguageEmbedding<?> findLanguageEmbedding(Token<?> token, LanguagePath lang, InputAttributes attr ) 
     {
         return null;
     }

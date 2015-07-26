@@ -1,5 +1,5 @@
 /* Copyright (c) 2015 Bernd Wengenroth
- * Licensed under the Apache License, Version 2.0.
+ * Licensed under the MIT License.
  * See LICENSE file for details.
  */
 package bweng.netbeans.thrift.nodes;
@@ -49,19 +49,16 @@ public class ThriftChildFactory extends ThriftSubChildFactory implements FileCha
    @Override
    public void fileFolderCreated(FileEvent fe)
    {
-      System.out.println("fileFolderCreated " + fe);
    }
 
    @Override
    public void fileDataCreated(FileEvent fe)
    {
-      System.out.println("fileDataCreated " + fe);
    }
 
    @Override
    public void fileChanged(FileEvent fe)
    {
-      System.out.println("fileChanged " + fe);
       dObj.refresh();
       refresh(true);
    }
@@ -69,19 +66,16 @@ public class ThriftChildFactory extends ThriftSubChildFactory implements FileCha
    @Override
    public void fileDeleted(FileEvent fe)
    {
-      System.out.println("fileDeleted " + fe);
    }
 
    @Override
    public void fileRenamed(FileRenameEvent fe)
    {
-      System.out.println("fileRenamed " + fe);
    }
 
    @Override
    public void fileAttributeChanged(FileAttributeEvent fe)
    {
-      System.out.println("fileAttributeChanged " + fe);
    }
    
 }

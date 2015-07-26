@@ -1,8 +1,8 @@
 /* Copyright (c) 2015 Bernd Wengenroth
- * Licensed under the Apache License, Version 2.0.
+ * Licensed under the MIT License.
  * See LICENSE file for details.
  */
-package bweng.netbeans.thrift.lexer;
+package bweng.netbeans.thrift.languageprovider;
 
 import bweng.netbeans.thrift.ThriftDataObject;
 import bweng.thrift.parser.ThriftParser;
@@ -35,7 +35,7 @@ public final class ThriftLanguageHierarchy extends  LanguageHierarchy<ThriftToke
     private static Language<ThriftTokenId> language_ ;
       
     /**
-     * Initializes the list of tokens with IDs generated from the ANTLR
+     * Initialises the list of tokens with IDs generated from the ANTLR
      * token file.
      */
     static 
@@ -116,7 +116,7 @@ public final class ThriftLanguageHierarchy extends  LanguageHierarchy<ThriftToke
     
       /**
      * Returns an actual CMinusTokenId from an id. This essentially allows
-     * the syntax highlighter to decide the color of specific words.
+     * the syntax highlighter to decide the colour of specific words.
      * @param id
      * @return
      */

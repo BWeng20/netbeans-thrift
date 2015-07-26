@@ -1,5 +1,5 @@
 /* Copyright (c) 2015 Bernd Wengenroth
- * Licensed under the Apache License, Version 2.0.
+ * Licensed under the MIT License.
  * See LICENSE file for details.
  */
 package bweng.netbeans.thrift.explorer;
@@ -28,11 +28,10 @@ class ProjectNode extends AbstractNode
    {     
       super( Children.create( new ThriftScopeChildFactory(p), true ) );
       projectref_ = new  WeakReference<Project>(p);
-      
+     
       ProjectInformation pinfo = ProjectUtils.getInformation(p);
       if ( pinfo != null )
       {
-         //@TODO Add propery listeners to update name and icon.
          setDisplayName( pinfo.getDisplayName());
          icon_ = ImageUtilities.icon2Image(pinfo.getIcon());
       }
@@ -40,6 +39,22 @@ class ProjectNode extends AbstractNode
          icon_ = ImageUtilities.loadImage ("bweng/netbeans/thrift/resources/ThriftScope.png"); 
    }
    
+   void refresh()
+   {
+      Project p = projectref_.get();
+      if ( p != null )
+      {
+         ProjectInformation pinfo = ProjectUtils.getInformation(p);
+         setDisplayName(( pinfo != null ) ? pinfo.getDisplayName() : "");
+         setChildren( Children.create( new ThriftScopeChildFactory(p), true ) );
+      }
+      else
+      {
+         setDisplayName("deleted");
+         setChildren( Children.LEAF );         
+      }
+   }
+      
    @Override
    public Image getIcon(int type)
    {
@@ -52,4 +67,20 @@ class ProjectNode extends AbstractNode
       return icon_;
    }
    
-}
+   protected String getProjectName()
+   {
+      Project p = projectref_.get();
+      if ( p != null )
+      {
+         ProjectInformation pinfo = ProjectUtils.getInformation(p);
+         if ( pinfo != null )
+         {
+            return pinfo.getDisplayName();
+         }
+         return "no info";
+      }
+      else
+         return "null";
+   }
+   
+ }

@@ -1,8 +1,8 @@
 /* Copyright (c) 2015 Bernd Wengenroth
- * Licensed under the Apache License, Version 2.0.
+ * Licensed under the MIT License.
  * See LICENSE file for details.
  */
-package bweng.netbeans.thrift.lexer;
+package bweng.netbeans.thrift.languageprovider;
 
 import java.util.ArrayList;
 import java.util.List;

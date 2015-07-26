@@ -1,14 +1,8 @@
 /**
- * My Package
+ * My Service
+ * @version 1.2
  */
-package abc 
+service xyz
 {
-    /**
-     * My Service
-     * @version 1.2
-     */
-    service xyz
-    {
-        void callme( 1: i32 value )
-    }
+    void callme( 1: i32 value )
 }

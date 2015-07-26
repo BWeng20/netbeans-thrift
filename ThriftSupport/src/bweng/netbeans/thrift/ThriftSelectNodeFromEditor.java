@@ -1,12 +1,12 @@
 /* 
  * Copyright (c) 2015 Bernd Wengenroth
  * 
- * Licensed under the Apache License, Version 2.0.
+ * Licensed under the MIT License.
  * See LICENSE file for details.
  */
 package bweng.netbeans.thrift;
 
-import bweng.netbeans.thrift.explorer.ThriftExplorerManager;
+import bweng.netbeans.thrift.explorer.ThriftExplorerComponent;
 import bweng.netbeans.thrift.nodes.ThriftNode;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,6 +21,7 @@ import org.openide.text.Line;
 import org.openide.util.NbBundle.Messages;
 import org.openide.windows.TopComponent;
 
+/*
 @ActionID(
    category = "Edit",
    id = "bweng.netbeans.thrift.ThriftSelectNodeFromEditor"
@@ -30,6 +31,7 @@ import org.openide.windows.TopComponent;
 )
 @ActionReference(path = "Editors/text/x-thrift/Popup", position = 1100)
 @Messages("CTL_ThriftSelectNodeFromEditor=Select in Tree")
+*/
 public final class ThriftSelectNodeFromEditor implements ActionListener
 {
    private final EditCookie context;
@@ -47,7 +49,7 @@ public final class ThriftSelectNodeFromEditor implements ActionListener
       {           
          ThriftNode   node = activeTC.getLookup().lookup(ThriftNode.class);
          EditorCookie cookie = activeTC.getLookup().lookup(EditorCookie.class);
-         ThriftExplorerManager e = ThriftExplorerManager.getInstance();
+         ThriftExplorerComponent e = ThriftExplorerComponent.getInstance();
          if ( null != node && e != null)
          {
             if ( null != cookie )
