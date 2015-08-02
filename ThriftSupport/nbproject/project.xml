@@ -199,16 +199,14 @@
                 <package>bweng.netbeans.thrift.explorer</package>
                 <package>bweng.netbeans.thrift.languageprovider</package>
                 <package>bweng.netbeans.thrift.nodes</package>
-                <package>bweng.thrift.parser</package>
-                <package>bweng.thrift.parser.model</package>
             </public-packages>
-            <class-path-extension>
-                <runtime-relative-path>ext/ThriftParser.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/ThriftParser.jar</binary-origin>
-            </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/antlr-3.5.2-runtime.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/antlr-3.5.2-runtime.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/ThriftParser.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/ThriftParser.jar</binary-origin>
             </class-path-extension>
         </data>
     </configuration>
