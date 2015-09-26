@@ -1,9 +1,9 @@
 /* Copyright (c) 2015 Bernd Wengenroth
- * Licensed under the MIT License.
- * See LICENSE file for details.
- */
+* Licensed under the MIT License.
+* See LICENSE file for details.
+*/
 package bweng.thrift.parser;
-
+ 
 import bweng.thrift.parser.model.*;
 import java.io.File;
 import java.io.IOException;
@@ -19,54 +19,54 @@ import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.antlr.runtime.tree.CommonTree;
-
+ 
 /**
- * Generates our Data model from Antlr parser results.
- */
-public final class ThriftModelGenerator 
+* Generates our Data model from Antlr parser results.
+*/
+public final class ThriftModelGenerator
 {
-    ThriftDocument doc_;   
+    ThriftDocument doc_;  
     // Current package [DAI Extension]
     ThriftPackage  current_package_;
-    
+   
     // All types not resolved so far
-    public Map<String, ThriftType> global_types_;    
+    public Map<String, ThriftType> global_types_;   
     
     ThriftCommentTokenSource tokensource_;
     ThriftParser   parser_;
     TokenStream tokens_;
-    
+   
     Map<String,ThriftDocument> loaded_;
-    
+   
     
     class UnknownType extends ThriftType
     {
         ThriftPackage used_in_package;
         String name;
-        
+       
         List<Object> usedin;
     }
-  
+ 
     public synchronized void loadIncludes( ThriftDocument doc )
     {
-        loaded_ = new HashMap<>();        
-        loadIncludesInternal( doc );        
+        loaded_ = new HashMap<>();       
+        loadIncludesInternal( doc );       
         loaded_.clear();
-        
+       
         global_types_= new HashMap<>();
-        
+       
         collect_types( doc );
         resolve_types( doc );
-        
+       
     }
-
+ 
     private  void collect_types( ThriftDocument doc )
     {
         if ( doc != null )
         {
             for (int i=0 ; i<doc.includes_.size() ; ++i)
                  collect_types( doc.includes_.get(i).doc_ );
-            
+           
             for ( ThriftType tp : doc.all_types_.values() )
             {
                 if ( tp instanceof ThriftTypeRef )
@@ -82,26 +82,26 @@ public final class ThriftModelGenerator
                     global_types_.put( tp.name_fully_qualified_, tp);
                 }
             }
-        }        
+        }       
     }
-
+ 
     private void resolve_types( ThriftDocument doc )
     {
         if ( doc != null )
         {
             for (int i=0 ; i<doc.includes_.size() ; ++i)
                  resolve_types( doc.includes_.get(i).doc_ );
-        
+       
             Iterator<ThriftTypeRef> it = doc.unresolved_types_.values().iterator();
             while ( it.hasNext() )
             {
                 ThriftTypeRef tpr = it.next();
-
+ 
                 if ( null == tpr.resolvedType_ )
                 {
                     tpr.resolvedType_ = global_types_.get( tpr.declaredName_ );
                     if ( null != tpr.resolvedType_)
-                    {              
+                    {             
                         tpr.package_ = tpr.resolvedType_.package_;
                         tpr.name_ = tpr.resolvedType_.name_;
                         tpr.name_fully_qualified_ = tpr.resolvedType_.name_fully_qualified_;
@@ -109,20 +109,12 @@ public final class ThriftModelGenerator
                     }
                 }
             }
-
-            if ( !doc.unresolved_types_.isEmpty() )
-            {
-                for( ThriftTypeRef tpr : doc.unresolved_types_.values())
-                {
-                    System.err.println("Unresolved "+tpr.declaredName_+" in "+tpr.package_.name_fully_qualified_ );
-                }
-            }
         }
-    }   
+    }  
    
     private void loadIncludesInternal( ThriftDocument doc )
-    {        
-        File docFile = new File( doc.ospath_);       
+    {       
+        File docFile = new File( doc.ospath_);      
         
         for (int i=0 ; i<doc.includes_.size() ; ++i)
         {
@@ -131,30 +123,30 @@ public final class ThriftModelGenerator
             {
                 try {
                     ic.ospath_ = ic.path_.replace("\\", File.separator );
-
+ 
                     File bf = docFile.getAbsoluteFile().getParentFile();
-
+ 
                     while ( null != bf)
                     {
                         File f = new File( bf.getPath() + File.separator + ic.ospath_ );
-                        if ( f.exists() ) 
+                        if ( f.exists() )
                         {
                             ic.ospath_ = f.getCanonicalPath();
                             ic.doc_ = loaded_.get(ic.ospath_);
                             if ( ic.doc_ == null )
                             {
-                                ic.doc_ = loadDocument( ic.ospath_ );                               
+                                ic.doc_ = loadDocument( ic.ospath_ );                              
                                 loaded_.put(ic.ospath_, ic.doc_ );
                             }
                             break;
                         }
-                        bf = bf.getParentFile();                        
+                        bf = bf.getParentFile();                       
                     }
                 }
                 catch (IOException ex)
                 {
                   ex.printStackTrace();
-                }                
+                }               
             }
         }
         for (int i=0 ; i<doc.includes_.size() ; ++i)
@@ -165,20 +157,20 @@ public final class ThriftModelGenerator
                 loadIncludesInternal( ic.doc_ );
             }
         }
-       
+      
     }
-    
+   
     // Gets the name of the document from the file path.
     public static String getDocumentName( String ospath )
     {
-       File f = new File(ospath);      
+       File f = new File(ospath);     
        String name = f.getName();
        int sepidx = name.indexOf('.');
        if ( sepidx >= 0 )
          name = name.substring(0, sepidx );
        return name;
     }
-
+ 
     public synchronized ThriftDocument loadDocument( String ospath ) throws IOException
     {
        String name = getDocumentName( ospath );
@@ -186,39 +178,39 @@ public final class ThriftModelGenerator
        doc.ospath_ = ospath;
        return doc;
     }
-    
+   
     public synchronized ThriftDocument generateModel( String name, ThriftLexer lex )
-    {   
+    {  
         tokensource_ = new ThriftCommentTokenSource( lex, ThriftLexer.DEFAULT_TOKEN_CHANNEL, ThriftLexer.COMMENT );
-        tokens_ = new CommonTokenStream(tokensource_);   
+        tokens_ = new CommonTokenStream(tokensource_);  
         parser_ = new ThriftParser(tokens_);
-        
+       
         ThriftDocument d = null;
         doc_ = null;
-        try 
-        {            
-            d = gen_document( name, (CommonTree)parser_.document().getTree() );           
+        try
+        {           
+            d = gen_document( name, (CommonTree)parser_.document().getTree() );          
         }
-        catch (RecognitionException ex) 
+        catch (RecognitionException ex)
         {
             Logger.getLogger(ThriftModelGenerator.class.getName()).log(Level.SEVERE, null, ex);
-        }  
+        } 
         
         tokens_ = null;
         tokensource_  = null;
         return d;
     }
-    
+   
     private ThriftDocument gen_document( String name, CommonTree dt )
     {
         ThriftDocument d = new ThriftDocument();
-       
+      
         current_package_ = null;
         doc_ = d;
         d.column_ = 0;
         d.line_   = 0;
         d.name_ = name;
-        d.name_fully_qualified_ = name;        
+        d.name_fully_qualified_ = name;       
         d.services_     = new ArrayList<>();
         d.all_services_ = new ArrayList<>();
         d.all_packages_ = new ArrayList<>();
@@ -226,7 +218,7 @@ public final class ThriftModelGenerator
         d.unresolved_types_= new HashMap<>();
         d.types_ = new ArrayList<>();
         d.all_types_ = new HashMap<String, ThriftType>();
-        // Add all default types to list        
+        // Add all default types to list       
         d.all_types_.put(ThriftType.VOID  .name_fully_qualified_, ThriftType.VOID );
         d.all_types_.put(ThriftType.BOOL  .name_fully_qualified_, ThriftType.BOOL );
         d.all_types_.put(ThriftType.INT8  .name_fully_qualified_, ThriftType.INT8 );
@@ -236,16 +228,16 @@ public final class ThriftModelGenerator
         d.all_types_.put(ThriftType.DOUBLE.name_fully_qualified_, ThriftType.DOUBLE );
         d.all_types_.put(ThriftType.STRING.name_fully_qualified_, ThriftType.STRING );
         d.all_types_.put(ThriftType.BINARY.name_fully_qualified_, ThriftType.BINARY );
-        
+       
         parse_body( dt, 0 );
-
+ 
         Iterator<ThriftTypeRef> it = doc_.unresolved_types_.values().iterator();
         while ( it.hasNext() )
         {
             ThriftTypeRef tpr = it.next();
-
+ 
             if ( null == tpr.resolvedType_ )
-            {
+           {
                 // Try to find it in qualified names
                 tpr.resolvedType_ = resolve_type(tpr.declaredName_ );
                 if ( null == tpr.resolvedType_ && null != tpr.package_)
@@ -254,20 +246,20 @@ public final class ThriftModelGenerator
                     tpr.resolvedType_ = tpr.package_.findTypeInPackage( tpr.declaredName_ );
                 }
                 if ( null != tpr.resolvedType_)
-                {              
+                {             
                     tpr.package_ = tpr.resolvedType_.package_;
                     tpr.name_ = tpr.resolvedType_.name_;
                     tpr.name_fully_qualified_ = tpr.resolvedType_.name_fully_qualified_;
-
+ 
                     it.remove();
                 }
             }
-        }        
+        }       
         
         doc_ = null;
         return d;
     }
-
+ 
     private void add_type_to_scope( ThriftType typ )
     {
         typ.setDocument(doc_);
@@ -276,32 +268,32 @@ public final class ThriftModelGenerator
            current_package_.types_.add(typ);
         else
            doc_.types_.add(typ);
-        
+       
+    }
+  
+    private void add_comment( CommonTree dt, ThriftObject obj )
+    {      
+        obj.comment_ = tokensource_.collectComment( dt.getLine()-1 );   
     }
    
-    private void add_comment( CommonTree dt, ThriftObject obj )
-    {       
-        obj.comment_ = tokensource_.collectComment( dt.getLine()-1 );    
-    }
-    
     private ThriftType resolve_type( String name )
     {
         ThriftType tp = doc_.all_types_.get( name );
         if ( null != tp ) return tp;
-        
+       
         // Go up the package hierachy
         ThriftPackage p = current_package_;
         while( p != null )
         {
-            String fqname = get_fully_qualifiedname(p, name);       
+            String fqname = get_fully_qualifiedname(p, name);      
             tp = doc_.all_types_.get( fqname );
             if ( null != tp ) return tp;
             p = p.parent_;
         }
         return null;
     }
-
-    
+ 
+   
     private ThriftType find_type( String name )
     {
         ThriftType tp = resolve_type(name);
@@ -320,7 +312,7 @@ public final class ThriftModelGenerator
         }
         return tp;
     }
-    
+   
     private int get_integer( CommonTree dt )
     {
         if ( null != dt )
@@ -330,26 +322,30 @@ public final class ThriftModelGenerator
                 switch (dt.getType() )
                 {
                     case ThriftParser.INTEGER: return Integer.parseInt( dt.getText() );
-                    case ThriftParser.HEX_INTEGER: 
+                    case ThriftParser.FIELD_ID_:
+                        if ( dt.getChildCount() > 0)
+                           return get_integer( (CommonTree)dt.getChild(0) );
+                        break;
+                    case ThriftParser.HEX_INTEGER:
                         String hx = dt.getText();
                         if ( hx.startsWith( "0x" )) hx = hx.substring(2);
                         return Integer.parseInt( hx , 16 );
                 }
-            } 
+            }
             catch (NumberFormatException nfe )
             {
             }
         }
         return Integer.MIN_VALUE;
     }
-    
+   
     private String get_identifier( CommonTree dt )
     {
         CommonTree idT = (CommonTree)dt.getFirstChildWithType(ThriftParser.IDENTIFIER);
         return ( null != idT ) ? idT.getText() : "";
-        
+       
     }
-    
+   
     private ThriftInclude gen_include( CommonTree dt )
     {
         ThriftInclude i = new ThriftInclude();
@@ -358,46 +354,46 @@ public final class ThriftModelGenerator
             i.path_ = lt.getText();
         else
             i.path_ = "";
-        return i;       
+        return i;      
     }
-   
+  
     
     private ThriftPackage gen_package( CommonTree dt )
     {
-        ThriftPackage p = new ThriftPackage();
+        ThriftPackage p = new ThriftPackage();      
         p.setDocument(doc_);
         p.parent_ = current_package_;
         p.name_ = get_identifier( dt );
-        p.name_fully_qualified_ = get_fully_qualifiedname( p.name_ ) ;
+        p.name_fully_qualified_ = ((null != current_package_)?current_package_.name_fully_qualified_+"." : "") +p.name_;
         p.line_  = dt.getLine() -1 ;
-        p.column_= dt.getCharPositionInLine();        
-
+        p.column_= dt.getCharPositionInLine();       
+ 
         add_comment( dt, p );
-        
+       
         current_package_ = p;
-        
+       
         parse_body(dt,1);
-
+ 
         current_package_ = current_package_.parent_;
         return p;
     }
-
+ 
     private void parse_body( CommonTree dt, int startIndex )
     {
         for (int i = startIndex ; i<dt.getChildCount() ; ++i )
         {
             CommonTree ct = (CommonTree)dt.getChild(i);
             switch ( ct.getType() )
-            {   
+            {  
                 case ThriftParser.PACKAGE:
                     ThriftPackage np = gen_package(ct);
-                    if ( null != current_package_ ) 
+                    if ( null != current_package_ )
                        current_package_.subpackages_.add( np );
                     doc_.all_packages_.add( np );
                     break;
-                case ThriftParser.SERVICE:         
+                case ThriftParser.SERVICE:        
                     ThriftService serv = gen_service( ct );
-                    if ( null != current_package_ ) 
+                    if ( null != current_package_ )
                        current_package_.services_.add(serv);
                     else
                        doc_.services_.add(serv);
@@ -416,41 +412,41 @@ public final class ThriftModelGenerator
                     doc_.includes_.add(gen_include( ct ));
                     break;
             }
-            
+           
         }
     }
-
+ 
     private String get_fully_qualifiedname( ThriftPackage p, String name )
     {
         StringBuilder sb = new StringBuilder(100);
         if ( null != p)
-           // [DAI Extension]: "packages" are used as parent namespace  
+           // [DAI Extension]: "packages" are used as parent namespace 
            sb.append( p.name_fully_qualified_);
         else
            // All content is identified by document name.
            sb.append( doc_.name_ );
         if ( 0 < sb.length() ) sb.append('.');
         sb.append(name);
-        return sb.toString();                
+        return sb.toString();               
     }
-            
+           
     private String get_fully_qualifiedname( String name )
     {
         return get_fully_qualifiedname( current_package_, name );
     }
-
-    
+ 
+   
     private void add_typeheaderinfo( CommonTree dt, ThriftType tp )
     {
         tp.name_ = get_identifier(dt);
-        tp.name_fully_qualified_ = get_fully_qualifiedname( tp.name_ );
+       tp.name_fully_qualified_ = get_fully_qualifiedname( tp.name_ );
         tp.package_ = current_package_;
         tp.line_  = dt.getLine() - 1;
-        tp.column_= dt.getCharPositionInLine();        
-
+        tp.column_= dt.getCharPositionInLine();       
+ 
         add_comment(dt, tp);
     }
-    
+   
     private ThriftListType gen_listtype( CommonTree dt )
     {
         ThriftListType lt = new ThriftListType();
@@ -459,24 +455,24 @@ public final class ThriftModelGenerator
             lt.value_type_ = gen_fieldtype( (CommonTree)dt.getChild(0) );
         return lt;
     }
-
+ 
     private void gen_typedef(CommonTree dt )
     {
         ThriftTypedef td = new ThriftTypedef();
         add_typeheaderinfo(dt, td);
         add_type_to_scope( td );
         if ( 1 < dt.getChildCount() )
-            td.reftype_ = gen_fieldtype( (CommonTree)dt.getChild(1));        
+            td.reftype_ = gen_fieldtype( (CommonTree)dt.getChild(1));       
     }
-    
+   
     private void gen_enum( CommonTree dt )
     {
         ThriftEnum en = new ThriftEnum();
         en.values_ = new ArrayList<>();
         add_typeheaderinfo( dt, en );
-        
+       
         int autoVal = 0;
-        
+       
         for (int i = 1 ; i<dt.getChildCount() ; ++i )
         {
             CommonTree ct = (CommonTree)dt.getChild(i);
@@ -493,49 +489,49 @@ public final class ThriftModelGenerator
                     }
                     env.value_ = autoVal++;
                     en.values_.add(env);
-                    break;                
-            }   
+                    break;               
+            }  
         }
         add_type_to_scope( en );
     }
-    
+   
     private void gen_struct( CommonTree dt )
     {
-        ThriftStruct s = new ThriftStruct();       
+        ThriftStruct s = new ThriftStruct();      
         add_typeheaderinfo( dt, s );
-        
+       
         s.fields_ = new ArrayList<>();
         add_type_to_scope(s);
-        
+       
         for (int i = 1 ; i<dt.getChildCount() ; ++i )
         {
             CommonTree ct = (CommonTree)dt.getChild(i);
             switch ( ct.getType() )
-            {   
+            {  
                 case ThriftParser.FIELD_:
                     s.fields_.add( gen_field( ct ));
                     break;
             }
         }
     }
-
+ 
     private ThriftField gen_field( CommonTree dt )
     {
         ThriftField f = new ThriftField();
         f.setDocument(doc_);
         f.name_ = get_identifier( dt );
         add_comment( dt, f );
-        
+       
         if ( 2 <= dt.getChildCount() )
             f.type_ = gen_fieldtype( (CommonTree)dt.getChild(1) );
         f.id_ = get_integer( (CommonTree)dt.getFirstChildWithType( ThriftParser.FIELD_ID_ ) );
         return f;
     }
-    
+   
     private ThriftType gen_fieldtype( CommonTree dt )
     {
         ThriftType type = null;
-
+ 
         switch ( dt.getType() )
         {
             case ThriftParser.VOID:          return ThriftType.VOID;
@@ -548,12 +544,12 @@ public final class ThriftModelGenerator
             case ThriftParser.TYPE_STRING:   return ThriftType.STRING;
             case ThriftParser.LIST:          return gen_listtype(dt);
             case ThriftParser.IDENTIFIER:    return find_type( dt.getText() );
-                
+               
         }
-        
+       
         return type;
     }
-    
+   
     private ThriftService gen_service( CommonTree dt )
     {
         ThriftService s = new ThriftService();
@@ -564,50 +560,52 @@ public final class ThriftModelGenerator
         s.line_     = dt.getLine() - 1 ;
         s.column_   = dt.getCharPositionInLine();
         add_comment( dt, s );
-        
+       
         for (int i = 2 ; i<dt.getChildCount() ; ++i )
         {
             CommonTree dtF = (CommonTree)dt.getChild(i);
             switch ( dtF.getType() )
             {
-                case ThriftParser.METHOD_: 
-                    s.functions_.add(gen_function(dtF));
+                case ThriftParser.METHOD_:
+                    ThriftFunction f = gen_function(dtF);
+                    s.functions_.add(f);
+                    f.service_ = s;
                     break;
             }
         }
-        
+       
         return s;
     }
-    
+   
     private List<ThriftField> gen_parameters(CommonTree dt )
     {
         ArrayList<ThriftField> p = new ArrayList<>();
-        
+       
         for (int i = 0 ; i<dt.getChildCount() ; ++i )
         {
             CommonTree dtP = (CommonTree)dt.getChild(i);
             switch ( dtP.getType() )
             {
-                case ThriftParser.FIELD_: 
+                case ThriftParser.FIELD_:
                     p.add(gen_field(dtP));
                     break;
             }
-        }        
+        }       
         return p;
     }
-    
+   
     private ThriftFunction gen_function( CommonTree dt )
     {
         ThriftFunction f = new ThriftFunction();
         f.setDocument(doc_);
         f.name_ = get_identifier(dt);
-        f.parameters_ = new ArrayList<>();        
+        f.parameters_ = new ArrayList<>();       
         f.line_  = dt.getLine() - 1;
-        f.column_= dt.getCharPositionInLine();        
+        f.column_= dt.getCharPositionInLine();       
         if ( 1 < dt.getChildCount() )
             f.return_type_ = gen_fieldtype((CommonTree)dt.getChild(1));
-        
-        add_comment( dt, f );        
+       
+        add_comment( dt, f );       
         f.parameters_ = gen_parameters((CommonTree)dt.getFirstChildWithType(ThriftParser.ARGS_));
         return f;
     }
