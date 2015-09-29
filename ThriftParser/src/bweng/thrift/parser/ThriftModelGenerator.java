@@ -456,6 +456,30 @@ public final class ThriftModelGenerator
         return lt;
     }
  
+    
+    private ThriftMapType gen_maptype( CommonTree dt )
+    {
+        ThriftMapType lt = new ThriftMapType();
+        lt.setDocument(doc_);
+        if ( 1 < dt.getChildCount() )
+        {
+            lt.key_type_ = gen_fieldtype( (CommonTree)dt.getChild(0) );
+            lt.value_type_ = gen_fieldtype( (CommonTree)dt.getChild(1) );
+        }
+        return lt;
+    }
+    
+    private ThriftSetType gen_settype( CommonTree dt )
+    {
+        ThriftSetType lt = new ThriftSetType();
+        lt.setDocument(doc_);
+        if ( 0 < dt.getChildCount() )
+        {
+            lt.value_type_ = gen_fieldtype( (CommonTree)dt.getChild(1) );
+        }
+        return lt;
+    }
+    
     private void gen_typedef(CommonTree dt )
     {
         ThriftTypedef td = new ThriftTypedef();
@@ -543,13 +567,16 @@ public final class ThriftModelGenerator
             case ThriftParser.TYPE_DOUBLE:   return ThriftType.DOUBLE;
             case ThriftParser.TYPE_STRING:   return ThriftType.STRING;
             case ThriftParser.LIST:          return gen_listtype(dt);
+            case ThriftParser.MAP:           return gen_maptype(dt);
+            case ThriftParser.SET:           return gen_settype(dt);
             case ThriftParser.IDENTIFIER:    return find_type( dt.getText() );
                
         }
        
         return type;
     }
-   
+    
+    
     private ThriftService gen_service( CommonTree dt )
     {
         ThriftService s = new ThriftService();
