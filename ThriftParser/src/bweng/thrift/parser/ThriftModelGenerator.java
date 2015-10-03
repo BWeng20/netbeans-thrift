@@ -566,6 +566,7 @@ public final class ThriftModelGenerator
             case ThriftParser.TYPE_I64:      return ThriftType.INT64;
             case ThriftParser.TYPE_DOUBLE:   return ThriftType.DOUBLE;
             case ThriftParser.TYPE_STRING:   return ThriftType.STRING;
+            case ThriftParser.TYPE_BINARY:   return ThriftType.BINARY;
             case ThriftParser.LIST:          return gen_listtype(dt);
             case ThriftParser.MAP:           return gen_maptype(dt);
             case ThriftParser.SET:           return gen_settype(dt);
