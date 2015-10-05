@@ -14,6 +14,7 @@ public class ThriftFunction extends ThriftObject
     public String name_;   
     public List<ThriftField> parameters_;
     public ThriftType return_type_;
+    public ThriftFunctionMode mode_ = ThriftFunctionMode.NONE;
     
     public ThriftService service_;
     

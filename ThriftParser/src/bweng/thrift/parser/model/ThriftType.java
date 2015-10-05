@@ -31,8 +31,7 @@ public class ThriftType extends ThriftObject
     
     public final static ThriftType MAP;
     public final static ThriftType LIST;
-    public final static ThriftType SERVICE;
-    
+    public final static ThriftType SERVICE;    
 
     static
     {

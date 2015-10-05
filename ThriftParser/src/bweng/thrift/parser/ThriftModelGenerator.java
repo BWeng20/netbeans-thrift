@@ -339,6 +339,25 @@ public final class ThriftModelGenerator
         return Integer.MIN_VALUE;
     }
    
+    private ThriftFunctionMode get_function_mode( CommonTree dt)    
+    {
+       if ( dt.getChildCount() > 3 )
+       {
+          // If a function mode was declared, it was re-written to child #3
+          CommonTree ct = (CommonTree)dt.getChild(3);
+          switch (ct.getType()) 
+          {
+             case ThriftParser.EVENT:    return ThriftFunctionMode.EVENT;
+             case ThriftParser.ONEWAY:   return ThriftFunctionMode.ONEWAY;
+             case ThriftParser.ASYNC:    return ThriftFunctionMode.ASYNC;
+             case ThriftParser.DEFERRED: return ThriftFunctionMode.DEFERRED;
+             default:                    return ThriftFunctionMode.NONE;
+          }          
+       }
+       return ThriftFunctionMode.NONE;
+    }
+    
+    
     private String get_identifier( CommonTree dt )
     {
         CommonTree idT = (CommonTree)dt.getFirstChildWithType(ThriftParser.IDENTIFIER);
@@ -391,7 +410,7 @@ public final class ThriftModelGenerator
                        current_package_.subpackages_.add( np );
                     doc_.all_packages_.add( np );
                     break;
-                case ThriftParser.SERVICE:        
+                case ThriftParser.SERVICE:
                     ThriftService serv = gen_service( ct );
                     if ( null != current_package_ )
                        current_package_.services_.add(serv);
@@ -567,6 +586,7 @@ public final class ThriftModelGenerator
             case ThriftParser.TYPE_DOUBLE:   return ThriftType.DOUBLE;
             case ThriftParser.TYPE_STRING:   return ThriftType.STRING;
             case ThriftParser.TYPE_BINARY:   return ThriftType.BINARY;
+            case ThriftParser.SERVICE_PTR_TYPE: return ThriftType.SERVICE;
             case ThriftParser.LIST:          return gen_listtype(dt);
             case ThriftParser.MAP:           return gen_maptype(dt);
             case ThriftParser.SET:           return gen_settype(dt);
@@ -626,6 +646,7 @@ public final class ThriftModelGenerator
     {
         ThriftFunction f = new ThriftFunction();
         f.setDocument(doc_);
+        f.mode_ = get_function_mode(dt);
         f.name_ = get_identifier(dt);
         f.parameters_ = new ArrayList<>();       
         f.line_  = dt.getLine() - 1;

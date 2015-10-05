@@ -20,7 +20,6 @@ tokens {
     TYPES_;
     TYPE_;
     CPP_TYPE_;
-    SERVICE_PTR_TYPE_;
 }
 
 @header {
@@ -58,6 +57,7 @@ OPTIONAL: 'optional' ;
 SENUM   : 'senum' ;
 CONST   : 'const' ;
 NAMESPACE: 'namespace' ;
+SERVICE_PTR_TYPE: 'service_ptr' ;
 
 LCURLY  : '{' ;
 RCURLY  : '}' ;
@@ -191,7 +191,7 @@ base_type
     ;
 
 service_ptr
-    : IDENTIFIER '*' type_annotations? -> ^(SERVICE_PTR_TYPE_ IDENTIFIER type_annotations?)
+    : IDENTIFIER '*' type_annotations? -> ^(SERVICE_PTR_TYPE IDENTIFIER type_annotations?)
     ;
 
 container_type
