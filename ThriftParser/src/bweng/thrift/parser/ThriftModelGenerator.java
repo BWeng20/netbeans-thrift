@@ -540,7 +540,7 @@ public final class ThriftModelGenerator
    
     private void gen_struct( CommonTree dt )
     {
-        ThriftStruct s = new ThriftStruct();      
+        ThriftStructType s = new ThriftStructType();      
         add_typeheaderinfo( dt, s );
        
         s.fields_ = new ArrayList<>();

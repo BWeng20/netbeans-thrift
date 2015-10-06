@@ -29,8 +29,6 @@ public class ThriftType extends ThriftObject
     public final static ThriftType BINARY;
     public final static ThriftType VOID;
     
-    public final static ThriftType MAP;
-    public final static ThriftType LIST;
     public final static ThriftType SERVICE;    
 
     static
@@ -43,10 +41,7 @@ public class ThriftType extends ThriftObject
         DOUBLE = new ThriftType(); DOUBLE.name_ = DOUBLE.name_fully_qualified_  = "double";
         STRING = new ThriftType(); STRING.name_ = STRING.name_fully_qualified_  = "string";
         BINARY = new ThriftType(); BINARY.name_ = BINARY.name_fully_qualified_  = "binary";
-        VOID   = new ThriftType(); VOID.name_   = VOID.name_fully_qualified_  = "void";
-        
-        MAP    = new ThriftType(); MAP.name_    = MAP.name_fully_qualified_     = "map<>";
-        LIST   = new ThriftType(); LIST.name_   = LIST.name_fully_qualified_    = "list<>";
+        VOID   = new ThriftType(); VOID.name_   = VOID.name_fully_qualified_  = "void";      
         SERVICE= new ThriftType(); SERVICE.name_= SERVICE.name_fully_qualified_ = "service*";
     }
     

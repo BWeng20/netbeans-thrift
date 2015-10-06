@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Part of the data model, representing a Thrift Struct.
  */
-public final class ThriftStruct extends ThriftType
+public final class ThriftStructType extends ThriftType
 {
     public List<ThriftField> fields_;
     
