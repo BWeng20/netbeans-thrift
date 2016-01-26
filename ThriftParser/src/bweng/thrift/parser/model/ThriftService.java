@@ -18,6 +18,9 @@ public class ThriftService extends ThriftObject
     
     /** Parent-Package or null [DAI Extension]. */
     public ThriftPackage package_;
+    
+    /** Optional: base service. */
+    public ThriftServiceRef extended_service_;
 
     @Override
     public String toString()

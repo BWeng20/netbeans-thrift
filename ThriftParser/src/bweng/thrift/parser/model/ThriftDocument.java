@@ -23,11 +23,17 @@ public class ThriftDocument extends ThriftScope
     // All servives (also from all sub-packages)
     public List<ThriftService> all_services_;
     
+    // All servives (also from all sub-packages) by fully qualified name
+    public Map<String,ThriftService> all_services_byname_;
+    
     // All types defined in this document
     public Map<String, ThriftType> all_types_;    
 
     // All yet unresolved types in this document
     public Map<String, ThriftTypeRef> unresolved_types_;    
+
+    // All yet unresolved services in this document
+    public Map<String, ThriftServiceRef> unresolved_services_;    
 
     @Override
     public String toString()

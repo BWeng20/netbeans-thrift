@@ -49,4 +49,31 @@ public class ThriftPackage extends ThriftScope
         }
         return null;
     }
+    
+    public ThriftService findServiceInPackage( String name )
+    {       
+        if ( name.startsWith( name_fully_qualified_+'.' ))
+            name = name.substring( name_fully_qualified_.length()+1 );
+        
+        if ( 0 <= name.indexOf('.' ))
+        {
+            // Search in sub packages
+            for (int pi=0 ; pi<subpackages_.size() ; ++pi )
+            {
+                ThriftPackage subp = subpackages_.get(pi);
+                if ( name.startsWith( subp.name_+'.' ) )
+                {
+                    ThriftService t = subp.findServiceInPackage( name.substring(subp.name_.length()+1 ) );
+                    if ( t != null ) return t;
+                }
+            }
+        }
+        else
+        {
+            for (int ti=0 ; ti<services_.size() ; ++ti )
+                if ( services_.get(ti).name_.equals(name))
+                    return services_.get(ti);
+        }
+        return null;
+    }    
 }

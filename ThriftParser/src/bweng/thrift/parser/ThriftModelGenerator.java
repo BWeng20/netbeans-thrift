@@ -31,6 +31,9 @@ public final class ThriftModelGenerator
    
     // All types not resolved so far
     public Map<String, ThriftType> global_types_;   
+
+    // All services not resolved so far
+    public Map<String, ThriftService> global_services_;   
     
     ThriftCommentTokenSource tokensource_;
     ThriftParser   parser_;
@@ -53,19 +56,20 @@ public final class ThriftModelGenerator
         loadIncludesInternal( doc );       
         loaded_.clear();
        
-        global_types_= new HashMap<>();
+        global_types_   = new HashMap<>();
+        global_services_= new HashMap<>();
        
-        collect_types( doc );
-        resolve_types( doc );
+        collect_references( doc );
+        resolve_all( doc );
        
     }
  
-    private  void collect_types( ThriftDocument doc )
+    private  void collect_references( ThriftDocument doc )
     {
         if ( doc != null )
         {
             for (int i=0 ; i<doc.includes_.size() ; ++i)
-                 collect_types( doc.includes_.get(i).doc_ );
+                 collect_references( doc.includes_.get(i).doc_ );
            
             for ( ThriftType tp : doc.all_types_.values() )
             {
@@ -82,15 +86,24 @@ public final class ThriftModelGenerator
                     global_types_.put( tp.name_fully_qualified_, tp);
                 }
             }
+            
+            for ( ThriftService sv : doc.all_services_ )
+            {
+                if ( sv.extended_service_ != null && sv.extended_service_.resolvedService_ == null )
+                {
+                    doc.unresolved_services_.put( sv.extended_service_.declaredName_, sv.extended_service_ );
+                }
+                global_services_.put( sv.name_fully_qualified_, sv);
+            }
         }       
     }
  
-    private void resolve_types( ThriftDocument doc )
+    private void resolve_all( ThriftDocument doc )
     {
         if ( doc != null )
         {
             for (int i=0 ; i<doc.includes_.size() ; ++i)
-                 resolve_types( doc.includes_.get(i).doc_ );
+                 resolve_all( doc.includes_.get(i).doc_ );
        
             Iterator<ThriftTypeRef> it = doc.unresolved_types_.values().iterator();
             while ( it.hasNext() )
@@ -106,6 +119,20 @@ public final class ThriftModelGenerator
                         tpr.name_ = tpr.resolvedType_.name_;
                         tpr.name_fully_qualified_ = tpr.resolvedType_.name_fully_qualified_;
                         it.remove();
+                    }
+                }
+            }
+            Iterator<ThriftServiceRef> itServ = doc.unresolved_services_.values().iterator();
+            while ( itServ.hasNext() )
+            {
+                ThriftServiceRef svr = itServ.next();
+ 
+                if ( null == svr.resolvedService_ )
+                {
+                    svr.resolvedService_ = global_services_.get(svr.declaredName_ );
+                    if ( null != svr.resolvedService_)
+                    {
+                        itServ.remove();
                     }
                 }
             }
@@ -213,9 +240,11 @@ public final class ThriftModelGenerator
         d.name_fully_qualified_ = name;       
         d.services_     = new ArrayList<>();
         d.all_services_ = new ArrayList<>();
+        d.all_services_byname_= new HashMap<>();
         d.all_packages_ = new ArrayList<>();
         d.includes_ = new ArrayList<>();
         d.unresolved_types_= new HashMap<>();
+        d.unresolved_services_= new HashMap<>();
         d.types_ = new ArrayList<>();
         d.all_types_ = new HashMap<String, ThriftType>();
         // Add all default types to list       
@@ -231,13 +260,15 @@ public final class ThriftModelGenerator
        
         parse_body( dt, 0 );
  
+        // Local reference resolution
+        //   Types
         Iterator<ThriftTypeRef> it = doc_.unresolved_types_.values().iterator();
         while ( it.hasNext() )
         {
             ThriftTypeRef tpr = it.next();
  
             if ( null == tpr.resolvedType_ )
-           {
+            {
                 // Try to find it in qualified names
                 tpr.resolvedType_ = resolve_type(tpr.declaredName_ );
                 if ( null == tpr.resolvedType_ && null != tpr.package_)
@@ -252,6 +283,27 @@ public final class ThriftModelGenerator
                     tpr.name_fully_qualified_ = tpr.resolvedType_.name_fully_qualified_;
  
                     it.remove();
+                }
+            }
+        }       
+        //   Service references
+        Iterator<ThriftServiceRef> itSv = doc_.unresolved_services_.values().iterator();
+        while ( itSv.hasNext() )
+        {
+            ThriftServiceRef svr = itSv.next();
+ 
+            if ( null == svr.resolvedService_ )
+            {
+                // Try to find it in qualified names
+                svr.resolvedService_ = doc_.all_services_byname_.get( svr.declaredName_ );
+                if ( null == svr.resolvedService_ && null != svr.declarationPackage_)
+                {
+                    // Try to find it in original scope
+                    svr.resolvedService_ = svr.declarationPackage_.findServiceInPackage( svr.declaredName_ );
+                }
+                if ( null != svr.resolvedService_)
+                {             
+                    itSv.remove();
                 }
             }
         }       
@@ -292,8 +344,7 @@ public final class ThriftModelGenerator
         }
         return null;
     }
- 
-   
+    
     private ThriftType find_type( String name )
     {
         ThriftType tp = resolve_type(name);
@@ -417,6 +468,7 @@ public final class ThriftModelGenerator
                     else
                        doc_.services_.add(serv);
                     doc_.all_services_.add(serv);
+                    doc_.all_services_byname_.put(serv.name_fully_qualified_, serv);
                     break;
                 case ThriftParser.ENUM:
                     gen_enum( ct );
@@ -608,7 +660,18 @@ public final class ThriftModelGenerator
         s.line_     = dt.getLine() - 1 ;
         s.column_   = dt.getCharPositionInLine();
         add_comment( dt, s );
-       
+
+        CommonTree dtExtends = (CommonTree)dt.getChild(1);
+        if ( dtExtends.getChildCount() > 0 )
+        {
+            ThriftServiceRef sref = new ThriftServiceRef();
+            sref.line_ = dtExtends.getLine() - 1 ;
+            sref.column_ = dtExtends.getCharPositionInLine();
+            sref.declaredName_ = get_identifier(dtExtends);
+            sref.declarationPackage_ = current_package_;
+            s.extended_service_ = sref;
+        }
+        
         for (int i = 2 ; i<dt.getChildCount() ; ++i )
         {
             CommonTree dtF = (CommonTree)dt.getChild(i);
