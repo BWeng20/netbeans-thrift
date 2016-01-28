@@ -631,7 +631,7 @@ public final class ThriftModelGenerator
         {
             case ThriftParser.VOID:          return ThriftType.VOID;
             case ThriftParser.TYPE_BOOL:     return ThriftType.BOOL;
-            case ThriftParser.TYPE_BYTE:     return ThriftType.BOOL;
+            case ThriftParser.TYPE_BYTE:     return ThriftType.INT8;
             case ThriftParser.TYPE_I16:      return ThriftType.INT16;
             case ThriftParser.TYPE_I32:      return ThriftType.INT32;
             case ThriftParser.TYPE_I64:      return ThriftType.INT64;
