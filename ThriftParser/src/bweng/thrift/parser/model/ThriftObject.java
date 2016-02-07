@@ -4,8 +4,6 @@
  */
 package bweng.thrift.parser.model;
 
-import java.lang.ref.WeakReference;
-
 /**
  * Part of the data model, 
  * base class for Thrift components that possibly have version informations.
@@ -13,7 +11,7 @@ import java.lang.ref.WeakReference;
 public class ThriftObject extends ThriftParserInfo
 {
     public String comment_;
-    public ThriftVersion version_;
+    public String version_;
     
     private ThriftDocument document_;
     
