@@ -116,21 +116,17 @@ public final class ThriftModelGenerator
 
                 if ( null == tpr.resolvedType_ )
                 {
-                   // Initial scope where the type was used.
-                   ThriftPackage scopePackage = tpr.package_;
-                   // Go up the hierarchy and try to find the type in global registry.
-                   do {
-                      String try_name_fully_qualified;
-                      if ( scopePackage != null )
-                      {
-                         try_name_fully_qualified = scopePackage.name_fully_qualified_+"."+tpr.declaredName_;
-                         scopePackage = scopePackage.parent_;
-                      }
-                      else
-                         try_name_fully_qualified = tpr.declaredName_;
-                      
-                      tpr.resolvedType_ = global_types_.get( try_name_fully_qualified );
-                   } while ( tpr.resolvedType_ == null && scopePackage != null );
+                    // Initial scope where the type was used.
+                    ThriftPackage scopePackage = tpr.package_;
+                    // Go up the hierarchy and try to find the type in global registry.
+                    while ( tpr.resolvedType_ == null && scopePackage != null )
+                    {
+                      tpr.resolvedType_ = global_types_.get( scopePackage.name_fully_qualified_+"."+tpr.declaredName_ );
+                      scopePackage = scopePackage.parent_;
+                    }
+                    // if still not found, try as fully qualified type
+                    if ( null == tpr.resolvedType_)
+                       tpr.resolvedType_ = global_types_.get( tpr.declaredName_ );
 
                     if ( null != tpr.resolvedType_)
                     {
