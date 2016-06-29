@@ -10,8 +10,11 @@ package bweng.thrift.parser.model;
  */
 public class ThriftObject extends ThriftParserInfo
 {
-    public String comment_;
-    public String version_;
+    public String  comment_;
+    public String  version_;
+    
+    // True if the object is marked with @deprecated
+    public boolean deprecated_ = false;
     
     private ThriftDocument document_;
     

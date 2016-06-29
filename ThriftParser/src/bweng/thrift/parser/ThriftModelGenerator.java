@@ -350,8 +350,12 @@ public final class ThriftModelGenerator
            {
               obj.version_ = m.group(1);
            }
+           // Try to locate @deprecated
+           if ( obj.comment_.contains( "@deprecated" ) )
+           {
+               obj.deprecated_ = true;
+           }
         }
-
     }
 
     private ThriftType resolve_type( String name )
