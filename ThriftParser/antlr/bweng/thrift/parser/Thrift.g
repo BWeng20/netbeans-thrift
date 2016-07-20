@@ -103,7 +103,7 @@ const_rule
     ;
 
 typedef
-    : TYPEDEF field_type IDENTIFIER -> ^(TYPEDEF IDENTIFIER field_type)
+    : TYPEDEF field_type IDENTIFIER list_separator? -> ^(TYPEDEF IDENTIFIER field_type)
     ;
 
 enum_rule
