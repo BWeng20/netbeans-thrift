@@ -13,8 +13,10 @@ import org.openide.explorer.view.BeanTreeView;
 import org.openide.nodes.AbstractNode;
 import org.openide.nodes.Children;
 import org.openide.nodes.Node;
+import org.openide.util.ImageUtilities;
 import org.openide.windows.TopComponent;
 import org.openide.util.NbBundle.Messages;
+import java.awt.Image;
 
 @ConvertAsProperties(
    dtd = "-//bweng.netbeans.thrift.explorer//ThriftExplorer//EN",
@@ -44,6 +46,13 @@ public final class ThriftExplorerComponent extends TopComponent implements Explo
    static private WeakReference<ThriftExplorerComponent> instance_;
    private final transient ProjectChildFactory factory_ = new ProjectChildFactory();
    private BeanTreeView scrollPane_;
+   private Image thriftIcon_ = null;
+
+   public Image getThriftIcon()
+   {
+      return thriftIcon_;
+   }
+
 
    public ThriftExplorerComponent()
    {
@@ -62,6 +71,7 @@ public final class ThriftExplorerComponent extends TopComponent implements Explo
       explorerManager_.getRootContext().setDisplayName("Thrift Files");
 
       instance_ = new WeakReference<ThriftExplorerComponent>(this);
+      thriftIcon_ = ImageUtilities.loadImage ("bweng/netbeans/thrift/resources/ThriftScope.png"); 
    }
 
    static public ThriftExplorerComponent getInstance()
@@ -78,7 +88,7 @@ public final class ThriftExplorerComponent extends TopComponent implements Explo
          if ( cnode instanceof ProjectNode)
          {
             ProjectNode pnode =(ProjectNode)cnode;
-            if ( pnode.projectref_.get() == project )
+            if ( pnode.getProject() == project )
             {
                pnode.refresh();
             }
@@ -86,6 +96,24 @@ public final class ThriftExplorerComponent extends TopComponent implements Explo
       }      
    }
 
+   public void setProjectDisplayname(Project project, String name)
+   {
+      Node root  = explorerManager_.getRootContext();
+      Children chds = root.getChildren();
+      for (Node cnode : Arrays.asList(chds.getNodes()))
+      {
+         if ( cnode instanceof ProjectNode)
+         {
+            ProjectNode pnode =(ProjectNode)cnode;
+            if ( pnode.getProject() == project )
+            {
+               pnode.setDisplayName(name);
+            }
+         }
+      }      
+   }
+   
+   
    @Override
    public ExplorerManager getExplorerManager()
    {

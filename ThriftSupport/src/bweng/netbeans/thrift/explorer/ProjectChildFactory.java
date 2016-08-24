@@ -4,21 +4,16 @@
  */
 package bweng.netbeans.thrift.explorer;
 
-import bweng.netbeans.thrift.ThriftDataObject;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+import org.netbeans.api.java.classpath.GlobalPathRegistry;
+import org.netbeans.api.java.classpath.GlobalPathRegistryEvent;
+import org.netbeans.api.java.classpath.GlobalPathRegistryListener;
 import org.netbeans.api.project.Project;
-import org.netbeans.api.project.ProjectInformation;
-import org.netbeans.api.project.ProjectUtils;
 import org.netbeans.api.project.ui.OpenProjects;
-import org.openide.filesystems.FileAttributeEvent;
-import org.openide.filesystems.FileChangeListener;
-import org.openide.filesystems.FileEvent;
-import org.openide.filesystems.FileObject;
-import org.openide.filesystems.FileRenameEvent;
 import org.openide.nodes.ChildFactory;
 import org.openide.nodes.Node;
 
@@ -26,26 +21,42 @@ import org.openide.nodes.Node;
  * ChildFactory to create project nodes in ThriftExplorer.
  * @author Bernd Wengenroth
  */
-class ProjectChildFactory extends ChildFactory<Project>
+class ProjectChildFactory extends ChildFactory<ProjectData>
+   implements GlobalPathRegistryListener
 { 
-   ArrayList< ProjectChangeListener > projectFCL_ 
-      = new ArrayList< ProjectChangeListener >();
+   ArrayList< ProjectData > projects_ = new ArrayList< ProjectData >();
    
    @Override
-   protected boolean createKeys(List<Project> toPopulate)
+   protected boolean createKeys(List<ProjectData> toPopulate)
    {
-      for (ProjectChangeListener pfcl : projectFCL_ )
-      {
-         pfcl.cleanup();
-      }
-      projectFCL_.clear();
-   
       OpenProjects op = OpenProjects.getDefault();
       Project projects[] = op.getOpenProjects();
-      for ( Project p : projects )
+
+      ArrayList<ProjectData> pl = projects_;
+      projects_= new ArrayList<ProjectData>(projects.length);
+      
+      for (Project p : projects )
       {
-         projectFCL_.add( new ProjectChangeListener( p ) );
-         toPopulate.add(p);
+         ProjectData pd = null;
+         for (int i=0 ; i<pl.size(); ++i )
+         {
+            if ( p == pl.get(i).getProject() )
+            {
+               pd = pl.remove(i);
+               break;
+            }
+         }
+         if ( null == pd )
+            pd = new ProjectData(p);
+         projects_.add(pd);
+      }
+      // Clean-up deprecated proejct data elements
+      for (ProjectData pd : pl )
+         pd.cleanup();
+   
+      for ( ProjectData pd : projects_ )
+      {
+         toPopulate.add( pd );
       }
       return true;
    }
@@ -54,7 +65,7 @@ class ProjectChildFactory extends ChildFactory<Project>
     * Creates a Project Node that will later scan the project for thrift files.
     */
    @Override
-   protected Node createNodeForKey(Project key)
+   protected Node createNodeForKey(ProjectData key)
    {
       return new ProjectNode( key );
    }
@@ -66,15 +77,35 @@ class ProjectChildFactory extends ChildFactory<Project>
       op.removePropertyChangeListener(projectListener_); 
       op.addPropertyChangeListener(projectListener_);
       openProjects_ = new WeakReference<OpenProjects>(op);
-      
+   
+      GlobalPathRegistry gpr = GlobalPathRegistry.getDefault();
+      if (gpr != null )
+      {
+         gpr.addGlobalPathRegistryListener(this);
+         System.out.println("paths "+ gpr.getSourceRoots() );
+
+      }
       refresh(true); 
    }
 
    void stopUpdate()
    {
+      GlobalPathRegistry gpr = GlobalPathRegistry.getDefault();
+      if (gpr != null ) gpr.removeGlobalPathRegistryListener(this);
       OpenProjects op = openProjects_.get();
       if ( op != null ) op.removePropertyChangeListener(projectListener_);
       openProjects_.clear();
+   }
+
+   @Override
+   public void pathsAdded(GlobalPathRegistryEvent event)
+   {
+      System.out.println("pathAdded "+ event.getChangedPaths() );
+   }
+
+   @Override
+   public void pathsRemoved(GlobalPathRegistryEvent event)
+   {
    }
    
    class ProjectsListener implements PropertyChangeListener
@@ -93,112 +124,4 @@ class ProjectChildFactory extends ChildFactory<Project>
    // Last used instance of "OpenProjects", possible a "WeakReference" is not needed here.
    WeakReference<OpenProjects> openProjects_ = new WeakReference<OpenProjects>(null);
    
-}
-
-class ProjectChangeListener implements FileChangeListener, PropertyChangeListener
-{
-   final WeakReference<Project> projectRef_;
-   final WeakReference<FileObject> fileRef_;
-   
-   ProjectChangeListener( Project project )
-   {
-      projectRef_ = new WeakReference<Project>(project);
-      
-      FileObject fo = project.getProjectDirectory();
-      fileRef_ = new WeakReference<FileObject>( fo );
-      
-      ProjectInformation pinfo = ProjectUtils.getInformation(project);
-      if ( null != pinfo )
-      {
-         pinfo.addPropertyChangeListener(this);
-      }
-      
-      fo.addRecursiveListener(this);
-   }
-   
-   void cleanup()
-   {
-      FileObject fo = fileRef_.get();
-      if ( fo != null )
-      {
-         fo.removeRecursiveListener(this);
-      }
-      Project p = projectRef_.get();
-      if ( null != p )
-      {
-         ProjectInformation pinfo = ProjectUtils.getInformation(p);
-         if ( pinfo != null )
-         {
-            pinfo.removePropertyChangeListener(this);
-         }
-      }
-   }
-   
-   void syncProject()
-   {
-      Project p = projectRef_.get();
-      if ( p != null )
-      {
-         ThriftExplorerComponent.getInstance().refreshProject(p);
-      }
-   }
-
-   @Override
-   public void fileFolderCreated(FileEvent fe)
-   {
-   }
-
-   @Override
-   public void fileDataCreated(FileEvent fe)
-   {
-      FileObject fo = fe.getFile();
-      if ( (fo != null) && (fo.getMIMEType().equals( ThriftDataObject.mime_type)) )
-      {
-         syncProject();
-      }
-   }
-
-   @Override
-   public void fileChanged(FileEvent fe)
-   {
-      FileObject fo = fe.getFile();
-      if ( (fo != null) && (fo.getMIMEType().equals( ThriftDataObject.mime_type)) )
-      {
-         syncProject();
-      }
-   }
-
-   @Override
-   public void fileDeleted(FileEvent fe)
-   {
-      FileObject fo = fe.getFile();
-      if ( (fo != null) && (fo.getMIMEType().equals( ThriftDataObject.mime_type)) )
-      {
-         syncProject();
-      }
-   }
-
-   @Override
-   public void fileRenamed(FileRenameEvent fe)
-   {
-      FileObject fo = fe.getFile();
-      if ( (fo != null) && (fo.getMIMEType().equals( ThriftDataObject.mime_type)) )
-      {
-         syncProject();
-      }
-   }
-
-   @Override
-   public void fileAttributeChanged(FileAttributeEvent fe)
-   {
-   }
-
-   @Override
-   public void propertyChange(PropertyChangeEvent pce)
-   {
-      if ( pce.getPropertyName().equals( ProjectInformation.PROP_DISPLAY_NAME ))
-      {
-         syncProject();
-      }
-   }
 }

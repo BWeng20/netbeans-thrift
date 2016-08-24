@@ -5,48 +5,51 @@
 package bweng.netbeans.thrift.explorer;
 
 import java.awt.Image;
-import java.lang.ref.WeakReference;
 import org.netbeans.api.project.Project;
 import org.netbeans.api.project.ProjectInformation;
 import org.netbeans.api.project.ProjectUtils;
 import org.openide.nodes.AbstractNode;
 import org.openide.nodes.Children;
-import org.openide.util.ImageUtilities;
 
 /**
  * Node to represent a project inside the Thrift Explorer.
  * 
  * @author Bernd Wengenroth
  */
-class ProjectNode extends AbstractNode
+final class ProjectNode extends AbstractNode
 {
-   // Don't know if "weak" this is really needed, but it dones't hurt also.
-   final WeakReference<Project> projectref_;
+   final ProjectData project_;
    final Image icon_;
    
-   public ProjectNode(Project p )
-   {     
-      super( Children.create( new ThriftScopeChildFactory(p), true ) );
-      projectref_ = new  WeakReference<Project>(p);
-     
-      ProjectInformation pinfo = ProjectUtils.getInformation(p);
-      if ( pinfo != null )
-      {
-         setDisplayName( pinfo.getDisplayName());
-         icon_ = ImageUtilities.icon2Image(pinfo.getIcon());
+   public Project getProject()
+   {
+      return (project_ != null) ? project_.projectref_.get() : null;
+   }
+   
+   
+   public ProjectNode(ProjectData pd )
+   {           
+      super( Children.create( new ThriftScopeChildFactory(pd), true ) );
+      project_ = pd;
+      
+      Project p = getProject();
+      if ( p != null )
+      {  
+         setDisplayName( project_.name_ );
+         icon_ = pd.icon_;
       }
       else
-         icon_ = ImageUtilities.loadImage ("bweng/netbeans/thrift/resources/ThriftScope.png"); 
+         icon_ = null;
    }
    
    void refresh()
    {
-      Project p = projectref_.get();
+      Project p = getProject();
+      System.out.println("ProjectNode<"+p+": refresh");
       if ( p != null )
       {
-         ProjectInformation pinfo = ProjectUtils.getInformation(p);
-         setDisplayName(( pinfo != null ) ? pinfo.getDisplayName() : "");
-         setChildren( Children.create( new ThriftScopeChildFactory(p), true ) );
+         setDisplayName( project_.name_ );
+         setChildren( Children.create( new ThriftScopeChildFactory(project_), true ) );
       }
       else
       {
@@ -69,7 +72,7 @@ class ProjectNode extends AbstractNode
    
    protected String getProjectName()
    {
-      Project p = projectref_.get();
+      Project p = getProject();
       if ( p != null )
       {
          ProjectInformation pinfo = ProjectUtils.getInformation(p);

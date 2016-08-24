@@ -35,13 +35,23 @@ import org.openide.loaders.DataObjectNotFoundException;
 public class ThriftScopeChildFactory extends ThriftSubChildFactory
 {
    // Don't know if "weak" this is really needed, but it does't hurt also.
-   final WeakReference<Project> projectref_;
+   final WeakReference<ProjectData> projectref_;
      
-   ThriftScopeChildFactory( Project p )
+   ThriftScopeChildFactory( ProjectData p )
    {
       super(null);
-      projectref_ = new WeakReference<Project>(p);
+      projectref_ = new WeakReference<ProjectData>(p);
    }  
+   
+   final Project getProject() 
+   {
+      ProjectData pjf = projectref_.get();
+      if ( null != pjf )
+      {
+         return pjf.projectref_.get();
+      }
+      return null;
+   }
    
    private void copyObject( ThriftObject to, ThriftObject from )
    {
@@ -85,10 +95,11 @@ public class ThriftScopeChildFactory extends ThriftSubChildFactory
    @Override
    protected boolean createKeys(List<ThriftObject> toPopulate)
    {
-      Project p = projectref_.get();
+      Project p = getProject();
       if ( null != p )
       {
          Sources s = ProjectUtils.getSources(p);
+         System.out.println("Sources "+s);
          SourceGroup groups[] = s.getSourceGroups(Sources.TYPE_GENERIC);
          ArrayList<ThriftDataObject> dobjs = new ArrayList<ThriftDataObject>(200);
          for ( SourceGroup group : groups )

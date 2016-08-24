@@ -13,12 +13,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JEditorPane;
 import org.netbeans.modules.editor.NbEditorUtilities;
 import org.openide.cookies.EditCookie;
-import org.openide.awt.ActionID;
-import org.openide.awt.ActionReference;
-import org.openide.awt.ActionRegistration;
 import org.openide.cookies.EditorCookie;
 import org.openide.text.Line;
-import org.openide.util.NbBundle.Messages;
 import org.openide.windows.TopComponent;
 
 /*
